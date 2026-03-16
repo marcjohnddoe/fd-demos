@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LA MOUSSE REBELLE â€” Brasserie artisanale Ã  Lille</title>
+  <meta name="description" content="La Mousse Rebelle, brasserie craft Ã  Lille : IPA, stout, blonde, saison, visites, dÃ©gustations et boutique." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            coal: '#1A1A1A',
+            amber: '#F59E0B',
+            copper: '#CD7F32'
+          },
+          fontFamily: {
+            title: ['Oswald', 'sans-serif'],
+            body: ['Cabin', 'sans-serif']
+          },
+          boxShadow: {
+            neon: '0 14px 36px rgba(245,158,11,.22)'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cabin', sans-serif;
+      background: #1A1A1A;
+      color: #f3f3f3;
+      background-image:
+        radial-gradient(circle at 10% 0%, rgba(245,158,11,.14), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(205,127,50,.16), transparent 35%),
+        repeating-radial-gradient(circle at 0 0, rgba(255,255,255,.02) 0, rgba(255,255,255,.02) 2px, transparent 3px, transparent 8px);
+      scroll-behavior: smooth;
+    }
+    .hop {
+      width: 22px; height: 22px; border-radius: 50% 50% 45% 45%;
+      background: linear-gradient(145deg, #f59e0b, #cd7f32);
+      position: absolute; transform: rotate(25deg); opacity: .8;
+      box-shadow: 0 6px 14px rgba(245,158,11,.35);
+    }
+    .card {
+      background: linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      border: 1px solid rgba(245,158,11,.22);
+      backdrop-filter: blur(2px);
+    }
+  </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+  <header class="sticky top-0 z-50 bg-[#1A1A1A]/95 backdrop-blur border-b border-amber/20">
+    <nav class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="font-title text-2xl tracking-wide text-amber">LA MOUSSE REBELLE</a>
+      <button id="menuBtn" class="md:hidden px-3 py-1 border border-amber/30 rounded">â˜°</button>
+      <ul class="hidden md:flex gap-6 text-sm font-semibold">
+        <li><a href="#bieres" class="hover:text-amber">Nos biÃ¨res</a></li>
+        <li><a href="#brasserie" class="hover:text-amber">La brasserie</a></li>
+        <li><a href="#visite" class="hover:text-amber">Visite & dÃ©gustation</a></li>
+        <li><a href="#points" class="hover:text-amber">Points de vente</a></li>
+        <li><a href="#contact" class="hover:text-amber">Contact</a></li>
+      </ul>
+    </nav>
+    <ul id="mobileMenu" class="hidden md:hidden px-4 pb-4 space-y-2 text-sm">
+      <li><a href="#bieres">Nos biÃ¨res</a></li>
+      <li><a href="#brasserie">La brasserie</a></li>
+      <li><a href="#visite">Visite & dÃ©gustation</a></li>
+      <li><a href="#points">Points de vente</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </header>
+
+  <section class="max-w-7xl mx-auto px-4 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center relative">
+    <span class="hop top-8 left-2"></span><span class="hop bottom-12 right-10"></span>
+    <div>
+      <p class="uppercase text-xs tracking-[.25em] text-copper font-semibold">Lille â€¢ Microbrasserie craft</p>
+      <h1 class="font-title text-5xl md:text-7xl leading-[.95] mt-3">BiÃ¨re vivante, caractÃ¨re rebelle.</h1>
+      <p class="mt-5 text-lg text-zinc-300">On brasse en petites sÃ©ries avec du malt franÃ§ais, du houblon audacieux et des levures sÃ©lectionnÃ©es pour des profils aromatiques mÃ©morables.</p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href="#bieres" class="px-6 py-3 rounded-full bg-amber text-coal font-bold shadow-neon">DÃ©couvrir nos biÃ¨res</a>
+        <a href="#visite" class="px-6 py-3 rounded-full border border-amber/30 font-semibold">RÃ©server une dÃ©gustation</a>
+      </div>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1600&q=80" alt="Verre de biÃ¨re ambrÃ©e artisanale" class="rounded-3xl h-[450px] w-full object-cover shadow-neon">
+    </div>
+  </section>
+
+  <section id="bieres" class="max-w-7xl mx-auto px-4 py-16">
+    <h2 class="font-title text-4xl">Nos biÃ¨res</h2>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <article class="card rounded-2xl p-5"><h3 class="font-title text-2xl text-amber">IPA</h3><p class="text-sm text-zinc-300 mt-2">Agrumes, pin, finale sÃ¨che. 6.2% vol.</p></article>
+      <article class="card rounded-2xl p-5"><h3 class="font-title text-2xl text-amber">Stout</h3><p class="text-sm text-zinc-300 mt-2">CafÃ© torrÃ©fiÃ©, cacao noir, texture veloutÃ©e. 7.0% vol.</p></article>
+      <article class="card rounded-2xl p-5"><h3 class="font-title text-2xl text-amber">Blonde</h3><p class="text-sm text-zinc-300 mt-2">Notes cÃ©rÃ©aliÃ¨res, touche florale, ultra dÃ©saltÃ©rante. 5.2% vol.</p></article>
+      <article class="card rounded-2xl p-5"><h3 class="font-title text-2xl text-amber">Saison</h3><p class="text-sm text-zinc-300 mt-2">Ã‰picÃ©e, sÃ¨che, fermentation expressive. 6.5% vol.</p></article>
+    </div>
+  </section>
+
+  <section id="brasserie" class="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
+    <img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=1500&q=80" alt="Cuves de brassage en inox" class="rounded-3xl h-80 w-full object-cover">
+    <div class="card rounded-3xl p-7">
+      <h2 class="font-title text-4xl">La brasserie</h2>
+      <p class="mt-3 text-zinc-300">InstallÃ©e dans un ancien atelier textile lillois, La Mousse Rebelle mÃªle techniques modernes et esprit industriel. Nous brassons Ã  la semaine et mettons en canette Ã  la commande pour une fraÃ®cheur maximale.</p>
+    </div>
+  </section>
+
+  <section id="visite" class="max-w-7xl mx-auto px-4 py-16">
+    <div class="card rounded-3xl p-8">
+      <h2 class="font-title text-4xl">Visite & dÃ©gustation</h2>
+      <div class="mt-5 grid md:grid-cols-3 gap-4 text-sm">
+        <div class="bg-black/30 rounded-2xl p-5 border border-amber/20"><p class="font-semibold text-amber">Format dÃ©couverte</p><p class="mt-2">45 min + 3 galopins â€¢ 18â‚¬</p></div>
+        <div class="bg-black/30 rounded-2xl p-5 border border-amber/20"><p class="font-semibold text-amber">Format passionnÃ©</p><p class="mt-2">90 min + 6 dÃ©gustations â€¢ 29â‚¬</p></div>
+        <div class="bg-black/30 rounded-2xl p-5 border border-amber/20"><p class="font-semibold text-amber">Privatisation</p><p class="mt-2">Ã‰vÃ©nements groupes & entreprises sur devis</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="points" class="max-w-7xl mx-auto px-4 py-16 grid lg:grid-cols-2 gap-6">
+    <div class="card rounded-3xl p-7">
+      <h2 class="font-title text-3xl">Points de vente</h2>
+      <ul class="mt-4 space-y-2 text-zinc-300 text-sm">
+        <li>â€¢ Taproom Rebelle â€” 22 rue des Arts, Lille</li>
+        <li>â€¢ Cave Houblon Nord â€” Vieux-Lille</li>
+        <li>â€¢ Ã‰picerie Fine Le Comptoir Flamand â€” Wazemmes</li>
+        <li>â€¢ Bars partenaires dans toute la mÃ©tropole lilloise</li>
+      </ul>
+    </div>
+    <div class="card rounded-3xl p-7">
+      <h2 class="font-title text-3xl">Boutique en ligne (concept)</h2>
+      <p class="mt-3 text-zinc-300">Composez votre box (12 ou 24 canettes), ajoutez des verres sÃ©rigraphiÃ©s et recevez votre sÃ©lection en 48h partout en France.</p>
+      <button class="mt-5 px-5 py-3 rounded-full bg-copper text-black font-bold">AccÃ©der Ã  la boutique</button>
+    </div>
+  </section>
+
+  <section id="contact" class="max-w-4xl mx-auto px-4 pb-20">
+    <div class="card rounded-3xl p-8">
+      <h2 class="font-title text-4xl">Contact</h2>
+      <p class="mt-2 text-zinc-300">Brasserie : 14 quai de la DeÃ»le, 59000 Lille<br>TÃ©l : 03 20 11 22 33 â€¢ cheers@lamousserebelle.fr</p>
+      <form class="mt-6 grid md:grid-cols-2 gap-4">
+        <input class="px-4 py-3 rounded-xl bg-black/40 border border-amber/20" placeholder="Nom">
+        <input class="px-4 py-3 rounded-xl bg-black/40 border border-amber/20" placeholder="Email">
+        <textarea class="md:col-span-2 px-4 py-3 rounded-xl bg-black/40 border border-amber/20 min-h-28" placeholder="Votre message"></textarea>
+        <button type="button" class="md:col-span-2 px-6 py-3 rounded-xl bg-amber text-coal font-bold">Envoyer</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="border-t border-amber/20 py-6 text-center text-sm text-zinc-400">Site crÃ©Ã© par FacadeDigitale â€” 2026</footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>
