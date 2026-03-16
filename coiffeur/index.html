@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AÃ¯cha â€” Coiffure Afro & Tresses | Aurillac</title>
+    <meta name="description" content="Salon de coiffure afro Ã  Aurillac. SpÃ©cialiste tresses africaines, box braids, lissage brÃ©silien. 12 ans d'expÃ©rience. Prenez rendez-vous avec AÃ¯cha Diallo.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FBF8F4',
+                        burgundy: '#8B2635',
+                        terracotta: '#C17B5B',
+                        gold: '#D4A853',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(139, 38, 53, 0.9) 0%, rgba(193, 123, 91, 0.85) 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 38, 53, 0.2);
+        }
+        .gold-accent {
+            background: linear-gradient(90deg, #D4A853 0%, #F4E0A8 50%, #D4A853 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #D4A853, #C17B5B);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-cream">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-burgundy" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    </svg>
+                    <span class="text-2xl font-bold text-burgundy">AÃ¯cha</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#accueil" class="text-gray-700 hover:text-burgundy transition">Accueil</a>
+                    <a href="#prestations" class="text-gray-700 hover:text-burgundy transition">Prestations</a>
+                    <a href="#galerie" class="text-gray-700 hover:text-burgundy transition">Galerie</a>
+                    <a href="#temoignages" class="text-gray-700 hover:text-burgundy transition">TÃ©moignages</a>
+                    <a href="#contact" class="text-gray-700 hover:text-burgundy transition">Contact</a>
+                </div>
+                <a href="#contact" class="bg-burgundy text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition">
+                    Rendez-vous
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="relative pt-20 md:pt-32 pb-20 overflow-hidden">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    Votre beautÃ©, sublimÃ©e<br>par une <span class="gold-accent">experte</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 font-light">
+                    SpÃ©cialiste cheveux afro, bouclÃ©s & mÃ©tissÃ©s depuis 12 ans
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+                    <a href="#contact" class="bg-gold text-burgundy px-8 py-4 rounded-full font-semibold hover:bg-opacity-90 transition shadow-lg">
+                        Prendre rendez-vous
+                    </a>
+                    <a href="#prestations" class="bg-white bg-opacity-20 backdrop-blur-sm text-white px-8 py-4 rounded-full font-semibold hover:bg-opacity-30 transition border-2 border-white">
+                        DÃ©couvrir nos prestations
+                    </a>
+                </div>
+                <div class="flex justify-center gap-8 text-sm">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                        </svg>
+                        <span>+500 clientes satisfaites</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>12 ans d'expÃ©rience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PrÃ©sentation -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-burgundy mb-6 section-title">
+                            AÃ¯cha Diallo
+                        </h2>
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                            PassionnÃ©e par la coiffure afro depuis toujours, j'ai transformÃ© mon amour des cheveux en expertise professionnelle il y a 12 ans. FormÃ©e aux techniques traditionnelles africaines et aux mÃ©thodes modernes de soins capillaires, je mets mon savoir-faire au service de votre beautÃ© naturelle.
+                        </p>
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                            Mon salon Ã  Aurillac est un espace chaleureux oÃ¹ chaque cliente est accueillie comme une reine. Je travaille exclusivement avec des produits naturels, sans sulfate, adaptÃ©s aux besoins spÃ©cifiques des cheveux afro, bouclÃ©s et mÃ©tissÃ©s.
+                        </p>
+                        <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                            Tresses, lissages, soins profonds ou coupes sur-mesure : je prends le temps nÃ©cessaire pour sublimer votre chevelure et vous conseiller sur l'entretien Ã  domicile.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex items-center gap-2 bg-cream px-4 py-2 rounded-full">
+                                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium text-gray-800">Certification professionnelle</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-cream px-4 py-2 rounded-full">
+                                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium text-gray-800">Formation continue</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-cream px-4 py-2 rounded-full">
+                                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium text-gray-800">Produits naturels</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="aspect-square rounded-3xl bg-gradient-to-br from-burgundy to-terracotta p-1">
+                            <div class="w-full h-full rounded-3xl bg-cream flex items-center justify-center">
+                                <div class="text-center p-8">
+                                    <svg class="w-32 h-32 mx-auto text-burgundy mb-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        <circle cx="8.5" cy="10.5" r="1.5"/>
+                                        <circle cx="15.5" cy="10.5" r="1.5"/>
+                                        <path d="M12 17.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                                    </svg>
+                                    <p class="text-burgundy text-lg font-semibold">Photo portrait AÃ¯cha</p>
+                                    <p class="text-gray-600 text-sm mt-2">SpÃ©cialiste cheveux afro</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-gold text-burgundy px-6 py-4 rounded-2xl shadow-xl font-bold text-xl">
+                            12 ans d'expÃ©rience
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prestations & Tarifs -->
+    <section id="prestations" class="py-16 md:py-24 bg-cream">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-burgundy mb-4 section-title">
+                    Prestations & Tarifs
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Des techniques traditionnelles aux mÃ©thodes modernes, dÃ©couvrez nos services adaptÃ©s Ã  tous types de cheveux afro et mÃ©tissÃ©s.
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Prestation 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-2 border-transparent hover:border-gold">
+                    <div class="w-12 h-12 bg-burgundy bg-opacity-10 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-burgundy" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Tresses africaines</h3>
+                    <p class="text-gray-600 mb-4">Tresses traditionnelles, collÃ©es ou libres, selon longueur et complexitÃ©</p>
+                    <div class="border-t border-gray-200 pt-4">
+                        <span class="text-2xl font-bold text-burgundy">Ã€ partir de 80â‚¬</span>
+                        <p class="text-sm text-gray-500 mt-1">Selon longueur et complexitÃ©</p>
+                    </div>
+                </div>
+
+                <!-- Prestation 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-2 border-transparent hover:border-gold">
+                    <div class="w-12 h-12 bg-burgundy bg-opacity-10 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-burgundy" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Box Braids / Goddess Braids</h3>
+                    <p class="text-gray-600 mb-4">Tresses Ã©paisses iconiques, look bohÃ¨me ou sophistiquÃ©</p>
+                    <div class="border-t border-gray-200 pt-4">
+                        <span class="text-2xl font-bold text-burgundy">Ã€ partir de 100â‚¬</span>
+                    </div>
+                </div>
+
+                <!-- Prestation 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-2 border-transparent hover:border-gold">
+                    <div class="w-12 h-12 bg-burgundy bg-opacity-10 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-burgundy" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Twist / Twist Locks</h3>
+                    <p class="text-gray-600 mb-4">Torsades Ã©lÃ©gantes, protectrices et faciles Ã  entretenir</p>
+                    <div class="border-t border-gray-200 pt-4">
+                        <span class="text-2xl font-bold text-burgundy">Ã€ partir de 70â‚¬</span>
+                    </div>
+                </div>
+
+                <!-- Prestation 4 -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-2 border-transparent hover:border-gold">
+                    <div class="w-12 h-12 bg-burgundy bg-opacity-10 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-burgundy" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Lissage brÃ©silien</h3>
+                    <p class="text-gray-600 mb-4">Cheveux lisses, brillants et disciplinÃ©s pendant plusieurs semaines</p>
+                    <div class="border-t border-gray-200 pt-4">
+                        <span class="text-2xl font-bold text-burgundy">Ã€ partir de 120â‚¬</span>
+                    </div>
+                </div>
+
+                <!-- Prestation 5 -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-2 border-transparent hover:border-gold">
+                    <div class="w-12 h-12 bg-burgundy bg-opacity-10 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-burgundy" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Soin KÃ©ratine</h3>
+                    <p class="text-gray-600 mb-4">RÃ©paration intense et nutrition profonde des cheveux abÃ®mÃ©s</p>
+                    <div class="border-t border-gray-200 pt-4">
+                        <span class="text-2xl font-bold text-burgundy">Ã€ partir de 90â‚¬</span>
+                    </div>
+                </div>
+
+                <!-- Prestation 6 -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-2 border-transparent hover:border-gold">
+                    <div class="w-12 h-12 bg-burgundy bg-opacity-10 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-burgundy" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Tissage / Rajouts</h3>
+                    <p class="text-gray-600 mb-4">Extensions naturelles ou synthÃ©tiques pour volume et longueur</p>
+                    <div class="border-t border-gray-200 pt-4">
+                        <span class="text-2xl font-bold text-burgundy">Ã€ partir de 80â‚¬</span>
+                    </div>
+                </div>
+
+                <!-- Prestation 7 -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-2 border-transparent hover:border-gold">
+                    <div class="w-12 h-12 bg-burgundy bg-opacity-10 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-burgundy" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Soins cheveux</h3>
+                    <p class="text-gray-600 mb-4">Bain d'huile, masque protÃ©inÃ©, hydratation profonde</p>
+                    <div class="border-t border-gray-200 pt-4">
+                        <span class="text-2xl font-bold text-burgundy">40-60â‚¬</span>
+                    </div>
+                </div>
+
+                <!-- Prestation 8 -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-2 border-transparent hover:border-gold">
+                    <div class="w-12 h-12 bg-burgundy bg-opacity-10 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-burgundy" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Coupe + Soin</h3>
+                    <p class="text-gray-600 mb-4">Coupe sur-mesure avec soin hydratant inclus</p>
+                    <div class="border-t border-gray-200 pt-4">
+                        <span class="text-2xl font-bold text-burgundy">55â‚¬</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <div class="bg-white inline-block rounded-2xl px-8 py-4 shadow-md">
+                    <p class="text-gray-700">
+                        <span class="font-semibold text-burgundy">Devis personnalisÃ© gratuit</span> â€” Contactez-moi pour un tarif adaptÃ© Ã  votre projet
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie -->
+    <section id="galerie" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-burgundy mb-4 section-title">
+                    Galerie de crÃ©ations
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    DÃ©couvrez quelques-unes de mes rÃ©alisations. Chaque coiffure est unique et personnalisÃ©e.
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Photo 1 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <div class="aspect-square bg-gradient-to-br from-burgundy to-terracotta flex items-center justify-center">
+                        <div class="text-center p-8 text-white">
+                            <svg class="w-20 h-20 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <p class="font-semibold text-lg">Box Braids</p>
+                            <p class="text-sm opacity-90 mt-2">Tresses longues avec perles dorÃ©es</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <div class="aspect-square bg-gradient-to-br from-terracotta to-gold flex items-center justify-center">
+                        <div class="text-center p-8 text-white">
+                            <svg class="w-20 h-20 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <p class="font-semibold text-lg">Goddess Braids</p>
+                            <p class="text-sm opacity-90 mt-2">Style bohÃ¨me chic</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <div class="aspect-square bg-gradient-to-br from-burgundy via-terracotta to-gold flex items-center justify-center">
+                        <div class="text-center p-8 text-white">
+                            <svg class="w-20 h-20 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <p class="font-semibold text-lg">Lissage brÃ©silien</p>
+                            <p class="text-sm opacity-90 mt-2">Brillance et souplesse</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <div class="aspect-square bg-gradient-to-br from-gold to-burgundy flex items-center justify-center">
+                        <div class="text-center p-8 text-white">
+                            <svg class="w-20 h-20 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <p class="font-semibold text-lg">Tresses collÃ©es</p>
+                            <p class="text-sm opacity-90 mt-2">Motifs gÃ©omÃ©triques Ã©laborÃ©s</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 5 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <div class="aspect-square bg-gradient-to-br from-terracotta to-burgundy flex items-center justify-center">
+                        <div class="text-center p-8 text-white">
+                            <svg class="w-20 h-20 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <p class="font-semibold text-lg">Locks naturelles</p>
+                            <p class="text-sm opacity-90 mt-2">Entretien et mise en forme</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 6 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <div class="aspect-square bg-gradient-to-br from-gold via-terracotta to-burgundy flex items-center justify-center">
+                        <div class="text-center p-8 text-white">
+                            <svg class="w-20 h-20 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <p class="font-semibold text-lg">Twist volumineux</p>
+                            <p class="text-sm opacity-90 mt-2">Protection et style</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produits -->
+    <section class="py-16 bg-cream">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-lg p-8 md:p-12">
+                <div class="text-center mb-8">
+                    <div class="inline-block bg-burgundy bg-opacity-10 rounded-full p-4 mb-4">
+                        <svg class="w-12 h-12 text-burgundy" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-burgundy mb-4">Produits professionnels</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Je travaille exclusivement avec des <span class="font-semibold text-burgundy">produits naturels de qualitÃ© professionnelle</span>, 
+                        spÃ©cialement formulÃ©s pour les cheveux afro, bouclÃ©s et mÃ©tissÃ©s.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 mt-8">
+                    <div class="text-center">
+                        <div class="bg-cream rounded-xl p-6">
+                            <svg class="w-10 h-10 text-gold mx-auto mb-3" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                            <h3 class="font-semibold text-gray-800">Sans sulfate</h3>
+                            <p class="text-sm text-gray-600 mt-2">Formules douces et respectueuses</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-cream rounded-xl p-6">
+                            <svg class="w-10 h-10 text-gold mx-auto mb-3" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <h3 class="font-semibold text-gray-800">100% naturel</h3>
+                            <p class="text-sm text-gray-600 mt-2">IngrÃ©dients d'origine naturelle</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-cream rounded-xl p-6">
+                            <svg class="w-10 h-10 text-gold mx-auto mb-3" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                            </svg>
+                            <h3 class="font-semibold text-gray-800">AdaptÃ© cheveux afro</h3>
+                            <p class="text-sm text-gray-600 mt-2">SpÃ©cialement conÃ§u pour vos besoins</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TÃ©moignages -->
+    <section id="temoignages" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-burgundy mb-4 section-title">
+                    Ce que disent mes clientes
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Leur satisfaction est ma plus belle rÃ©compense
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+                <!-- TÃ©moignage 1 -->
+                <div class="bg-cream rounded-2xl p-8 shadow-md card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-gold">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic leading-relaxed">
+                        "Mes box braids ont durÃ© 2 mois et Ã©taient magnifiques ! AÃ¯cha est une vraie pro, douce et Ã  l'Ã©coute. 
+                        Je recommande Ã  200% !"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-burgundy rounded-full flex items-center justify-center text-white font-bold mr-3">
+                            M
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800">Mariam K.</p>
+                            <p class="text-sm text-gray-500">Cliente depuis 2 ans</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TÃ©moignage 2 -->
+                <div class="bg-cream rounded-2xl p-8 shadow-md card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-gold">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic leading-relaxed">
+                        "Enfin une coiffeuse qui comprend mes cheveux ! Le lissage brÃ©silien est parfait, mes cheveux sont doux et brillants. 
+                        AÃ¯cha donne aussi de super conseils."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-burgundy rounded-full flex items-center justify-center text-white font-bold mr-3">
+                            S
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800">Sophie L.</p>
+                            <p class="text-sm text-gray-500">Cliente rÃ©guliÃ¨re</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TÃ©moignage 3 -->
+                <div class="bg-cream rounded-2xl p-8 shadow-md card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-gold">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic leading-relaxed">
+                        "J'emmÃ¨ne ma fille de 8 ans chez AÃ¯cha pour ses tresses. Elle est patiente, gentille, et le rÃ©sultat est toujours impeccable. 
+                        Ma fille adore !"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-burgundy rounded-full flex items-center justify-center text-white font-bold mr-3">
+                            F
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800">Fatou B.</p>
+                            <p class="text-sm text-gray-500">Cliente fidÃ¨le</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-cream">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-burgundy mb-4 section-title">
+                        Questions frÃ©quentes
+                    </h2>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-md">
+                        <h3 class="text-lg font-semibold text-burgundy mb-2">ðŸ’â€â™€ï¸ Combien de temps prend une sÃ©ance de tresses ?</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Cela dÃ©pend de la longueur et du type de tresses. Comptez entre 3h et 6h pour des tresses africaines complÃ¨tes. 
+                            Je prends le temps nÃ©cessaire pour un travail soignÃ© et durable.
+                        </p>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-md">
+                        <h3 class="text-lg font-semibold text-burgundy mb-2">ðŸŽ€ Faut-il venir avec ses propres rajouts ?</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Non, je fournis des mÃ¨ches de qualitÃ© professionnelle adaptÃ©es Ã  votre coiffure. 
+                            Si vous avez une prÃ©fÃ©rence particuliÃ¨re (couleur, texture), vous pouvez apporter vos mÃ¨ches, mais ce n'est pas obligatoire.
+                        </p>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-md">
+                        <h3 class="text-lg font-semibold text-burgundy mb-2">ðŸ‘§ Est-ce adaptÃ© aux enfants ?</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Absolument ! J'accueille les enfants dÃ¨s 5 ans. Je suis patiente et douce, et je propose des coiffures adaptÃ©es Ã  leur Ã¢ge : 
+                            tresses fines, motifs ludiques, durÃ©e de pose raisonnable.
+                        </p>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-md">
+                        <h3 class="text-lg font-semibold text-burgundy mb-2">â±ï¸ Quelle est la durÃ©e de tenue des coiffures ?</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Les tresses africaines et box braids tiennent en moyenne 6 Ã  8 semaines avec un bon entretien. 
+                            Le lissage brÃ©silien dure 2 Ã  4 mois. Je vous donne tous les conseils pour prolonger la tenue au maximum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-burgundy mb-4 section-title">
+                    Prendre rendez-vous
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Contactez-moi pour rÃ©server votre crÃ©neau ou demander un devis personnalisÃ©
+                </p>
+            </div>
+
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+                <!-- Formulaire -->
+                <div class="bg-cream rounded-3xl p-8 shadow-lg">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Votre nom</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-burgundy focus:outline-none transition" placeholder="PrÃ©nom et nom">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">TÃ©lÃ©phone</label>
+                            <input type="tel" class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-burgundy focus:outline-none transition" placeholder="06 XX XX XX XX">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Prestation souhaitÃ©e</label>
+                            <select class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-burgundy focus:outline-none transition">
+                                <option>Tresses africaines</option>
+                                <option>Box braids / Goddess braids</option>
+                                <option>Twist / Twist locks</option>
+                                <option>Lissage brÃ©silien</option>
+                                <option>Soin kÃ©ratine</option>
+                                <option>Tissage / Rajouts</option>
+                                <option>Soins cheveux</option>
+                                <option>Coupe + soin</option>
+                                <option>Autre / Devis</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Message (optionnel)</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-burgundy focus:outline-none transition" placeholder="PrÃ©cisions, questions..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-burgundy text-white py-4 rounded-xl font-semibold hover:bg-opacity-90 transition shadow-lg">
+                            Envoyer ma demande
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Infos contact -->
+                <div class="space-y-6">
+                    <div class="bg-cream rounded-3xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-burgundy mb-6">CoordonnÃ©es</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-burgundy bg-opacity-10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-burgundy" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">TÃ©lÃ©phone</p>
+                                    <a href="tel:0677889900" class="text-burgundy hover:underline">06 77 88 99 00</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-burgundy bg-opacity-10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-burgundy" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">Email</p>
+                                    <a href="mailto:aicha@coiffure-afro-aurillac.fr" class="text-burgundy hover:underline break-all">aicha@coiffure-afro-aurillac.fr</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-burgundy bg-opacity-10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-burgundy" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">Adresse</p>
+                                    <p class="text-gray-600">Aurillac (Cantal)<br>Centre-ville</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-burgundy bg-opacity-10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-burgundy" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">Horaires</p>
+                                    <p class="text-gray-600">Sur rendez-vous uniquement<br>Du mardi au samedi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-burgundy to-terracotta rounded-3xl p-8 shadow-lg text-white">
+                        <h3 class="text-xl font-bold mb-4">Suivez-moi sur Instagram</h3>
+                        <p class="mb-4 opacity-90">DÃ©couvrez mes derniÃ¨res crÃ©ations et actualitÃ©s</p>
+                        <a href="https://instagram.com/aicha.coiffure.afro" target="_blank" class="inline-flex items-center gap-2 bg-white text-burgundy px-6 py-3 rounded-full font-semibold hover:bg-opacity-90 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            @aicha.coiffure.afro
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-burgundy text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-gold" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                        <span class="text-2xl font-bold">AÃ¯cha</span>
+                    </div>
+                    <p class="text-white text-opacity-80 leading-relaxed">
+                        Coiffure Afro & Tresses Ã  Aurillac. SpÃ©cialiste cheveux afro, bouclÃ©s et mÃ©tissÃ©s depuis 12 ans.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Navigation</h3>
+                    <ul class="space-y-2 text-white text-opacity-80">
+                        <li><a href="#accueil" class="hover:text-gold transition">Accueil</a></li>
+                        <li><a href="#prestations" class="hover:text-gold transition">Prestations & Tarifs</a></li>
+                        <li><a href="#galerie" class="hover:text-gold transition">Galerie</a></li>
+                        <li><a href="#temoignages" class="hover:text-gold transition">TÃ©moignages</a></li>
+                        <li><a href="#contact" class="hover:text-gold transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Contact rapide</h3>
+                    <ul class="space-y-2 text-white text-opacity-80">
+                        <li>ðŸ“ž <a href="tel:0677889900" class="hover:text-gold transition">06 77 88 99 00</a></li>
+                        <li>ðŸ“§ <a href="mailto:aicha@coiffure-afro-aurillac.fr" class="hover:text-gold transition">aicha@coiffure-afro-aurillac.fr</a></li>
+                        <li>ðŸ“ Aurillac, Cantal</li>
+                        <li>ðŸ“¸ <a href="https://instagram.com/aicha.coiffure.afro" target="_blank" class="hover:text-gold transition">@aicha.coiffure.afro</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white border-opacity-20 pt-8 text-center text-white text-opacity-70">
+                <p>&copy; 2026 AÃ¯cha â€” Coiffure Afro & Tresses. Tous droits rÃ©servÃ©s.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
