@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merci 💙 — 365 Pensées Positives</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-deep:  #1a4d6e;
+      --blue-mid:   #2b6a94;
+      --blue-light: #3a7ca5;
+      --bg:         #f0f7fb;
+      --white:      #ffffff;
+      --gold:       #c9a84c;
+      --gold-light: #f0d88a;
+      --text:       #1e3040;
+      --text-muted: #5a7a8c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: linear-gradient(160deg, var(--blue-deep) 0%, #1e6a8e 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      color: var(--white);
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      max-width: 600px;
+      width: 100%;
+      padding: 56px 44px;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(0,0,0,.25);
+      animation: slideUp 0.6s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .merci-emoji {
+      font-size: 60px;
+      display: block;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 4px 12px rgba(201,168,76,.3));
+    }
+
+    .merci-tag {
+      display: inline-block;
+      background: #e8f7ef;
+      color: #2d7a4f;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+      font-family: 'Lora', serif;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 6vw, 42px);
+      color: var(--blue-deep);
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--blue-light);
+    }
+
+    .merci-intro {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 36px;
+      font-style: italic;
+    }
+
+    .divider {
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      margin: 28px auto;
+      border-radius: 2px;
+    }
+
+    /* Download button */
+    .btn-download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-mid) 100%);
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 20px 36px;
+      border-radius: 50px;
+      box-shadow: 0 8px 30px rgba(26,77,110,.35);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s;
+      text-decoration: none;
+      margin: 0 auto 28px;
+      animation: pulse 2.5s ease-in-out 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 8px 30px rgba(26,77,110,.35); }
+      50%       { box-shadow: 0 8px 45px rgba(26,77,110,.55); }
+    }
+
+    .btn-download:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 16px 45px rgba(26,77,110,.45);
+      filter: brightness(1.08);
+      animation: none;
+    }
+
+    .btn-download-icon {
+      font-size: 22px;
+    }
+
+    .download-hint {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+    }
+
+    /* Share block */
+    .share-block {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 26px 24px;
+      margin-bottom: 28px;
+    }
+
+    .share-block p {
+      font-size: 16px;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .share-block .share-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Quote */
+    .merci-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(15px, 2.5vw, 18px);
+      color: var(--blue-deep);
+      line-height: 1.65;
+      padding: 22px 26px;
+      background: linear-gradient(135deg, #f0f7fb, #e4f0f8);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    /* Facebook link */
+    .fb-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--blue-mid);
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(58,124,165,.3);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .fb-link:hover {
+      color: var(--blue-deep);
+      border-color: var(--blue-deep);
+    }
+
+    footer.merci-footer {
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    footer.merci-footer p {
+      font-size: 13px;
+      color: rgba(255,255,255,.5);
+    }
+
+    @media (max-width: 500px) {
+      .card { padding: 36px 22px; }
+      .btn-download { font-size: 16px; padding: 18px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <span class="merci-emoji">🌿</span>
+    <div class="merci-tag">✓ Paiement confirmé</div>
+
+    <h1>Merci du fond du cœur <em>💙</em></h1>
+
+    <p class="merci-intro">
+      Ton ebook est prêt à être téléchargé. Prends un moment pour toi —<br>
+      tu as fait un beau cadeau à ta prochaine matinée.
+    </p>
+
+    <a href="/public/365_Pensees_Positives.pdf" download="365_Pensees_Positives.pdf" class="btn-download">
+      <span class="btn-download-icon">⬇️</span>
+      Télécharger mon ebook PDF
+    </a>
+
+    <p class="download-hint">Fichier PDF · Compatible smartphone, tablette et ordinateur</p>
+
+    <blockquote class="merci-quote">
+      "Tout recommencement est une invitation, pas une obligation. Aujourd'hui n'efface pas hier — il lui offre une suite. Commence doucement, avec intention."
+      <br><br><small style="font-size:12px; letter-spacing:1.5px; color: var(--text-muted); font-family:'Lora',serif; text-transform:uppercase;">— Jour 1, 365 Pensées Positives</small>
+    </blockquote>
+
+    <div class="share-block">
+      <p>Partage avec tes proches si ça t'a plu 💙</p>
+      <p class="share-sub">Un simple message peut changer leur matin aussi.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <p style="font-size:14px; color:var(--text-muted); margin-bottom:14px;">
+      Rejoins notre communauté sur Facebook pour des pensées quotidiennes gratuites :
+    </p>
+    <a href="https://www.facebook.com/PenseePositiveOfficiel" target="_blank" rel="noopener" class="fb-link">
+      💙 @PenseePositiveOfficiel
+    </a>
+  </div>
+
+  <footer class="merci-footer">
+    <p>© 2025 Pensée Positive · Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>
