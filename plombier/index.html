@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARNAUD PLOMBERIE - Plombier Chauffagiste à Guéret | Depuis 2012</title>
+    <meta name="description" content="Plombier chauffagiste professionnel à Guéret. Dépannage urgent, installation, chauffage. Devis gratuit, disponible 7j/7. 12 ans d'expérience.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6, .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.95) 0%, rgba(26, 54, 93, 0.7) 100%);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .navbar-scrolled {
+            background-color: rgba(26, 54, 93, 0.98);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .counter {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #E67E22;
+        }
+        
+        @keyframes pulse-orange {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+        
+        .cta-button {
+            animation: pulse-orange 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-white font-montserrat">ARNAUD PLOMBERIE</span>
+                    <span class="ml-4 text-sm text-gray-200 hidden md:block">Depuis 2012</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="tel:0555123456" class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300">
+                        📞 05 55 12 34 56
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&q=80" 
+                 alt="Professional plumbing tools" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 font-montserrat">ARNAUD PLOMBERIE</h1>
+            <p class="text-2xl md:text-3xl mb-4">Plombier Chauffagiste à Guéret</p>
+            <p class="text-xl md:text-2xl mb-8 text-gray-200">Votre plombier de confiance en Creuse</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="tel:0555123456" class="cta-button bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-bold transition-all duration-300 inline-block">
+                    📞 Appeler maintenant
+                </a>
+                <a href="#devis" class="bg-white hover:bg-gray-100 text-blue-900 px-8 py-4 rounded-lg text-lg font-bold transition-all duration-300 inline-block">
+                    Devis gratuit
+                </a>
+            </div>
+            
+            <div class="mt-12 text-sm text-gray-300">
+                ⚡ Intervention rapide • 🛡️ Garantie décennale • ⭐ 4.8/5 avis clients
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#services" class="text-white text-4xl">↓</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4 font-montserrat">Nos Services</h2>
+                <p class="text-xl text-gray-600">Une expertise complète pour tous vos besoins en plomberie et chauffage</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg fade-in">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-3 font-montserrat">Dépannage Urgent</h3>
+                    <p class="text-gray-600">Intervention rapide 24h/24, 7j/7 pour toutes vos urgences. Fuite d'eau, canalisation bouchée, panne de chauffage.</p>
+                    <div class="mt-4 text-orange-600 font-semibold">⚡ Intervention en moins d'1h</div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg fade-in">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-3 font-montserrat">Installation Sanitaire</h3>
+                    <p class="text-gray-600">Installation complète de salles de bain, WC, lavabos, douches. Travaux neufs et rénovation avec matériel de qualité.</p>
+                    <div class="mt-4 text-orange-600 font-semibold">🏠 Neuf & Rénovation</div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg fade-in">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-3 font-montserrat">Chauffage</h3>
+                    <p class="text-gray-600">Installation et entretien de chaudières, radiateurs, planchers chauffants. Optimisation énergétique de votre habitat.</p>
+                    <div class="mt-4 text-orange-600 font-semibold">🔥 Confort thermique</div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg fade-in">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-3 font-montserrat">Chauffe-eau</h3>
+                    <p class="text-gray-600">Installation, dépannage et remplacement de chauffe-eau électriques et thermodynamiques. Détartrage et maintenance préventive.</p>
+                    <div class="mt-4 text-orange-600 font-semibold">💧 Eau chaude garantie</div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg fade-in">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-3 font-montserrat">Débouchage</h3>
+                    <p class="text-gray-600">Débouchage de canalisations, WC, éviers, douches. Inspection vidéo et curage haute pression. Solutions durables.</p>
+                    <div class="mt-4 text-orange-600 font-semibold">🔧 Débouchage efficace</div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg fade-in">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-3 font-montserrat">Rénovation Salle de Bain</h3>
+                    <p class="text-gray-600">Rénovation complète de A à Z. Design moderne, optimisation de l'espace, matériaux premium. Projet clé en main.</p>
+                    <div class="mt-4 text-orange-600 font-semibold">✨ Projet sur-mesure</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="py-20 bg-blue-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="fade-in">
+                    <div class="counter" data-target="12">0</div>
+                    <div class="text-xl mt-2">ans d'expérience</div>
+                </div>
+                <div class="fade-in">
+                    <div class="counter" data-target="1500">0</div>
+                    <div class="text-xl mt-2">interventions réalisées</div>
+                </div>
+                <div class="fade-in">
+                    <div class="flex items-center justify-center">
+                        <div class="counter" data-target="4.8">0</div>
+                        <span class="text-4xl ml-2">/5</span>
+                    </div>
+                    <div class="text-xl mt-2">avis clients</div>
+                </div>
+                <div class="fade-in">
+                    <div class="counter">-1h</div>
+                    <div class="text-xl mt-2">intervention urgente</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4 font-montserrat">Pourquoi nous choisir ?</h2>
+                <p class="text-xl text-gray-600">Un service de qualité, transparent et disponible</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="text-center fade-in">
+                    <div class="w-24 h-24 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4 font-montserrat">Devis Gratuit et Transparent</h3>
+                    <p class="text-gray-600 text-lg">Tarification claire sans surprise. Devis détaillé sous 2h. Conseils personnalisés gratuits.</p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="w-24 h-24 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4 font-montserrat">Disponible 7j/7</h3>
+                    <p class="text-gray-600 text-lg">Service d'urgence 24h/24. Week-end et jours fériés. Intervention rapide garantie en moins d'1h.</p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="w-24 h-24 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4 font-montserrat">Garantie Décennale</h3>
+                    <p class="text-gray-600 text-lg">Tous nos travaux sont garantis. Assurance décennale complète. Matériel certifié et de qualité professionnelle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Area Section -->
+    <section id="coverage" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4 font-montserrat">Zone d'Intervention</h2>
+                <p class="text-xl text-gray-600">Nous intervenons dans toute la Creuse et ses environs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-blue-900 mb-6 font-montserrat">Villes desservies</h3>
+                        <div class="grid grid-cols-2 gap-4 text-gray-700">
+                            <div class="flex items-center">
+                                <span class="text-orange-600 mr-2">📍</span>
+                                <span class="font-semibold">Guéret</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-orange-600 mr-2">📍</span>
+                                <span>La Souterraine</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-orange-600 mr-2">📍</span>
+                                <span>Aubusson</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-orange-600 mr-2">📍</span>
+                                <span>Bourganeuf</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-orange-600 mr-2">📍</span>
+                                <span>Saint-Vaury</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-orange-600 mr-2">📍</span>
+                                <span>Bonnat</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-orange-600 mr-2">📍</span>
+                                <span>Ahun</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-orange-600 mr-2">📍</span>
+                                <span>Évaux-les-Bains</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-orange-600 mr-2">📍</span>
+                                <span>Dun-le-Palestel</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-orange-600 mr-2">📍</span>
+                                <span>Felletin</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 bg-orange-50 rounded-lg">
+                            <p class="text-sm text-gray-700">
+                                <strong>Votre ville n'est pas listée ?</strong> Contactez-nous ! Nous intervenons dans un rayon de 50 km autour de Guéret.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?w=800&q=80" 
+                             alt="Service area map" 
+                             class="w-full h-96 object-cover">
+                        <div class="p-6 text-center">
+                            <p class="text-gray-600">Intervention rapide dans toute la Creuse</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Form Section -->
+    <section id="devis" class="py-20 bg-blue-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 font-montserrat">Demander un Devis</h2>
+                <p class="text-xl">Réponse garantie sous 2 heures</p>
+            </div>
+            
+            <form class="bg-white text-gray-900 rounded-xl shadow-2xl p-8 fade-in">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2" for="nom">Nom complet *</label>
+                        <input type="text" id="nom" name="nom" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2" for="tel">Téléphone *</label>
+                        <input type="tel" id="tel" name="tel" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600">
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold mb-2" for="email">Email *</label>
+                    <input type="email" id="email" name="email" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600">
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2" for="service">Type d'intervention *</label>
+                        <select id="service" name="service" required 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600">
+                            <option value="">Sélectionnez...</option>
+                            <option value="depannage">Dépannage urgent</option>
+                            <option value="installation">Installation sanitaire</option>
+                            <option value="chauffage">Chauffage</option>
+                            <option value="chauffe-eau">Chauffe-eau</option>
+                            <option value="debouchage">Débouchage</option>
+                            <option value="renovation">Rénovation salle de bain</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2" for="urgence">Urgence</label>
+                        <select id="urgence" name="urgence" 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600">
+                            <option value="non">Non</option>
+                            <option value="oui">Oui - Intervention immédiate</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold mb-2" for="description">Description de votre besoin *</label>
+                    <textarea id="description" name="description" rows="5" required 
+                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"></textarea>
+                </div>
+                
+                <button type="submit" 
+                        class="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-lg text-lg font-bold transition-all duration-300">
+                    Envoyer ma demande
+                </button>
+                
+                <p class="text-sm text-gray-600 mt-4 text-center">
+                    * Champs obligatoires - Vos données sont protégées et ne seront jamais partagées
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4 font-montserrat">Nos Réalisations</h2>
+                <p class="text-xl text-gray-600">Qualité et professionnalisme dans chaque projet</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="fade-in overflow-hidden rounded-xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400&q=80" 
+                         alt="Copper pipes installation" 
+                         class="w-full h-64 object-cover hover:scale-110 transition-transform duration-300">
+                </div>
+                <div class="fade-in overflow-hidden rounded-xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=400&q=80" 
+                         alt="Modern bathroom renovation" 
+                         class="w-full h-64 object-cover hover:scale-110 transition-transform duration-300">
+                </div>
+                <div class="fade-in overflow-hidden rounded-xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&q=80" 
+                         alt="Water heater installation" 
+                         class="w-full h-64 object-cover hover:scale-110 transition-transform duration-300">
+                </div>
+                <div class="fade-in overflow-hidden rounded-xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1607400201515-c2c41c07d307?w=400&q=80" 
+                         alt="Professional plumbing tools" 
+                         class="w-full h-64 object-cover hover:scale-110 transition-transform duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 font-montserrat">ARNAUD PLOMBERIE</h3>
+                    <p class="text-gray-400 mb-4">Votre plombier chauffagiste de confiance depuis 2012</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-orange-600 hover:text-orange-500 transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4 font-montserrat">Contact</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p>📞 <a href="tel:0555123456" class="hover:text-orange-600">05 55 12 34 56</a></p>
+                        <p>📧 contact@arnaud-plomberie.fr</p>
+                        <p>📍 12 Avenue de la République<br>23000 Guéret, France</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4 font-montserrat">Horaires</h4>
+                    <div class="text-gray-400">
+                        <p class="mb-2">Lundi - Vendredi: 8h - 18h</p>
+                        <p class="mb-2">Samedi: 9h - 17h</p>
+                        <p class="mb-4">Dimanche: Urgences uniquement</p>
+                        <p class="text-orange-600 font-semibold">⚡ Dépannage 24h/24, 7j/7</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
+                <p class="mb-2">SIRET: 123 456 789 00012 • RC Pro et Garantie Décennale</p>
+                <p>© 2026 ARNAUD PLOMBERIE - Tous droits réservés • Site créé par <a href="#" class="text-orange-600 hover:text-orange-500">FacadeDigitale</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        // Fade-in on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animated counters
+        let counterStarted = false;
+        const counters = document.querySelectorAll('.counter');
+        
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !counterStarted) {
+                    counterStarted = true;
+                    counters.forEach(counter => {
+                        const target = counter.getAttribute('data-target');
+                        if (target && !isNaN(target)) {
+                            const increment = parseFloat(target) / 100;
+                            let current = 0;
+                            
+                            const updateCounter = () => {
+                                if (current < parseFloat(target)) {
+                                    current += increment;
+                                    if (target.includes('.')) {
+                                        counter.textContent = current.toFixed(1);
+                                    } else {
+                                        counter.textContent = Math.ceil(current);
+                                    }
+                                    setTimeout(updateCounter, 20);
+                                } else {
+                                    counter.textContent = target;
+                                }
+                            };
+                            updateCounter();
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.getElementById('stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre demande ! Nous vous recontacterons sous 2 heures.\n\nPour une urgence immédiate, appelez le 05 55 12 34 56');
+            this.reset();
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

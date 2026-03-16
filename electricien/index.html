@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watt &amp; Co — Électricien à Strasbourg</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --electric: #0066FF; --cyan: #00D4FF; --dark: #0d0d0d; }
+    body { background: #0d0d0d; color: #c8d8e8; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    h1,h2,h3,.mono { font-family: 'Space Mono', monospace; }
+
+    /* Grid circuit pattern */
+    .circuit-bg {
+      background-color: #0d0d0d;
+      background-image:
+        linear-gradient(rgba(0,102,255,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,102,255,0.07) 1px, transparent 1px),
+        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+    }
+
+    /* Glow utilities */
+    .glow-btn {
+      box-shadow: 0 0 12px rgba(0,102,255,0.6), 0 0 30px rgba(0,102,255,0.2);
+      transition: box-shadow 0.3s ease;
+    }
+    .glow-btn:hover { box-shadow: 0 0 20px rgba(0,212,255,0.8), 0 0 50px rgba(0,102,255,0.4); }
+    .glow-cyan { box-shadow: 0 0 10px rgba(0,212,255,0.5); }
+    .text-glow { text-shadow: 0 0 8px #00D4FF, 0 0 20px rgba(0,102,255,0.7); }
+
+    /* Scanlines overlay */
+    .scanlines::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.05) 3px, rgba(0,0,0,0.05) 4px);
+      pointer-events: none; z-index: 1;
+    }
+
+    /* Lightning bolt animation */
+    .bolt { position: absolute; width: 3px; background: linear-gradient(to bottom, #00D4FF, #0066FF); border-radius: 2px; }
+    @keyframes boltFlash {
+      0%,85%,100% { opacity: 0; transform: scaleY(0) translateX(-50%); }
+      87% { opacity: 1; transform: scaleY(1) translateX(-50%); }
+      89% { opacity: 0.4; transform: scaleY(0.8) translateX(-50%); }
+      91% { opacity: 0.9; transform: scaleY(1) translateX(-50%); }
+      93% { opacity: 0; transform: scaleY(0) translateX(-50%); }
+    }
+    .bolt-1 { height: 120px; left: 15%; top: 10%; animation: boltFlash 4s infinite; animation-delay: 0.5s; }
+    .bolt-2 { height: 80px; left: 75%; top: 20%; animation: boltFlash 4s infinite; animation-delay: 2s; }
+    .bolt-3 { height: 100px; left: 50%; top: 5%; animation: boltFlash 4s infinite; animation-delay: 3.5s; }
+
+    /* Neon border */
+    .neon-border { border: 1px solid rgba(0,212,255,0.3); }
+    .neon-border:hover { border-color: rgba(0,212,255,0.8); box-shadow: 0 0 15px rgba(0,212,255,0.2); }
+    .card-dark { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); }
+
+    /* Typing animation for tagline */
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .cursor { animation: blink 1s step-start infinite; }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Form inputs */
+    input, textarea, select {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(0,212,255,0.2);
+      color: #c8d8e8;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    input:focus, textarea:focus, select:focus { border-color: #00D4FF; box-shadow: 0 0 8px rgba(0,212,255,0.3); }
+
+    /* Nav */
+    nav { background: rgba(13,13,13,0.9); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,102,255,0.2); }
+
+    /* Progress bar on scroll */
+    #progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(to right, #0066FF, #00D4FF); z-index: 100; transition: width 0.1s; }
+
+    /* Urgency pulse */
+    @keyframes urgencyPulse { 0%,100%{box-shadow:0 0 0 0 rgba(255,50,50,0.6)} 70%{box-shadow:0 0 0 12px rgba(255,50,50,0)} }
+    .urgency-pulse { animation: urgencyPulse 2s infinite; }
+
+    /* Service card hover */
+    .service-card { transition: all 0.3s ease; border: 1px solid rgba(0,102,255,0.15); }
+    .service-card:hover { border-color: rgba(0,212,255,0.5); transform: translateY(-4px); background: rgba(0,102,255,0.07); }
+  </style>
+</head>
+<body class="circuit-bg">
+
+<!-- Progress bar -->
+<div id="progress-bar" style="width:0%"></div>
+
+<!-- Nav -->
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <div class="mono text-xl font-bold text-glow text-cyan-400">WATT <span class="text-blue-500">&amp;</span> CO</div>
+    <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
+      <a href="#services" class="hover:text-cyan-400 transition">Services</a>
+      <a href="#realisations" class="hover:text-cyan-400 transition">Réalisations</a>
+      <a href="#certifications" class="hover:text-cyan-400 transition">Certifications</a>
+      <a href="#devis" class="hover:text-cyan-400 transition">Devis</a>
+      <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+    </div>
+    <a href="tel:0388456723" class="mono text-sm bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 glow-btn rounded-sm transition">
+      ⚡ 03 88 45 67 23
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden scanlines pt-20">
+  <!-- Decorative bolts -->
+  <div class="bolt bolt-1 filter blur-[0.5px]"></div>
+  <div class="bolt bolt-2 filter blur-[0.5px]"></div>
+  <div class="bolt bolt-3 filter blur-[0.5px]"></div>
+
+  <!-- SVG circuit decoration -->
+  <svg class="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+    <g filter="url(#glow)" stroke="#00D4FF" stroke-width="1" fill="none">
+      <path d="M0,200 L100,200 L100,150 L200,150 L200,200 L350,200"/>
+      <circle cx="100" cy="200" r="4" fill="#00D4FF"/>
+      <circle cx="200" cy="150" r="4" fill="#00D4FF"/>
+      <path d="M350,200 L400,200 L400,300 L500,300"/>
+      <circle cx="400" cy="300" r="4" fill="#0066FF"/>
+      <path d="M800,100 L900,100 L900,200 L1000,200 L1000,150 L1200,150"/>
+      <circle cx="900" cy="100" r="3" fill="#00D4FF"/>
+      <path d="M0,500 L150,500 L150,400 L300,400"/>
+      <circle cx="150" cy="500" r="4" fill="#0066FF"/>
+    </g>
+  </svg>
+
+  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+    <div class="mono text-xs text-cyan-500 tracking-[0.4em] mb-6 opacity-80">// ÉLECTRICIEN CERTIFIÉ QUALIFELEC — STRASBOURG</div>
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+      <span class="text-glow text-cyan-300">L'ÉLECTRICITÉ</span><br>
+      <span class="text-white">DU <span class="text-blue-500">FUTUR</span></span><br>
+      <span class="text-gray-500 text-3xl md:text-4xl">aujourd'hui.</span>
+    </h1>
+    <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+      Installation électrique, domotique connectée et dépannage d'urgence à Strasbourg et dans le Bas-Rhin. Disponible 7j/7 pour les urgences.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#devis" class="mono bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 text-sm font-bold glow-btn rounded-sm transition">
+        [ DEMANDER UN DEVIS ]
+      </a>
+      <a href="tel:0388456723" class="mono border border-cyan-500 text-cyan-400 hover:bg-cyan-950 px-8 py-4 text-sm font-bold rounded-sm transition urgency-pulse">
+        ⚡ URGENCE 24H/24
+      </a>
+    </div>
+    <div class="mt-16 grid grid-cols-3 gap-6 max-w-lg mx-auto">
+      <div class="text-center neon-border p-4 rounded-sm card-dark">
+        <div class="mono text-2xl font-bold text-cyan-400">12<span class="text-blue-500">+</span></div>
+        <div class="text-xs text-gray-500 mt-1">ans d'expérience</div>
+      </div>
+      <div class="text-center neon-border p-4 rounded-sm card-dark">
+        <div class="mono text-2xl font-bold text-cyan-400">850<span class="text-blue-500">+</span></div>
+        <div class="text-xs text-gray-500 mt-1">chantiers réalisés</div>
+      </div>
+      <div class="text-center neon-border p-4 rounded-sm card-dark">
+        <div class="mono text-2xl font-bold text-cyan-400">4.9<span class="text-blue-500">★</span></div>
+        <div class="text-xs text-gray-500 mt-1">note Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-24 px-6 max-w-6xl mx-auto">
+  <div class="reveal text-center mb-16">
+    <div class="mono text-xs text-blue-500 tracking-widest mb-3">// NOS SERVICES</div>
+    <h2 class="text-4xl font-bold text-white">Ce que nous <span class="text-glow text-cyan-300">faisons</span></h2>
+    <div class="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-400 mx-auto mt-4"></div>
+  </div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="service-card card-dark p-6 rounded-sm reveal">
+      <div class="text-3xl mb-4">⚡</div>
+      <h3 class="mono text-lg font-bold text-cyan-300 mb-3">Installation</h3>
+      <p class="text-gray-400 text-sm leading-relaxed">Tableaux électriques, prises, éclairages, câblage neuf pour maisons et locaux professionnels. Conformité NF C 15-100.</p>
+      <div class="mt-4 text-xs mono text-blue-500">→ Devis gratuit</div>
+    </div>
+    <div class="service-card card-dark p-6 rounded-sm reveal">
+      <div class="text-3xl mb-4">🔧</div>
+      <h3 class="mono text-lg font-bold text-cyan-300 mb-3">Rénovation</h3>
+      <p class="text-gray-400 text-sm leading-relaxed">Mise aux normes, remplacement de tableau vétuste, rénovation complète d'installations anciennes. Diagnostic offert.</p>
+      <div class="mt-4 text-xs mono text-blue-500">→ Mise aux normes</div>
+    </div>
+    <div class="service-card card-dark p-6 rounded-sm reveal">
+      <div class="text-3xl mb-4">🏠</div>
+      <h3 class="mono text-lg font-bold text-cyan-300 mb-3">Domotique</h3>
+      <p class="text-gray-400 text-sm leading-relaxed">Maison connectée, volets automatiques, éclairage intelligent, système d'alarme, borne de recharge VE. Intégration KNX/Zigbee.</p>
+      <div class="mt-4 text-xs mono text-blue-500">→ Smart Home</div>
+    </div>
+    <div class="service-card card-dark p-6 rounded-sm reveal">
+      <div class="text-3xl mb-4">🚨</div>
+      <h3 class="mono text-lg font-bold text-cyan-300 mb-3">Dépannage</h3>
+      <p class="text-gray-400 text-sm leading-relaxed">Panne électrique, disjoncteur qui saute, court-circuit. Intervention d'urgence 7j/7, sous 2h dans Strasbourg et sa banlieue.</p>
+      <div class="mt-4 text-xs mono text-blue-500">→ 24h/24</div>
+    </div>
+  </div>
+</section>
+
+<!-- RÉALISATIONS -->
+<section id="realisations" class="py-24 px-6 border-y border-blue-900/30">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center mb-16">
+      <div class="mono text-xs text-blue-500 tracking-widest mb-3">// RÉALISATIONS</div>
+      <h2 class="text-4xl font-bold text-white">Nos derniers <span class="text-glow text-cyan-300">chantiers</span></h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="reveal group relative overflow-hidden rounded-sm">
+        <img src="https://images.unsplash.com/photo-1621905251189-08b1d961b4a6?w=800&q=80" alt="Installation tableau électrique" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500 filter brightness-75">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-80"></div>
+        <div class="absolute bottom-0 left-0 p-4">
+          <div class="mono text-xs text-cyan-400 mb-1">// RÉSIDENTIEL</div>
+          <div class="font-bold text-white">Rénovation complète · Villa Robertsau</div>
+          <div class="text-xs text-gray-400 mt-1">Tableau 15kVA + domotique intégrée</div>
+        </div>
+      </div>
+      <div class="reveal group relative overflow-hidden rounded-sm">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Borne de recharge VE" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500 filter brightness-75">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-80"></div>
+        <div class="absolute bottom-0 left-0 p-4">
+          <div class="mono text-xs text-blue-400 mb-1">// TERTIAIRE</div>
+          <div class="font-bold text-white">Parking 12 bornes VE · Zone Aktisud</div>
+          <div class="text-xs text-gray-400 mt-1">Wallbox 22kW, supervision à distance</div>
+        </div>
+      </div>
+      <div class="reveal group relative overflow-hidden rounded-sm">
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80" alt="Installation industrielle" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500 filter brightness-75">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-80"></div>
+        <div class="absolute bottom-0 left-0 p-4">
+          <div class="mono text-xs text-cyan-400 mb-1">// INDUSTRIEL</div>
+          <div class="font-bold text-white">Câblage atelier · PME Cronenbourg</div>
+          <div class="text-xs text-gray-400 mt-1">2400m² — armoires divisionnaires</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="py-24 px-6 max-w-6xl mx-auto">
+  <div class="reveal text-center mb-16">
+    <div class="mono text-xs text-blue-500 tracking-widest mb-3">// CERTIFICATIONS</div>
+    <h2 class="text-4xl font-bold text-white">Qualité <span class="text-glow text-cyan-300">certifiée</span></h2>
+  </div>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="neon-border card-dark p-8 rounded-sm text-center reveal">
+      <div class="w-16 h-16 bg-blue-900/40 rounded-full flex items-center justify-center mx-auto mb-4 glow-cyan">
+        <span class="text-2xl">🏅</span>
+      </div>
+      <h3 class="mono font-bold text-cyan-300 mb-2">Qualifelec</h3>
+      <p class="text-gray-400 text-sm">Qualification officielle du secteur électrique — niveau E2 résidentiel et tertiaire. Renouvelée annuellement.</p>
+    </div>
+    <div class="neon-border card-dark p-8 rounded-sm text-center reveal">
+      <div class="w-16 h-16 bg-blue-900/40 rounded-full flex items-center justify-center mx-auto mb-4 glow-cyan">
+        <span class="text-2xl">🌿</span>
+      </div>
+      <h3 class="mono font-bold text-cyan-300 mb-2">RGE</h3>
+      <p class="text-gray-400 text-sm">Reconnu Garant de l'Environnement. Éligible MaPrimeRénov' et CEE pour vos travaux d'économies d'énergie.</p>
+    </div>
+    <div class="neon-border card-dark p-8 rounded-sm text-center reveal">
+      <div class="w-16 h-16 bg-blue-900/40 rounded-full flex items-center justify-center mx-auto mb-4 glow-cyan">
+        <span class="text-2xl">🛡️</span>
+      </div>
+      <h3 class="mono font-bold text-cyan-300 mb-2">Assurance décennale</h3>
+      <p class="text-gray-400 text-sm">Garantie décennale et RC professionnelle complète. Tous nos chantiers sont couverts et documentés.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEVIS -->
+<section id="devis" class="py-24 px-6 border-t border-blue-900/30">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal text-center mb-12">
+      <div class="mono text-xs text-blue-500 tracking-widest mb-3">// DEVIS EN LIGNE</div>
+      <h2 class="text-4xl font-bold text-white">Obtenez votre <span class="text-glow text-cyan-300">devis gratuit</span></h2>
+      <p class="text-gray-400 mt-4">Réponse sous 24h — Déplacement offert pour l'estimation</p>
+    </div>
+    <form class="reveal space-y-4" onsubmit="submitForm(event)">
+      <div class="grid md:grid-cols-2 gap-4">
+        <input type="text" placeholder="Prénom et nom *" class="w-full px-4 py-3 rounded-sm text-sm" required>
+        <input type="tel" placeholder="Téléphone *" class="w-full px-4 py-3 rounded-sm text-sm" required>
+      </div>
+      <input type="email" placeholder="Email *" class="w-full px-4 py-3 rounded-sm text-sm" required>
+      <select class="w-full px-4 py-3 rounded-sm text-sm text-gray-400">
+        <option value="">Type de prestation *</option>
+        <option>Installation électrique neuve</option>
+        <option>Rénovation / mise aux normes</option>
+        <option>Domotique / maison connectée</option>
+        <option>Borne de recharge VE</option>
+        <option>Dépannage</option>
+        <option>Autre</option>
+      </select>
+      <textarea placeholder="Décrivez votre projet..." rows="4" class="w-full px-4 py-3 rounded-sm text-sm"></textarea>
+      <button type="submit" class="w-full mono bg-blue-600 hover:bg-blue-500 text-white py-4 font-bold glow-btn rounded-sm transition text-sm">
+        [ ENVOYER MA DEMANDE → ]
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT URGENCE -->
+<section id="contact" class="py-24 px-6 bg-gradient-to-b from-transparent to-blue-950/20">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center mb-12">
+      <div class="mono text-xs text-blue-500 tracking-widest mb-3">// CONTACT</div>
+      <h2 class="text-4xl font-bold text-white">Nous <span class="text-glow text-cyan-300">trouver</span></h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 reveal">
+      <div class="neon-border card-dark p-6 rounded-sm text-center">
+        <div class="text-2xl mb-3">📍</div>
+        <h3 class="mono text-sm font-bold text-cyan-400 mb-2">ADRESSE</h3>
+        <p class="text-gray-400 text-sm">14 Rue du Wacken<br>67000 Strasbourg</p>
+      </div>
+      <div class="neon-border card-dark p-6 rounded-sm text-center">
+        <div class="text-2xl mb-3">⏰</div>
+        <h3 class="mono text-sm font-bold text-cyan-400 mb-2">HORAIRES</h3>
+        <p class="text-gray-400 text-sm">Lun–Ven : 7h30–18h30<br>Sam : 9h–12h<br><span class="text-red-400">Urgences 24h/24</span></p>
+      </div>
+      <div class="neon-border card-dark p-6 rounded-sm text-center">
+        <div class="text-2xl mb-3">📞</div>
+        <h3 class="mono text-sm font-bold text-cyan-400 mb-2">CONTACT</h3>
+        <p class="text-gray-400 text-sm">
+          <a href="tel:0388456723" class="text-cyan-400 hover:text-cyan-300">03 88 45 67 23</a><br>
+          <a href="mailto:contact@wattandco.fr" class="text-blue-400 hover:text-blue-300 text-xs">contact@wattandco.fr</a>
+        </p>
+      </div>
+    </div>
+    <!-- Urgency banner -->
+    <div class="mt-8 reveal neon-border bg-red-950/20 border-red-700/40 p-6 rounded-sm text-center">
+      <div class="mono font-bold text-red-400 text-lg mb-2">🚨 PANNE ÉLECTRIQUE ? ON ARRIVE.</div>
+      <p class="text-gray-400 text-sm mb-4">Intervention d'urgence sous 2h dans tout le Bas-Rhin — 7j/7, 24h/24</p>
+      <a href="tel:0388456723" class="mono inline-block bg-red-700 hover:bg-red-600 text-white px-10 py-3 font-bold rounded-sm transition text-sm urgency-pulse">
+        APPELER MAINTENANT : 03 88 45 67 23
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-blue-900/30 py-8 px-6 text-center">
+  <div class="mono text-xs text-gray-600">
+    © 2026 WATT &amp; CO · Électricien Strasbourg · SIRET 823 456 789 00012
+  </div>
+  <div class="mono text-xs text-blue-800 mt-2">Site créé par <span class="text-blue-600">FacadeDigitale</span> · 2026</div>
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const s = document.documentElement;
+    const prog = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
+    document.getElementById('progress-bar').style.width = prog + '%';
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Form submit
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = '[ ✓ DEMANDE ENVOYÉE — NOUS REVENONS SOUS 24H ]';
+    btn.classList.remove('bg-blue-600','hover:bg-blue-500');
+    btn.classList.add('bg-green-700');
+    btn.disabled = true;
+  }
+</script>
+</body>
+</html>
