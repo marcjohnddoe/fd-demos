@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>365 Pensées Positives — Un ebook pour transformer chaque matin</title>
+  <meta name="description" content="365 pensées originales, une par jour, pour commencer chaque matin avec intention et sérénité. Ebook numérique — 4,99€" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===================== RESET & BASE ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-deep:   #1a4d6e;
+      --blue-mid:    #2b6a94;
+      --blue-light:  #3a7ca5;
+      --blue-pale:   #d4eaf7;
+      --bg:          #f0f7fb;
+      --white:       #ffffff;
+      --gold:        #c9a84c;
+      --gold-light:  #f0d88a;
+      --text:        #1e3040;
+      --text-muted:  #5a7a8c;
+      --radius:      14px;
+      --shadow:      0 8px 40px rgba(26,77,110,.12);
+      --shadow-hover:0 16px 60px rgba(26,77,110,.22);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 17px;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===================== TYPOGRAPHY ===================== */
+    h1, h2, h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      line-height: 1.22;
+    }
+
+    /* ===================== UTILITIES ===================== */
+    .container {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-label {
+      font-family: 'Lora', serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 5vw, 42px);
+      color: var(--blue-deep);
+      margin-bottom: 20px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--blue-light);
+    }
+
+    /* ===================== FADE-IN ANIMATION ===================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in.delay-1 { transition-delay: 0.1s; }
+    .fade-in.delay-2 { transition-delay: 0.2s; }
+    .fade-in.delay-3 { transition-delay: 0.3s; }
+    .fade-in.delay-4 { transition-delay: 0.4s; }
+
+    /* ===================== CTA BUTTON ===================== */
+    .btn-cta {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold) 0%, #b8893a 100%);
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 18px 42px;
+      border-radius: 50px;
+      box-shadow: 0 6px 30px rgba(201,168,76,.45);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      letter-spacing: 0.3px;
+      text-align: center;
+      border: none;
+      text-shadow: 0 1px 2px rgba(0,0,0,.15);
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 45px rgba(201,168,76,.55);
+      filter: brightness(1.07);
+    }
+
+    .btn-cta:active {
+      transform: translateY(0) scale(0.99);
+    }
+
+    /* ===================== HERO ===================== */
+    #hero {
+      background: linear-gradient(160deg, var(--blue-deep) 0%, var(--blue-mid) 55%, #1e6a8e 100%);
+      color: var(--white);
+      padding: 90px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(201,168,76,.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -80px;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(201,168,76,.18);
+      border: 1px solid rgba(201,168,76,.35);
+      color: var(--gold-light);
+      font-family: 'Lora', serif;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 7px 20px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+    }
+
+    .hero-emoji {
+      font-size: 44px;
+      display: block;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,.2));
+    }
+
+    #hero h1 {
+      font-size: clamp(38px, 8vw, 68px);
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 20px rgba(0,0,0,.15);
+    }
+
+    #hero h1 span {
+      color: var(--gold-light);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(17px, 3vw, 22px);
+      color: rgba(255,255,255,.85);
+      margin-bottom: 44px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+      font-style: italic;
+    }
+
+    .hero-trust {
+      margin-top: 28px;
+      font-size: 13px;
+      color: rgba(255,255,255,.55);
+      letter-spacing: 0.3px;
+    }
+
+    .hero-trust span {
+      margin: 0 10px;
+    }
+
+    /* ===================== PROBLEME ===================== */
+    #probleme {
+      background: var(--white);
+    }
+
+    .probleme-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .probleme-quote {
+      font-size: clamp(20px, 3.5vw, 27px);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--blue-deep);
+      line-height: 1.5;
+      margin: 30px 0;
+      padding: 28px 32px;
+      background: var(--bg);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      text-align: left;
+    }
+
+    .probleme-text {
+      font-size: 17px;
+      color: var(--text);
+      line-height: 1.85;
+      margin: 16px 0;
+    }
+
+    .probleme-text strong {
+      color: var(--blue-deep);
+    }
+
+    /* ===================== SOLUTION ===================== */
+    #solution {
+      background: linear-gradient(180deg, var(--bg) 0%, #e8f4fb 100%);
+    }
+
+    .solution-inner {
+      display: grid;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .solution-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .book-mockup {
+      width: 200px;
+      height: 270px;
+      background: linear-gradient(145deg, var(--blue-deep) 0%, var(--blue-mid) 100%);
+      border-radius: 4px 16px 16px 4px;
+      box-shadow: -6px 6px 0px #0d3350, var(--shadow-hover);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .book-mockup::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.08) 0%, transparent 60%);
+    }
+
+    .book-mockup-spine {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 18px;
+      background: linear-gradient(180deg, #0d3350, #1a4d6e);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .book-mockup-title {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.3;
+      z-index: 1;
+    }
+
+    .book-mockup-subtitle {
+      font-family: 'Lora', serif;
+      color: var(--gold-light);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 10px;
+      z-index: 1;
+    }
+
+    .book-mockup-leaf {
+      font-size: 36px;
+      margin-bottom: 10px;
+      z-index: 1;
+    }
+
+    .solution-text h2 {
+      margin-bottom: 18px;
+    }
+
+    .solution-text p {
+      color: var(--text);
+      margin-bottom: 14px;
+      font-size: 17px;
+      line-height: 1.85;
+    }
+
+    /* ===================== CE QUE TU VAS TROUVER ===================== */
+    #contenu {
+      background: var(--white);
+    }
+
+    .contenu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 44px;
+    }
+
+    .contenu-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      border: 1px solid rgba(58,124,165,.12);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .contenu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .contenu-card-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .contenu-card h3 {
+      font-size: 18px;
+      color: var(--blue-deep);
+      margin-bottom: 8px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .contenu-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===================== EXTRAITS ===================== */
+    #extraits {
+      background: linear-gradient(160deg, var(--blue-deep) 0%, #1e6a8e 100%);
+      color: var(--white);
+    }
+
+    #extraits .section-title {
+      color: var(--white);
+    }
+
+    #extraits .section-label {
+      color: var(--gold-light);
+    }
+
+    .extraits-intro {
+      color: rgba(255,255,255,.75);
+      font-size: 17px;
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+
+    .extraits-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .extrait-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: var(--radius);
+      padding: 32px 30px;
+      backdrop-filter: blur(6px);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+
+    .extrait-card:hover {
+      background: rgba(255,255,255,.12);
+    }
+
+    .extrait-card::before {
+      content: '"';
+      font-family: 'Playfair Display', serif;
+      font-size: 100px;
+      color: rgba(201,168,76,.2);
+      position: absolute;
+      top: -18px;
+      left: 16px;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .extrait-day {
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-family: 'Lora', serif;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .extrait-text {
+      font-size: clamp(16px, 2.5vw, 19px);
+      font-style: italic;
+      line-height: 1.7;
+      color: rgba(255,255,255,.93);
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ===================== TÉMOIGNAGES ===================== */
+    #temoignages {
+      background: var(--bg);
+    }
+
+    .temoignages-grid {
+      display: grid;
+      gap: 24px;
+      margin-top: 44px;
+    }
+
+    .temoignage-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 30px 28px;
+      box-shadow: 0 4px 24px rgba(26,77,110,.08);
+      border: 1px solid rgba(58,124,165,.1);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .temoignage-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .temoignage-stars {
+      font-size: 20px;
+      margin-bottom: 14px;
+      letter-spacing: 2px;
+    }
+
+    .temoignage-text {
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+
+    .temoignage-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .temoignage-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .avatar-m { background: linear-gradient(135deg, #e07a8e, #c45970); }
+    .avatar-j { background: linear-gradient(135deg, var(--blue-mid), var(--blue-deep)); }
+    .avatar-c { background: linear-gradient(135deg, #7a9e6e, #557a44); }
+
+    .temoignage-name {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--blue-deep);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .temoignage-location {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ===================== PRIX ===================== */
+    #prix {
+      background: var(--white);
+    }
+
+    .prix-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .prix-card {
+      background: linear-gradient(160deg, var(--blue-deep) 0%, var(--blue-mid) 100%);
+      border-radius: 24px;
+      padding: 52px 44px;
+      text-align: center;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 20px 70px rgba(26,77,110,.32);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .prix-card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(201,168,76,.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .prix-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+      font-family: 'Lora', serif;
+    }
+
+    .prix-book-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .prix-format {
+      font-size: 13px;
+      color: rgba(255,255,255,.6);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .prix-numbers {
+      margin-bottom: 10px;
+    }
+
+    .prix-barré {
+      font-size: 22px;
+      color: rgba(255,255,255,.45);
+      text-decoration: line-through;
+      margin-right: 14px;
+      font-family: 'Lora', serif;
+    }
+
+    .prix-actuel {
+      font-size: 54px;
+      font-weight: 700;
+      color: var(--gold-light);
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+    }
+
+    .prix-actuel sup {
+      font-size: 24px;
+      vertical-align: super;
+      line-height: 0;
+    }
+
+    .prix-note {
+      font-size: 13px;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 36px;
+      margin-top: 6px;
+    }
+
+    .prix-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .prix-features li {
+      font-size: 15px;
+      color: rgba(255,255,255,.85);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .prix-features li::before {
+      content: '✓';
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .prix-garantie {
+      font-size: 13px;
+      color: rgba(255,255,255,.5);
+      margin-top: 20px;
+    }
+
+    /* ===================== FAQ ===================== */
+    #faq {
+      background: var(--bg);
+    }
+
+    .faq-list {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid rgba(58,124,165,.14);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+
+    .faq-item:hover {
+      box-shadow: 0 4px 18px rgba(26,77,110,.09);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 22px 26px;
+      text-align: left;
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      color: var(--blue-deep);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background 0.15s;
+    }
+
+    .faq-question:hover {
+      background: var(--bg);
+    }
+
+    .faq-question[aria-expanded="true"] {
+      color: var(--blue-mid);
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--blue-mid);
+      transition: transform 0.3s ease, background 0.2s;
+      border: 1px solid rgba(58,124,165,.2);
+    }
+
+    .faq-question[aria-expanded="true"] .faq-icon {
+      transform: rotate(45deg);
+      background: var(--blue-mid);
+      color: var(--white);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 26px 24px;
+      font-size: 15.5px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--blue-deep);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 48px 20px;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .footer-tagline {
+      font-size: 14px;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 18px;
+    }
+
+    .footer-link {
+      color: var(--gold-light);
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .footer-link:hover { color: var(--gold); }
+
+    .footer-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin: 20px auto;
+      border-radius: 2px;
+    }
+
+    .footer-legal {
+      font-size: 12px;
+      color: rgba(255,255,255,.3);
+    }
+
+    /* ===================== STICKY MOBILE CTA ===================== */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0; right: 0;
+      background: var(--white);
+      padding: 14px 20px;
+      box-shadow: 0 -4px 30px rgba(26,77,110,.15);
+      display: none;
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .sticky-cta .btn-cta {
+      font-size: 16px;
+      padding: 14px 32px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 640px) {
+      .section { padding: 60px 0; }
+
+      .contenu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .solution-inner {
+        text-align: center;
+      }
+
+      .book-mockup {
+        width: 160px;
+        height: 216px;
+      }
+
+      .prix-card {
+        padding: 36px 24px;
+      }
+
+      .sticky-cta {
+        display: flex;
+      }
+
+      body { padding-bottom: 80px; }
+
+      .faq-question {
+        font-size: 15px;
+        padding: 18px 20px;
+      }
+      .faq-answer-inner {
+        padding: 0 20px 20px;
+      }
+    }
+
+    @media (min-width: 641px) {
+      .contenu-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .solution-inner {
+        grid-template-columns: auto 1fr;
+      }
+
+      .extraits-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .temoignages-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    /* ===================== SCROLLBAR ===================== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--blue-light); border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section id="hero">
+  <div class="container">
+    <div class="fade-in">
+      <div class="hero-tag">📖 Ebook numérique — Accès immédiat</div>
+      <span class="hero-emoji">🌿</span>
+      <h1><span>365</span> Pensées<br>Positives</h1>
+      <p class="hero-subtitle">Une pensée par jour pour transformer ta vie</p>
+      <a href="https://buy.stripe.com/aFacN65F07Y24EP6UH3cc00" class="btn-cta">
+        Découvrir l'ebook &mdash; 4,99€
+      </a>
+      <p class="hero-trust">
+        <span>✓ Téléchargement immédiat</span>
+        <span>✓ Format PDF</span>
+        <span>✓ Paiement sécurisé</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROBLÈME
+     ============================================================ -->
+<section id="probleme" class="section">
+  <div class="container">
+    <div class="probleme-inner">
+      <div class="fade-in">
+        <span class="section-label">Le point de départ</span>
+        <h2 class="section-title">Tu connais cette sensation&nbsp;?</h2>
+      </div>
+      <div class="fade-in delay-1">
+        <blockquote class="probleme-quote">
+          Le réveil sonne. Et avant même d'avoir bu ton café, les soucis sont déjà là.
+        </blockquote>
+      </div>
+      <div class="fade-in delay-2">
+        <p class="probleme-text">
+          La liste des choses à faire. Les inquiétudes qui tournent en boucle. La sensation que la journée part mal avant même d'avoir commencé.
+        </p>
+        <p class="probleme-text">
+          Tu veux être positif·ve, mais <strong>les anciennes habitudes de pensée reprennent le dessus</strong>. Ce n'est pas une question de volonté — c'est une question d'outil.
+        </p>
+        <p class="probleme-text">
+          Chaque matin est une page blanche. Encore faut-il avoir les bons mots pour la remplir.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SOLUTION
+     ============================================================ -->
+<section id="solution" class="section" style="background: linear-gradient(180deg, var(--bg) 0%, #e8f4fb 100%);">
+  <div class="container">
+    <div class="solution-inner fade-in">
+      <div class="solution-visual">
+        <div class="book-mockup">
+          <div class="book-mockup-spine"></div>
+          <span class="book-mockup-leaf">🌿</span>
+          <div class="book-mockup-title">365<br>Pensées<br>Positives</div>
+          <div class="book-mockup-subtitle">Un an de douceur</div>
+        </div>
+      </div>
+      <div class="solution-text">
+        <span class="section-label">La solution</span>
+        <h2 class="section-title">Et si tu pouvais commencer chaque journée <em>autrement</em>&nbsp;?</h2>
+        <p>
+          Imagine ouvrir ce livre chaque matin — ou chaque soir — et tomber sur une phrase qui te parle. Pas une citation générique. Une pensée <strong>écrite pour toi</strong>, pour ce moment précis de l'année.
+        </p>
+        <p>
+          <strong>365 Pensées Positives</strong> est conçu comme un compagnon de route. Simple, élégant, profond. Un an d'intentions quotidiennes pour ancrer une nouvelle façon d'être.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTENU
+     ============================================================ -->
+<section id="contenu" class="section">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <span class="section-label">Ce que tu vas trouver</span>
+      <h2 class="section-title">Un an de pensées. Soigneusement <em>préparées pour toi.</em></h2>
+    </div>
+    <div class="contenu-grid">
+      <div class="contenu-card fade-in delay-1">
+        <div class="contenu-card-icon">✍️</div>
+        <h3>365 pensées originales</h3>
+        <p>Une pensée exclusive pour chaque jour de l'année. Jamais vue ailleurs, écrite avec soin pour toucher l'essentiel.</p>
+      </div>
+      <div class="contenu-card fade-in delay-2">
+        <div class="contenu-card-icon">🌱</div>
+        <h3>122 exercices pratiques</h3>
+        <p>Des invitations à l'action, disséminées dans l'ebook. Petits gestes concrets pour ancrer chaque pensée dans ta vie réelle.</p>
+      </div>
+      <div class="contenu-card fade-in delay-3">
+        <div class="contenu-card-icon">🍂</div>
+        <h3>12 mois par saison</h3>
+        <p>L'ebook suit le rythme des saisons. Printemps, été, automne, hiver — chaque période a ses thèmes, ses couleurs, son énergie.</p>
+      </div>
+      <div class="contenu-card fade-in delay-4">
+        <div class="contenu-card-icon">📖</div>
+        <h3>Intro + conclusion</h3>
+        <p>Un avant et un après. Pour comprendre la philosophie derrière l'ebook, et repartir avec une intention claire après 365 jours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXTRAITS
+     ============================================================ -->
+<section id="extraits" class="section">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <span class="section-label">Aperçu</span>
+      <h2 class="section-title">Quelques pages à savourer</h2>
+      <p class="extraits-intro">Trois pensées tirées du livre — au début, au milieu, à la fin.</p>
+    </div>
+    <div class="extraits-grid">
+      <div class="extrait-card fade-in delay-1">
+        <span class="extrait-day">Jour 1</span>
+        <p class="extrait-text">
+          "Tout recommencement est une invitation, pas une obligation. Aujourd'hui n'efface pas hier — il lui offre une suite. Commence doucement, avec intention."
+        </p>
+      </div>
+      <div class="extrait-card fade-in delay-2">
+        <span class="extrait-day">Jour 100</span>
+        <p class="extrait-text">
+          "Cent jours. Cent matins où tu as choisi de recommencer. C'est une forme de bravoure que peu de gens voient — mais toi, tu la vis de l'intérieur."
+        </p>
+      </div>
+      <div class="extrait-card fade-in delay-3">
+        <span class="extrait-day">Jour 365</span>
+        <p class="extrait-text">
+          "Tu as traversé 365 jours avec ces mots comme compagnons. Ce n'était pas juste un livre — c'était un engagement envers toi-même."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TÉMOIGNAGES
+     ============================================================ -->
+<section id="temoignages" class="section">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <span class="section-label">Ils l'ont lu</span>
+      <h2 class="section-title">Ce qu'ils en disent</h2>
+    </div>
+    <div class="temoignages-grid">
+      <div class="temoignage-card fade-in delay-1">
+        <div class="temoignage-stars">⭐⭐⭐⭐⭐</div>
+        <p class="temoignage-text">
+          "Je l'ai acheté un soir où je me sentais vraiment à plat. Le lendemain matin, j'ai ouvert le Jour 1 et j'ai pleuré tellement c'était juste. Trois mois plus tard, c'est mon rituel."
+        </p>
+        <div class="temoignage-author">
+          <div class="temoignage-avatar avatar-m">M</div>
+          <div>
+            <div class="temoignage-name">Marie, 38 ans</div>
+            <div class="temoignage-location">Lyon · Abonnée depuis 2 ans</div>
+          </div>
+        </div>
+      </div>
+      <div class="temoignage-card fade-in delay-2">
+        <div class="temoignage-stars">⭐⭐⭐⭐⭐</div>
+        <p class="temoignage-text">
+          "Sceptique au départ — je lis peu. Mais là, j'ouvre le PDF chaque matin sur mon téléphone. Une pensée, deux minutes. Ça change vraiment mon état d'esprit avant le travail."
+        </p>
+        <div class="temoignage-author">
+          <div class="temoignage-avatar avatar-j">J</div>
+          <div>
+            <div class="temoignage-name">Jean-Pierre, 52 ans</div>
+            <div class="temoignage-location">Bordeaux · Fidèle lecteur</div>
+          </div>
+        </div>
+      </div>
+      <div class="temoignage-card fade-in delay-3">
+        <div class="temoignage-stars">⭐⭐⭐⭐⭐</div>
+        <p class="temoignage-text">
+          "Je l'ai offert à ma mère pour son anniversaire. Elle m'a appelée en larmes après le Jour 12. On en parle ensemble chaque semaine maintenant. Un cadeau qui lie."
+        </p>
+        <div class="temoignage-author">
+          <div class="temoignage-avatar avatar-c">C</div>
+          <div>
+            <div class="temoignage-name">Catherine, 44 ans</div>
+            <div class="temoignage-location">Paris · Communauté Facebook</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRIX
+     ============================================================ -->
+<section id="prix" class="section">
+  <div class="container">
+    <div class="fade-in" style="text-align:center; margin-bottom:44px;">
+      <span class="section-label">Obtenir l'ebook</span>
+      <h2 class="section-title">Commence demain matin.<br><em>Vraiment.</em></h2>
+    </div>
+    <div class="prix-wrapper">
+      <div class="prix-card fade-in">
+        <div class="prix-badge">🔥 Prix de lancement limité</div>
+        <div class="prix-book-title">365 Pensées Positives</div>
+        <div class="prix-format">Ebook PDF · Téléchargement immédiat</div>
+        <div class="prix-numbers">
+          <span class="prix-barré">9,99€</span>
+          <span class="prix-actuel"><sup>€</sup>4,99</span>
+        </div>
+        <p class="prix-note">Prix de lancement — Durée limitée</p>
+        <ul class="prix-features">
+          <li>365 pensées originales exclusives</li>
+          <li>122 exercices pratiques intégrés</li>
+          <li>Organisé par saison, 12 mois</li>
+          <li>Format PDF lisible partout</li>
+          <li>Accès immédiat après paiement</li>
+          <li>Offrir à quelqu'un que tu aimes</li>
+        </ul>
+        <a href="https://buy.stripe.com/aFacN65F07Y24EP6UH3cc00" class="btn-cta" style="width:100%; display:block;">
+          J'obtiens mon ebook — 4,99€
+        </a>
+        <p class="prix-garantie">🔒 Paiement 100% sécurisé via Stripe &middot; PDF envoyé instantanément</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section id="faq" class="section">
+  <div class="container">
+    <div class="fade-in" style="text-align:center; margin-bottom: 10px;">
+      <span class="section-label">Questions fréquentes</span>
+      <h2 class="section-title">Tout ce que tu veux savoir</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item fade-in delay-1">
+        <button class="faq-question" aria-expanded="false">
+          Dans quel format est l'ebook ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">
+            L'ebook est au format <strong>PDF</strong>, universellement compatible. Tu peux le lire sur ton smartphone, ta tablette, ton ordinateur ou l'imprimer chez toi. Après le paiement, tu reçois un lien de téléchargement immédiat.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in delay-2">
+        <button class="faq-question" aria-expanded="false">
+          Puis-je l'offrir à quelqu'un ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">
+            Absolument ! Un PDF est le cadeau parfait : intemporel, sans frais de livraison, et reçu en quelques secondes. Commande pour toi, puis transfère le fichier par email, WhatsApp ou Messenger. Simple et attentionné.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in delay-3">
+        <button class="faq-question" aria-expanded="false">
+          Est-ce que je peux l'imprimer ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">
+            Oui, tu peux imprimer tout ou partie de l'ebook pour ton usage personnel. Beaucoup de nos lecteurs impriment leur mois en cours et l'affichent près de leur café du matin. ☕
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in delay-4">
+        <button class="faq-question" aria-expanded="false">
+          Et si ça ne me convient pas ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">
+            On a confiance dans ce livre. Si pour une raison ou une autre tu n'es pas satisfait·e, écris-nous via la page Facebook <strong>@PenseePositiveOfficiel</strong> dans les 7 jours suivant l'achat. On trouve une solution ensemble.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="footer-logo">🌿 Pensée Positive</div>
+  <p class="footer-tagline">84 000 abonnés sur Facebook 💙</p>
+  <a href="https://www.facebook.com/PenseePositiveOfficiel" target="_blank" rel="noopener" class="footer-link">
+    @PenseePositiveOfficiel
+  </a>
+  <div class="footer-divider"></div>
+  <p class="footer-legal">© 2025 Pensée Positive · Tous droits réservés</p>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="https://buy.stripe.com/aFacN65F07Y24EP6UH3cc00" class="btn-cta">
+    J'obtiens l'ebook — 4,99€
+  </a>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+  // ---------- Scroll fade-in ----------
+  (function () {
+    var els = document.querySelectorAll('.fade-in');
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (el) { observer.observe(el); });
+
+    // Hero is always visible immediately
+    var hero = document.querySelector('#hero .fade-in');
+    if (hero) { hero.classList.add('visible'); }
+  })();
+
+  // ---------- FAQ accordion ----------
+  (function () {
+    var buttons = document.querySelectorAll('.faq-question');
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var isOpen = btn.getAttribute('aria-expanded') === 'true';
+        // Close all
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-expanded', 'false');
+          var ans = b.nextElementSibling;
+          ans.style.maxHeight = '0';
+        });
+        // Open clicked if it was closed
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          var answer = btn.nextElementSibling;
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  })();
+
+  // ---------- Sticky CTA (mobile) — hide when price section visible ----------
+  (function () {
+    var sticky = document.getElementById('stickyCta');
+    if (!sticky) return;
+    var prix = document.getElementById('prix');
+    var hero = document.getElementById('hero');
+    var heroObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          sticky.style.display = 'none';
+        } else {
+          sticky.style.display = 'flex';
+        }
+      });
+    }, { threshold: 0.5 });
+    if (hero) heroObserver.observe(hero);
+    var prixObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          sticky.style.display = 'none';
+        } else if (hero && !hero.getBoundingClientRect().top > 0) {
+          sticky.style.display = 'flex';
+        }
+      });
+    }, { threshold: 0.3 });
+    if (prix) prixObserver.observe(prix);
+  })();
+</script>
+</body>
+</html>
