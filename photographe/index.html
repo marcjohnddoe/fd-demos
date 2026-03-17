@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophie Moreau Photographie - Photographe Mariage & Portraits à Aurillac</title>
+    <meta name="description" content="Photographe professionnelle de mariage et portraits à Aurillac. Capturez l'émotion de votre jour unique avec Sophie Moreau.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f8f8f0;
+            color: #0a0a0a;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-accent {
+            color: #c9a84c;
+        }
+        .bg-gold {
+            background-color: #c9a84c;
+        }
+        .bg-dark {
+            background-color: #0a0a0a;
+        }
+        .text-cream {
+            color: #f8f8f0;
+        }
+        .bg-cream {
+            background-color: #f8f8f0;
+        }
+        .border-gold {
+            border-color: #c9a84c;
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(10,10,10,0.3), rgba(10,10,10,0.6));
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(201, 168, 76, 0.3);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #c9a84c;
+        }
+        .btn-primary {
+            background-color: #c9a84c;
+            color: #0a0a0a;
+            padding: 14px 32px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            border: 2px solid #c9a84c;
+        }
+        .btn-primary:hover {
+            background-color: transparent;
+            color: #c9a84c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(201, 168, 76, 0.3);
+        }
+        .process-step {
+            position: relative;
+        }
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background-color: #c9a84c;
+            z-index: -1;
+        }
+        .process-step:last-child::before {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .process-step::before {
+                display: none;
+            }
+        }
+        .testimonial-card {
+            background: white;
+            border-left: 4px solid #c9a84c;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(10,10,10,0.08);
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            box-shadow: 0 8px 24px rgba(201, 168, 76, 0.2);
+            transform: translateY(-4px);
+        }
+        .hero-section {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .nav-bar {
+            transition: all 0.3s ease;
+        }
+        .nav-bar.scrolled {
+            background-color: rgba(10, 10, 10, 0.95);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    
+    <!-- Navigation -->
+    <nav class="nav-bar fixed top-0 w-full z-40 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-cream text-2xl font-bold">
+                <span class="gold-accent">Sophie Moreau</span> Photographie
+            </div>
+            <div class="hidden md:flex space-x-8 text-cream">
+                <a href="#accueil" class="hover:text-gold transition">Accueil</a>
+                <a href="#about" class="hover:text-gold transition">À propos</a>
+                <a href="#galerie" class="hover:text-gold transition">Galerie</a>
+                <a href="#prestations" class="hover:text-gold transition">Prestations</a>
+                <a href="#temoignages" class="hover:text-gold transition">Témoignages</a>
+                <a href="#contact" class="hover:text-gold transition font-semibold">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-section" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop');">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative z-10 text-center text-cream px-6">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Capturer l'émotion.<br>
+                <span class="gold-accent">Raconter votre histoire.</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 font-light tracking-wide">
+                Photographe de mariage et portraits à Aurillac, Cantal
+            </p>
+            <a href="#galerie" class="btn-primary inline-block">
+                Voir mes réalisations
+            </a>
+        </div>
+    </section>
+
+    <!-- À propos -->
+    <section id="about" class="py-24 bg-cream">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 section-title">À Propos</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964&auto=format&fit=crop" 
+                         alt="Sophie Moreau Photographe" 
+                         class="rounded-lg shadow-2xl w-full object-cover h-[500px]">
+                </div>
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-semibold gold-accent">Sophie Moreau</h3>
+                    <p class="text-lg leading-relaxed text-gray-700">
+                        Bonjour ! Je suis Sophie, photographe passionnée basée à Aurillac, au cœur du Cantal. 
+                        Depuis plus de 10 ans, j'ai l'immense privilège de capturer les moments les plus précieux 
+                        de la vie de mes clients.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-700">
+                        Ma philosophie ? Chaque mariage, chaque portrait raconte une histoire unique. Mon rôle est 
+                        de saisir l'essence de ces instants, les émotions authentiques, les regards complices, 
+                        les rires spontanés. Je ne me contente pas de prendre des photos — je crée des souvenirs 
+                        intemporels que vous chérirez toute votre vie.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-700">
+                        Mon style est à la fois élégant et émotionnel, avec une touche artistique qui sublime 
+                        la beauté naturelle de chaque moment. J'aime travailler avec la lumière naturelle et 
+                        créer des compositions qui racontent votre histoire d'une manière unique et poétique.
+                    </p>
+                    <div class="pt-4">
+                        <a href="#contact" class="btn-primary inline-block">
+                            Parlons de votre projet
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie -->
+    <section id="galerie" class="py-24 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 section-title text-cream">Galerie</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Découvrez quelques-uns de mes travaux récents — mariages, portraits, et événements 
+                    qui racontent des histoires uniques
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                <!-- Photo 1 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Mariage élégant" 
+                         class="w-full h-80 object-cover">
+                </div>
+                <!-- Photo 2 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=80&w=2071&auto=format&fit=crop" 
+                         alt="Couple de mariés" 
+                         class="w-full h-80 object-cover">
+                </div>
+                <!-- Photo 3 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1887&auto=format&fit=crop" 
+                         alt="Détails de mariage" 
+                         class="w-full h-80 object-cover">
+                </div>
+                <!-- Photo 4 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1594398901394-4e34939a4fd0?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Portrait couple" 
+                         class="w-full h-80 object-cover">
+                </div>
+                <!-- Photo 5 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Cérémonie de mariage" 
+                         class="w-full h-80 object-cover">
+                </div>
+                <!-- Photo 6 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Mariés heureux" 
+                         class="w-full h-80 object-cover">
+                </div>
+                <!-- Photo 7 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Portrait artistique" 
+                         class="w-full h-80 object-cover">
+                </div>
+                <!-- Photo 8 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Réception mariage" 
+                         class="w-full h-80 object-cover">
+                </div>
+                <!-- Photo 9 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Couple nature" 
+                         class="w-full h-80 object-cover">
+                </div>
+                <!-- Photo 10 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=1887&auto=format&fit=crop" 
+                         alt="Mariage champêtre" 
+                         class="w-full h-80 object-cover">
+                </div>
+                <!-- Photo 11 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069&auto=format&fit=crop" 
+                         alt="Portrait intime" 
+                         class="w-full h-80 object-cover">
+                </div>
+                <!-- Photo 12 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Détails émotion" 
+                         class="w-full h-80 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prestations & Tarifs -->
+    <section id="prestations" class="py-24 bg-cream">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 section-title">Prestations & Tarifs</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Des formules adaptées à tous vos besoins, avec une qualité professionnelle garantie
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <!-- Prestation 1 -->
+                <div class="bg-white rounded-lg shadow-xl p-8 hover-scale border-t-4 border-gold">
+                    <div class="text-center mb-6">
+                        <div class="text-5xl mb-4">💍</div>
+                        <h3 class="text-2xl font-bold mb-2">Reportage Mariage</h3>
+                        <div class="gold-accent text-3xl font-bold mb-4">À partir de 1200€</div>
+                    </div>
+                    <ul class="space-y-3 text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Couverture complète 8 heures</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>300+ photos retouchées en haute définition</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Livre photo premium 30x30cm</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Galerie privée en ligne</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Tous droits d'utilisation inclus</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center btn-primary w-full">
+                        Réserver
+                    </a>
+                </div>
+
+                <!-- Prestation 2 -->
+                <div class="bg-white rounded-lg shadow-xl p-8 hover-scale border-t-4 border-gold">
+                    <div class="text-center mb-6">
+                        <div class="text-5xl mb-4">💑</div>
+                        <h3 class="text-2xl font-bold mb-2">Séance Portrait Couple</h3>
+                        <div class="gold-accent text-3xl font-bold mb-4">250€</div>
+                    </div>
+                    <ul class="space-y-3 text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Séance photo 2 heures</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>80 photos retouchées HD</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Lieu au choix (extérieur ou studio)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Conseils tenue et pose</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Livraison sous 15 jours</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center btn-primary w-full">
+                        Réserver
+                    </a>
+                </div>
+
+                <!-- Prestation 3 -->
+                <div class="bg-white rounded-lg shadow-xl p-8 hover-scale border-t-4 border-gold">
+                    <div class="text-center mb-6">
+                        <div class="text-5xl mb-4">🏢</div>
+                        <h3 class="text-2xl font-bold mb-2">Événement Entreprise</h3>
+                        <div class="gold-accent text-3xl font-bold mb-4">À partir de 600€</div>
+                    </div>
+                    <ul class="space-y-3 text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Demi-journée (4h de couverture)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Reportage de votre événement pro</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>150+ photos retouchées HD</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Livraison express 7 jours</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Usage commercial inclus</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center btn-primary w-full">
+                        Réserver
+                    </a>
+                </div>
+
+                <!-- Prestation 4 -->
+                <div class="bg-white rounded-lg shadow-xl p-8 hover-scale border-t-4 border-gold">
+                    <div class="text-center mb-6">
+                        <div class="text-5xl mb-4">🎉</div>
+                        <h3 class="text-2xl font-bold mb-2">EVJF / EVG</h3>
+                        <div class="gold-accent text-3xl font-bold mb-4">350€</div>
+                    </div>
+                    <ul class="space-y-3 text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Couverture 3 heures</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>120 photos retouchées HD</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Ambiance festive et spontanée</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Photos de groupe et portraits</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gold-accent mr-2">✓</span>
+                            <span>Galerie partageable en ligne</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center btn-primary w-full">
+                        Réserver
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-lg text-gray-600 italic">
+                    Tous les tarifs sont TTC. Devis personnalisé sur demande pour des prestations sur-mesure.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processus -->
+    <section id="processus" class="py-24 bg-dark text-cream">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 section-title">Comment ça se passe ?</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Un processus simple et transparent, pour une collaboration sereine et des résultats exceptionnels
+                </p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto relative">
+                <!-- Étape 1 -->
+                <div class="process-step text-center">
+                    <div class="bg-gold w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold text-dark mx-auto mb-6">
+                        1
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 gold-accent">Premier Contact</h3>
+                    <p class="text-gray-300">
+                        Vous me contactez via le formulaire ou par téléphone. Je réponds sous 24h pour échanger 
+                        sur votre projet et vos attentes.
+                    </p>
+                </div>
+
+                <!-- Étape 2 -->
+                <div class="process-step text-center">
+                    <div class="bg-gold w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold text-dark mx-auto mb-6">
+                        2
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 gold-accent">Rencontre & Devis</h3>
+                    <p class="text-gray-300">
+                        Nous nous rencontrons (en personne ou visio) pour affiner votre vision. 
+                        Je vous envoie un devis personnalisé et transparent.
+                    </p>
+                </div>
+
+                <!-- Étape 3 -->
+                <div class="process-step text-center">
+                    <div class="bg-gold w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold text-dark mx-auto mb-6">
+                        3
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 gold-accent">Jour J - Shooting</h3>
+                    <p class="text-gray-300">
+                        Le grand jour ! Je capture chaque moment avec discrétion et professionnalisme. 
+                        Vous profitez pleinement, je m'occupe du reste.
+                    </p>
+                </div>
+
+                <!-- Étape 4 -->
+                <div class="process-step text-center">
+                    <div class="bg-gold w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold text-dark mx-auto mb-6">
+                        4
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 gold-accent">Livraison & Souvenirs</h3>
+                    <p class="text-gray-300">
+                        Retouche minutieuse de vos photos. Livraison dans les délais convenus via galerie en ligne 
+                        et supports physiques si souhaité.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section id="temoignages" class="py-24 bg-cream">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 section-title">Ils me font confiance</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Les retours de mes clients sont ma plus belle récompense
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Témoignage 1 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-gold text-2xl">★★★★★</div>
+                    </div>
+                    <p class="text-gray-700 text-lg italic mb-6">
+                        "Sophie a su capturer chaque émotion de notre mariage avec une sensibilité incroyable. 
+                        Les photos sont absolument magnifiques, et nous revivons notre journée à chaque fois 
+                        que nous les regardons. Professionnalisme, discrétion et talent artistique : 
+                        Sophie a tout pour elle ! Merci infiniment."
+                    </p>
+                    <div class="font-semibold text-gray-900">Marie & Thomas</div>
+                    <div class="text-gray-500 text-sm">Mariage à Aurillac, Juillet 2025</div>
+                </div>
+
+                <!-- Témoignage 2 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-gold text-2xl">★★★★★</div>
+                    </div>
+                    <p class="text-gray-700 text-lg italic mb-6">
+                        "Nous avons fait appel à Sophie pour notre événement d'entreprise. Elle a su s'adapter 
+                        parfaitement à nos besoins et a livré des photos d'une qualité exceptionnelle en un 
+                        temps record. Nos collaborateurs étaient ravis ! Nous la recommandons sans hésitation 
+                        pour tout événement professionnel."
+                    </p>
+                    <div class="font-semibold text-gray-900">Jean-Marc Dubois</div>
+                    <div class="text-gray-500 text-sm">Directeur, Tech Innovations Auvergne</div>
+                </div>
+
+                <!-- Témoignage 3 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-gold text-2xl">★★★★★</div>
+                    </div>
+                    <p class="text-gray-700 text-lg italic mb-6">
+                        "Sophie est une artiste ! Notre séance photo de couple était une première pour nous, 
+                        et elle nous a mis à l'aise immédiatement. Le résultat dépasse toutes nos attentes : 
+                        des photos naturelles, élégantes et pleines d'émotion. Un souvenir précieux que nous 
+                        garderons toute notre vie."
+                    </p>
+                    <div class="font-semibold text-gray-900">Léa & Alexandre</div>
+                    <div class="text-gray-500 text-sm">Séance portrait couple, Octobre 2025</div>
+                </div>
+
+                <!-- Témoignage 4 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-gold text-2xl">★★★★★</div>
+                    </div>
+                    <p class="text-gray-700 text-lg italic mb-6">
+                        "Pour mon EVJF, Sophie était parfaite ! Elle a capturé tous les moments de rire et de 
+                        complicité avec mes copines. Les photos sont sublimes et pleines de vie. En plus, elle 
+                        était super discrète et sympathique. Je la recommande à 100% pour tous vos événements 
+                        spéciaux !"
+                    </p>
+                    <div class="font-semibold text-gray-900">Chloé Martin</div>
+                    <div class="text-gray-500 text-sm">EVJF à Saint-Flour, Juin 2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zone géographique -->
+    <section id="zone" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 section-title">Zone d'intervention</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Basée à Aurillac, j'interviens dans toute l'Auvergne et au-delà
+                </p>
+            </div>
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4 gold-accent">📍 Interventions régulières</h3>
+                        <ul class="space-y-3 text-lg text-gray-700">
+                            <li class="flex items-start">
+                                <span class="gold-accent mr-2 text-xl">•</span>
+                                <span><strong>Aurillac</strong> et agglomération (15000)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="gold-accent mr-2 text-xl">•</span>
+                                <span><strong>Cantal</strong> : Mauriac, Saint-Flour, Murat, Vic-sur-Cère</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="gold-accent mr-2 text-xl">•</span>
+                                <span><strong>Auvergne</strong> : Clermont-Ferrand, Le Puy-en-Velay, Vichy</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="gold-accent mr-2 text-xl">•</span>
+                                <span><strong>Régions limitrophes</strong> : Lot, Aveyron, Corrèze, Haute-Loire</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-8 p-6 bg-white rounded-lg border-l-4 border-gold">
+                            <h4 class="font-bold text-xl mb-2 gold-accent">🌍 Déplacements nationaux</h4>
+                            <p class="text-gray-700">
+                                Pour votre mariage, je me déplace partout en France ! Que vous vous mariez en 
+                                Provence, en Bretagne ou à Paris, je serai là pour immortaliser votre jour unique.
+                            </p>
+                            <p class="text-sm text-gray-500 mt-3 italic">
+                                Frais de déplacement calculés selon la distance — devis personnalisé sur demande
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop" 
+                         alt="Paysage Auvergne Cantal" 
+                         class="rounded-lg shadow-2xl w-full h-auto">
+                    <div class="mt-6 text-center">
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            <strong class="gold-accent">Le Cantal</strong>, terre de caractère et de beauté naturelle, 
+                            offre des décors exceptionnels pour vos photos de mariage. Entre volcans, lacs et 
+                            châteaux, chaque lieu raconte une histoire.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Booking -->
+    <section id="contact" class="py-24 bg-dark text-cream">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 section-title">Réservez votre date</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Parlons de votre projet ! Je réponds sous 24h à toutes vos demandes.
+                </p>
+            </div>
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-2xl p-8 md:p-12">
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Votre prénom *</label>
+                            <input type="text" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold transition"
+                                   placeholder="Marie">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Votre nom *</label>
+                            <input type="text" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold transition"
+                                   placeholder="Dupont">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Email *</label>
+                            <input type="email" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold transition"
+                                   placeholder="marie.dupont@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Téléphone *</label>
+                            <input type="tel" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold transition"
+                                   placeholder="06 12 34 56 78">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Type de prestation *</label>
+                            <select required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold transition bg-white">
+                                <option value="">-- Sélectionnez --</option>
+                                <option value="mariage">Reportage mariage complet</option>
+                                <option value="portrait">Séance portrait couple</option>
+                                <option value="entreprise">Événement entreprise</option>
+                                <option value="evjf">EVJF / EVG</option>
+                                <option value="autre">Autre projet</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Date souhaitée *</label>
+                            <input type="date" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Lieu de l'événement</label>
+                        <input type="text"
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold transition"
+                               placeholder="Aurillac, Cantal">
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Style recherché & message</label>
+                        <textarea rows="6"
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold transition"
+                                  placeholder="Décrivez votre projet, vos attentes, le style que vous recherchez (romantique, moderne, champêtre, artistique...), et toute information utile pour votre événement."></textarea>
+                    </div>
+
+                    <div class="text-center pt-4">
+                        <button type="submit" class="btn-primary text-lg px-12 py-4">
+                            Envoyer ma demande
+                        </button>
+                        <p class="text-sm text-gray-500 mt-4">
+                            * Champs obligatoires — Réponse garantie sous 24h
+                        </p>
+                    </div>
+                </form>
+
+                <div class="mt-12 pt-8 border-t border-gray-200 text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 gold-accent">Coordonnées directes</h3>
+                    <div class="space-y-3 text-gray-700">
+                        <p class="text-lg">
+                            <strong>📧 Email :</strong> 
+                            <a href="mailto:contact@sophiemoreau-photo.fr" class="gold-accent hover:underline">
+                                contact@sophiemoreau-photo.fr
+                            </a>
+                        </p>
+                        <p class="text-lg">
+                            <strong>📱 Téléphone :</strong> 
+                            <a href="tel:+33612345678" class="gold-accent hover:underline">
+                                06 12 34 56 78
+                            </a>
+                        </p>
+                        <p class="text-lg">
+                            <strong>📍 Localisation :</strong> Aurillac (15000), Cantal, Auvergne
+                        </p>
+                    </div>
+                    <div class="mt-6 flex justify-center space-x-6 text-3xl">
+                        <a href="#" class="gold-accent hover:opacity-70 transition">📸</a>
+                        <a href="#" class="gold-accent hover:opacity-70 transition">📘</a>
+                        <a href="#" class="gold-accent hover:opacity-70 transition">💼</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer FacadeDigitale -->
+    <div class="w-full bg-gray-900 text-white text-center py-6 text-sm">
+        <div class="container mx-auto px-6">
+            <p class="text-base mb-2">
+                Site démo créé par 
+                <a href="https://facadedigitale.fr" class="text-yellow-400 font-bold hover:text-yellow-300 transition text-lg">
+                    FacadeDigitale
+                </a>
+            </p>
+            <p class="text-yellow-400 font-semibold text-lg">
+                Votre site professionnel à partir de 199€
+            </p>
+            <p class="text-gray-400 text-xs mt-3">
+                Design moderne • Responsive • Optimisé SEO • Livraison rapide
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav-bar');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler (demo)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre demande ! Dans un site réel, ce formulaire enverrait vos informations à Sophie.\n\nCe site est une démo créée par FacadeDigitale.\nContactez-nous pour créer VOTRE site professionnel !');
+        });
+
+        // Lazy loading optimization for images
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.loading = 'lazy';
+            });
+        }
+
+        // Add animation on scroll (simple observer)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe gallery items for animation
+        document.querySelectorAll('.gallery-item, .testimonial-card, .process-step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Console message
+        console.log('🎨 Site démo Sophie Moreau Photographie');
+        console.log('⚡ Créé par FacadeDigitale - https://facadedigitale.fr');
+        console.log('💼 Besoin d\'un site comme celui-ci ? Contactez-nous !');
+    </script>
+
+</body>
+</html>
