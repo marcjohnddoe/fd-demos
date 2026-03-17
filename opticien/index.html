@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OPTIQUE CLAIRE — Opticien indépendant à Dijon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--cream:#FFF8E7;--teal:#006D77;--orange:#E8871E}
+    body{font-family:'Karla',sans-serif;background:var(--cream);color:#1f2937}
+    h1,h2,h3,.brand{font-family:'Syne',sans-serif}
+    .vintage{border:2px solid var(--teal);box-shadow:6px 6px 0 rgba(0,109,119,.22)}
+    .frame-circle{position:relative}
+    .frame-circle::before,.frame-circle::after{content:'';position:absolute;width:140px;height:140px;border:5px solid rgba(0,109,119,.5);border-radius:999px;top:50%;transform:translateY(-50%)}
+    .frame-circle::before{left:calc(50% - 160px)}
+    .frame-circle::after{right:calc(50% - 160px)}
+    @media (max-width:768px){.frame-circle::before,.frame-circle::after{display:none}}
+    .chip.active{background:var(--teal);color:#fff;border-color:var(--teal)}
+  </style>
+</head>
+<body>
+  <header class="sticky top-0 z-40 bg-[#FFF8E7]/95 backdrop-blur border-b border-[#006D77]/20">
+    <nav class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="brand text-2xl text-[#006D77]">OPTIQUE CLAIRE</div>
+      <div class="hidden md:flex gap-6 text-sm font-medium">
+        <a href="#collections" class="hover:text-[#006D77]">Collections</a>
+        <a href="#essayage" class="hover:text-[#006D77]">Essayage</a>
+        <a href="#mutuelle" class="hover:text-[#006D77]">Mutuelle</a>
+        <a href="#rdv" class="hover:text-[#006D77]">RDV</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-8 items-center frame-circle">
+    <div>
+      <p class="uppercase text-xs tracking-[.25em] text-[#E8871E]">Dijon • Opticien indépendant</p>
+      <h1 class="text-5xl md:text-6xl text-[#006D77] mt-3">Le regard 60s, version 2026.</h1>
+      <p class="mt-5">Montures sélectionnées en séries courtes, réglages fins en atelier, conseils visagisme et adaptation verres de haute précision.</p>
+      <a href="#rdv" class="inline-block mt-7 px-6 py-3 rounded-full bg-[#006D77] text-white font-semibold">Prendre rendez-vous</a>
+    </div>
+    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80" alt="Lunettes rétro" class="w-full h-[420px] rounded-[2rem] object-cover vintage"/>
+  </section>
+
+  <section id="collections" class="max-w-6xl mx-auto px-4 py-14">
+    <h2 class="text-3xl md:text-4xl text-[#006D77]">Collections</h2>
+    <div class="mt-7 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <article class="vintage rounded-3xl p-5 bg-white"><h3 class="text-2xl text-[#006D77]">Solaires</h3><p class="mt-2 text-sm">Acétate coloré, filtres UV premium.</p></article>
+      <article class="vintage rounded-3xl p-5 bg-white"><h3 class="text-2xl text-[#006D77]">Vue</h3><p class="mt-2 text-sm">Montures légères et élégantes au quotidien.</p></article>
+      <article class="vintage rounded-3xl p-5 bg-white"><h3 class="text-2xl text-[#006D77]">Sport</h3><p class="mt-2 text-sm">Maintien et résistance pour activité intense.</p></article>
+      <article class="vintage rounded-3xl p-5 bg-white"><h3 class="text-2xl text-[#006D77]">Enfant</h3><p class="mt-2 text-sm">Confort renforcé, styles ludiques et solides.</p></article>
+    </div>
+  </section>
+
+  <section id="essayage" class="bg-white/70 border-y border-[#006D77]/20">
+    <div class="max-w-6xl mx-auto px-4 py-14 grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl text-[#006D77]">Essayage virtuel concept</h2>
+        <p class="mt-3">Choisissez une forme pour prévisualiser votre style avant passage en boutique.</p>
+        <div class="mt-5 flex flex-wrap gap-2" id="chips"></div>
+      </div>
+      <div class="vintage bg-[#FFF8E7] rounded-[2rem] p-6">
+        <img id="tryImg" src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=900&q=80" alt="Essayage lunettes" class="w-full h-72 object-cover rounded-2xl">
+        <p id="tryLabel" class="mt-3 text-sm font-semibold text-[#006D77]">Forme: Pantos vintage</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="mutuelle" class="max-w-6xl mx-auto px-4 py-14">
+    <h2 class="text-3xl md:text-4xl text-[#006D77]">Mutuelle & remboursement</h2>
+    <p class="mt-4">Tiers payant avec la majorité des complémentaires santé (Harmonie, MGEN, Alan, April, etc.). Devis détaillé en 10 minutes, reste à charge expliqué clairement avant validation.</p>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 pb-14 grid md:grid-cols-2 gap-8 items-center">
+    <img src="https://images.unsplash.com/photo-1514389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80" alt="Opticien en conseil" class="w-full h-[340px] object-cover rounded-[2rem] vintage"/>
+    <div>
+      <h2 class="text-3xl md:text-4xl text-[#006D77]">L'opticien</h2>
+      <p class="mt-4">Claire B. vous reçoit sur rendez-vous pour bilan style, ajustage précis et suivi visuel. Atelier indépendant en centre-ville, à deux pas des Halles de Dijon.</p>
+    </div>
+  </section>
+
+  <section id="rdv" class="bg-[#006D77] text-white">
+    <div class="max-w-6xl mx-auto px-4 py-14 grid md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-3xl md:text-4xl">Prendre RDV</h2>
+        <p class="mt-3 text-white/90">Bilan monture, adaptation verres, réparation express.</p>
+      </div>
+      <form class="grid gap-3" onsubmit="event.preventDefault();document.getElementById('ok').classList.remove('hidden')">
+        <input required class="px-4 py-3 rounded-xl text-slate-800" placeholder="Nom"/>
+        <input required type="tel" class="px-4 py-3 rounded-xl text-slate-800" placeholder="Téléphone"/>
+        <select class="px-4 py-3 rounded-xl text-slate-800"><option>Type de RDV</option><option>Choix monture</option><option>Contrôle visuel</option><option>Réglage / réparation</option></select>
+        <button class="px-5 py-3 rounded-xl bg-[#E8871E] font-semibold">Confirmer</button>
+        <p id="ok" class="hidden text-sm text-orange-100">Parfait, nous revenons vers vous pour confirmation.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-10 text-sm">Contact: 03 80 44 12 90 • bonjour@optiqueclaire.fr • 6 rue Piron, Dijon</section>
+  <footer class="text-center text-sm py-6 bg-[#004d55] text-white">Site créé par FacadeDigitale — 2026</footer>
+
+  <script>
+    const models=[
+      {name:'Pantos vintage',img:'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=900&q=80'},
+      {name:'Carrée bold',img:'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80'},
+      {name:'Cat-eye rétro',img:'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=900&q=80'},
+      {name:'Ronde 60s',img:'https://images.unsplash.com/photo-1544717302-de2939b7ef71?auto=format&fit=crop&w=900&q=80'}
+    ];
+    const chips=document.getElementById('chips');
+    const tryImg=document.getElementById('tryImg');
+    const tryLabel=document.getElementById('tryLabel');
+    models.forEach((m,idx)=>{
+      const b=document.createElement('button');
+      b.textContent=m.name;
+      b.className='chip px-4 py-2 rounded-full border border-[#006D77]/35 text-sm';
+      b.onclick=()=>{tryImg.src=m.img;tryLabel.textContent='Forme: '+m.name;[...chips.children].forEach(c=>c.classList.remove('active'));b.classList.add('active');};
+      chips.appendChild(b);
+      if(idx===0)b.click();
+    });
+  </script>
+</body>
+</html>
