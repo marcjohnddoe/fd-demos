@@ -1,276 +1,802 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio Moreau — Architecte & Designer d'Intérieur à Lyon</title>
-<meta name="description" content="Cabinet d'architecture et design d'intérieur à Lyon. Rénovation, aménagement, espaces sur-mesure. Devis gratuit.">
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  :root{--cream:#f5f0e8;--sand:#c8b89a;--dark:#1c1c1c;--mid:#3a3a3a;--accent:#8b6f47;--light:#fafaf7}
-  body{font-family:'Helvetica Neue',Arial,sans-serif;color:var(--dark);background:#fff;font-weight:300}
-  header{background:#fff;padding:0 32px;position:sticky;top:0;z-index:100;border-bottom:1px solid #e8e0d4}
-  .nav{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:72px}
-  .logo{font-size:1.1rem;letter-spacing:4px;text-transform:uppercase;font-weight:400;color:var(--dark)}
-  .logo span{color:var(--accent)}
-  nav a{color:var(--mid);text-decoration:none;margin-left:36px;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;transition:.2s}
-  nav a:hover{color:var(--accent)}
-  .hero{background:var(--dark);color:#fff;padding:0;min-height:90vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
-  .hero-text{padding:100px 60px;display:flex;flex-direction:column;justify-content:center;z-index:2}
-  .hero-tag{font-size:.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--sand);margin-bottom:28px;opacity:.8}
-  .hero h1{font-size:3.2rem;font-weight:200;line-height:1.2;margin-bottom:24px;letter-spacing:-0.5px}
-  .hero h1 strong{font-weight:600;display:block;color:var(--sand)}
-  .hero p{font-size:1rem;opacity:.7;line-height:1.9;max-width:420px;margin-bottom:44px}
-  .hero-visual{background:linear-gradient(135deg,#2a2a2a 0%,#1a1a1a 50%,#2d2520 100%);position:relative;overflow:hidden}
-  .hero-visual::before{content:'';position:absolute;inset:0;background:
-    repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(200,184,154,.04) 60px,rgba(200,184,154,.04) 61px),
-    repeating-linear-gradient(-45deg,transparent,transparent 60px,rgba(200,184,154,.03) 60px,rgba(200,184,154,.03) 61px)}
-  .hero-visual-inner{position:absolute;inset:20%;border:1px solid rgba(200,184,154,.2);display:flex;align-items:center;justify-content:center}
-  .hero-visual-inner::after{content:'△';font-size:6rem;color:rgba(200,184,154,.15);font-weight:100}
-  .btn{display:inline-block;background:var(--accent);color:#fff;padding:16px 40px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;font-size:.8rem;font-weight:500;transition:.25s}
-  .btn:hover{background:#7a5f3a;transform:translateY(-2px)}
-  .btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);margin-left:16px}
-  .btn-outline:hover{border-color:var(--sand);color:var(--sand);background:transparent}
-  section{padding:90px 32px}
-  .container{max-width:1100px;margin:0 auto}
-  .section-tag{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);text-align:center;margin-bottom:12px}
-  h2{font-size:2rem;font-weight:200;text-align:center;letter-spacing:-0.3px;margin-bottom:60px;color:var(--dark)}
-  h2 span{display:block;font-weight:600}
-  .divider{width:40px;height:1px;background:var(--accent);margin:16px auto 48px}
-  /* Services */
-  .services{background:var(--light)}
-  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-  .service-card{background:#fff;padding:48px 36px;transition:.2s;cursor:default}
-  .service-card:hover{background:var(--cream)}
-  .service-num{font-size:.7rem;letter-spacing:4px;color:var(--accent);margin-bottom:20px;font-weight:500}
-  .service-card h3{font-size:1.15rem;font-weight:400;margin-bottom:14px;letter-spacing:.5px}
-  .service-card p{font-size:.9rem;color:#666;line-height:1.7}
-  /* Portfolio */
-  .portfolio{background:#fff}
-  .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-  .project{background:var(--dark);aspect-ratio:4/3;position:relative;overflow:hidden;cursor:pointer}
-  .project::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#2a2520 0%,#1a2a1a 100%);transition:.3s}
-  .project:nth-child(2)::before{background:linear-gradient(135deg,#1a2030 0%,#2a1a10 100%)}
-  .project:nth-child(3)::before{background:linear-gradient(135deg,#201a2a 0%,#1a2010 100%)}
-  .project:nth-child(4)::before{background:linear-gradient(135deg,#1a2a2a 0%,#2a1a20 100%)}
-  .project:nth-child(5)::before{background:linear-gradient(135deg,#2a2020 0%,#1a2a2a 100%)}
-  .project:nth-child(6)::before{background:linear-gradient(135deg,#201a1a 0%,#1a2030 100%)}
-  .project:hover::before{opacity:.6}
-  .project-info{position:absolute;bottom:0;left:0;right:0;padding:28px 24px;color:#fff;z-index:1;background:linear-gradient(transparent,rgba(0,0,0,.8))}
-  .project-info h4{font-size:.9rem;font-weight:400;letter-spacing:1px;margin-bottom:4px}
-  .project-info p{font-size:.75rem;opacity:.6;letter-spacing:1px;text-transform:uppercase}
-  .project-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:3rem;opacity:.08;color:var(--sand)}
-  /* Expertise */
-  .expertise{background:var(--dark);color:#fff}
-  .expertise h2{color:#fff}
-  .expertise h2 span{color:var(--sand)}
-  .expertise .section-tag{color:var(--sand)}
-  .expertise-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:60px}
-  .expertise-text p{font-size:1rem;opacity:.7;line-height:1.9;margin-bottom:24px}
-  .expertise-text p strong{color:var(--sand);font-weight:500;opacity:1}
-  .expertise-stats{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-  .stat{border-top:1px solid rgba(200,184,154,.2);padding-top:28px}
-  .stat-num{font-size:2.8rem;font-weight:200;color:var(--sand);line-height:1}
-  .stat-label{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;opacity:.5;margin-top:8px}
-  /* Temoignages */
-  .temoignages{background:var(--cream)}
-  .temoignages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .temoignage{background:#fff;padding:36px 32px}
-  .stars{color:var(--accent);font-size:1rem;margin-bottom:16px;letter-spacing:2px}
-  .temoignage blockquote{font-size:.95rem;font-style:italic;color:var(--mid);line-height:1.8;margin-bottom:20px}
-  .temoignage cite{font-size:.8rem;font-weight:500;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-style:normal}
-  /* CTA */
-  .cta-section{background:var(--accent);color:#fff;padding:90px 32px;text-align:center}
-  .cta-section h2{color:#fff;font-weight:200;font-size:2.2rem;text-align:center;margin-bottom:12px}
-  .cta-section h2 span{font-weight:600;display:inline}
-  .cta-section p{opacity:.85;margin-bottom:40px;font-size:1rem;line-height:1.8}
-  .btn-white{background:#fff;color:var(--accent);padding:18px 48px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;font-size:.85rem;font-weight:600;display:inline-block;transition:.2s}
-  .btn-white:hover{background:var(--cream);transform:translateY(-2px)}
-  footer{background:var(--dark);color:rgba(255,255,255,.5);padding:48px 32px;text-align:center;font-size:.85rem;line-height:1.9}
-  footer strong{color:rgba(255,255,255,.8)}
-  @media(max-width:768px){
-    .hero{grid-template-columns:1fr}
-    .hero-visual{display:none}
-    .hero-text{padding:80px 28px}
-    .hero h1{font-size:2.2rem}
-    .services-grid,.projects-grid,.temoignages-grid{grid-template-columns:1fr}
-    .expertise-grid{grid-template-columns:1fr}
-    .expertise-stats{grid-template-columns:1fr 1fr}
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Élise Moreau — Architecture d'Intérieur</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --anthracite: #2C2C2C;
+      --cream: #F8F5F0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: var(--anthracite);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* Scroll animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Gold accent line */
+    .gold-line {
+      display: inline-block;
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      vertical-align: middle;
+      margin-right: 12px;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(255,255,255,0.97);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.08);
+    }
+
+    /* Hero */
+    .hero-bg {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2C2C2C 50%, #1a1212 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* Portfolio cards */
+    .portfolio-card {
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .portfolio-card .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(44,44,44,0.9) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .portfolio-card:hover .overlay {
+      opacity: 1;
+    }
+    .portfolio-card .card-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 24px;
+      transform: translateY(20px);
+      transition: transform 0.4s ease;
+    }
+    .portfolio-card:hover .card-content {
+      transform: translateY(0);
+    }
+    .portfolio-card .emoji-bg {
+      transition: transform 0.6s ease;
+    }
+    .portfolio-card:hover .emoji-bg {
+      transform: scale(1.05);
+    }
+
+    /* Gold button */
+    .btn-gold {
+      display: inline-block;
+      padding: 14px 40px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+    .btn-gold:hover {
+      background: var(--gold);
+      color: #fff;
+    }
+    .btn-gold-solid {
+      background: var(--gold);
+      color: #fff;
+    }
+    .btn-gold-solid:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    /* Service cards */
+    .service-card {
+      border: 1px solid rgba(201,168,76,0.2);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+      border-left: 2px solid var(--gold);
+    }
+
+    /* Form inputs */
+    .form-input {
+      border: none;
+      border-bottom: 1px solid #ddd;
+      outline: none;
+      padding: 12px 0;
+      width: 100%;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      color: var(--anthracite);
+      background: transparent;
+      transition: border-color 0.3s ease;
+    }
+    .form-input:focus {
+      border-bottom-color: var(--gold);
+    }
+    .form-input::placeholder {
+      color: #aaa;
+      font-weight: 300;
+    }
+
+    /* Stats */
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: var(--gold); }
+  </style>
 </head>
 <body>
 
-<header>
-  <div class="nav">
-    <div class="logo">Studio <span>Moreau</span></div>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#expertise">Studio</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<!-- ═══════════════════════════════ NAVIGATION ═══════════════════════════════ -->
+<nav id="navbar" class="py-5 px-8 md:px-16 flex items-center justify-between">
+  <a href="#" class="serif text-white text-xl font-light tracking-widest" id="nav-logo">
+    ÉLISE MOREAU
+  </a>
+  <div class="hidden md:flex items-center gap-10">
+    <a href="#portfolio" class="text-white/70 hover:text-white text-xs tracking-widest uppercase transition nav-link">Portfolio</a>
+    <a href="#services" class="text-white/70 hover:text-white text-xs tracking-widest uppercase transition nav-link">Services</a>
+    <a href="#about" class="text-white/70 hover:text-white text-xs tracking-widest uppercase transition nav-link">À propos</a>
+    <a href="#testimonials" class="text-white/70 hover:text-white text-xs tracking-widest uppercase transition nav-link">Témoignages</a>
+    <a href="#contact" class="btn-gold text-xs py-2 px-6">Devis</a>
   </div>
-</header>
+  <!-- Mobile menu button -->
+  <button id="menu-btn" class="md:hidden text-white">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+</nav>
 
-<section class="hero">
-  <div class="hero-text">
-    <div class="hero-tag">Architecture & Design d'Intérieur · Lyon</div>
-    <h1>Des espaces <strong>qui vous ressemblent</strong></h1>
-    <p>Nous transformons vos idées en lieux de vie uniques. De la conception à la livraison, chaque projet est pensé sur-mesure, avec exigence et sensibilité.</p>
-    <div>
-      <a href="#contact" class="btn">Devis gratuit</a>
-      <a href="#portfolio" class="btn btn-outline">Voir le portfolio</a>
+<!-- Mobile menu -->
+<div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-[#1a1a1a] flex-col items-center justify-center">
+  <button id="close-menu" class="absolute top-6 right-8 text-white">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+  <div class="flex flex-col items-center gap-8">
+    <a href="#portfolio" class="serif text-white text-3xl font-light mobile-nav-link">Portfolio</a>
+    <a href="#services" class="serif text-white text-3xl font-light mobile-nav-link">Services</a>
+    <a href="#about" class="serif text-white text-3xl font-light mobile-nav-link">À propos</a>
+    <a href="#testimonials" class="serif text-white text-3xl font-light mobile-nav-link">Témoignages</a>
+    <a href="#contact" class="btn-gold mt-4 mobile-nav-link">Demander un devis</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section class="hero-bg min-h-screen flex items-center relative" style="padding-top: 80px;">
+
+  <!-- Decorative gold lines -->
+  <div class="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-[#C9A84C]/20 to-transparent"></div>
+  <div class="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-[#C9A84C]/20 to-transparent"></div>
+
+  <div class="container mx-auto px-8 md:px-16 py-24">
+    <div class="max-w-4xl">
+      <p class="text-[#C9A84C] text-xs tracking-[6px] uppercase mb-8 font-light reveal">
+        <span class="gold-line"></span>Architecture d'Intérieur · Paris
+      </p>
+      <h1 class="text-white text-5xl md:text-7xl lg:text-8xl font-light leading-tight mb-8 reveal" style="transition-delay: 0.1s;">
+        L'art de<br/>
+        <em class="text-[#C9A84C]">sublimer</em><br/>
+        vos espaces.
+      </h1>
+      <p class="text-white/50 text-base md:text-lg font-light leading-relaxed max-w-lg mb-12 reveal" style="transition-delay: 0.2s;">
+        Chaque espace raconte une histoire. Nous créons des intérieurs d'exception qui reflètent votre personnalité et dépassent vos attentes.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 reveal" style="transition-delay: 0.3s;">
+        <a href="#portfolio" class="btn-gold btn-gold-solid text-center">Voir mes réalisations</a>
+        <a href="#contact" class="btn-gold text-center">Demander un devis</a>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-3 gap-8 mt-24 pt-12 border-t border-white/10 max-w-2xl reveal" style="transition-delay: 0.4s;">
+      <div>
+        <p class="stat-num text-5xl md:text-6xl font-light">12</p>
+        <p class="text-white/40 text-xs tracking-widest uppercase mt-1">Ans d'expérience</p>
+      </div>
+      <div>
+        <p class="stat-num text-5xl md:text-6xl font-light">200<sup class="text-2xl">+</sup></p>
+        <p class="text-white/40 text-xs tracking-widest uppercase mt-1">Projets réalisés</p>
+      </div>
+      <div>
+        <p class="stat-num text-5xl md:text-6xl font-light">🌍</p>
+        <p class="text-white/40 text-xs tracking-widest uppercase mt-1">France & International</p>
+      </div>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="hero-visual-inner"></div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+    <p class="text-white/30 text-xs tracking-widest uppercase">Découvrir</p>
+    <div class="w-px h-12 bg-gradient-to-b from-[#C9A84C]/50 to-transparent animate-pulse"></div>
   </div>
 </section>
 
-<section class="services" id="services">
-  <div class="container">
-    <div class="section-tag">Expertises</div>
-    <h2>Ce que nous <span>créons pour vous</span></h2>
-    <div class="divider"></div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-num">01</div>
-        <h3>Architecture Résidentielle</h3>
-        <p>Extension, surélévation, rénovation complète. Plans, permis de construire, suivi de chantier — on gère tout.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">02</div>
-        <h3>Design d'Intérieur</h3>
-        <p>Aménagement de salons, cuisines, chambres. Sélection matériaux, mobilier, éclairage. Un espace cohérent et signé.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">03</div>
-        <h3>Aménagement Commercial</h3>
-        <p>Boutiques, restaurants, bureaux. Concept visuel fort, optimisation de l'espace, respect du budget et des délais.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">04</div>
-        <h3>Maîtrise d'Œuvre</h3>
-        <p>Coordination complète des corps de métier. Planification, contrôle qualité, réception de chantier. Zéro stress pour vous.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">05</div>
-        <h3>Conseil & Colorimétrie</h3>
-        <p>Une seule visite pour transformer une pièce. Palettes de couleurs, textiles, repositionnement du mobilier existant.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">06</div>
-        <h3>Rénovation Énergétique</h3>
-        <p>Isolation, ventilation, chauffage. Dossiers MaPrimeRénov' pris en charge. Performance + esthétique, sans compromis.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ═══════════════════════════════ PORTFOLIO ═══════════════════════════════ -->
+<section id="portfolio" class="py-28 bg-white">
+  <div class="container mx-auto px-8 md:px-16">
 
-<section class="portfolio" id="portfolio">
-  <div class="container">
-    <div class="section-tag">Réalisations</div>
-    <h2>Quelques <span>projets récents</span></h2>
-    <div class="divider"></div>
-  </div>
-  <div class="projects-grid">
-    <div class="project">
-      <div class="project-icon">⬡</div>
-      <div class="project-info"><h4>Villa Contemporaine</h4><p>Lyon 6e · 280 m²</p></div>
+    <div class="text-center mb-16 reveal">
+      <p class="text-[#C9A84C] text-xs tracking-[6px] uppercase mb-4 font-light">
+        <span class="gold-line"></span>Réalisations<span class="gold-line" style="margin-right:0; margin-left:12px;"></span>
+      </p>
+      <h2 class="text-5xl md:text-6xl font-light text-[#2C2C2C]">Portfolio</h2>
+      <p class="text-gray-400 text-sm mt-4 font-light max-w-md mx-auto">
+        Une sélection de projets résidentiels et commerciaux, chacun pensé sur mesure.
+      </p>
     </div>
-    <div class="project">
-      <div class="project-icon">◻</div>
-      <div class="project-info"><h4>Loft Industriel</h4><p>La Confluence · 140 m²</p></div>
-    </div>
-    <div class="project">
-      <div class="project-icon">△</div>
-      <div class="project-info"><h4>Restaurant Bistrot</h4><p>Vieux Lyon · 80 couverts</p></div>
-    </div>
-    <div class="project">
-      <div class="project-icon">○</div>
-      <div class="project-info"><h4>Maison Haussmannienne</h4><p>Lyon 2e · 190 m²</p></div>
-    </div>
-    <div class="project">
-      <div class="project-icon">⬡</div>
-      <div class="project-info"><h4>Boutique Concept Store</h4><p>Part-Dieu · 65 m²</p></div>
-    </div>
-    <div class="project">
-      <div class="project-icon">◻</div>
-      <div class="project-info"><h4>Appartement Terasse</h4><p>Lyon 5e · 110 m²</p></div>
-    </div>
-  </div>
-</section>
 
-<section class="expertise" id="expertise">
-  <div class="container">
-    <div class="section-tag">Le Studio</div>
-    <h2>Un cabinet <span style="color:var(--sand)">à taille humaine</span></h2>
-    <div class="expertise-grid">
-      <div class="expertise-text">
-        <p>Fondé à Lyon en 2014, Studio Moreau allie rigueur technique et sensibilité créative. Chaque projet est unique : <strong>pas de template, pas de formule.</strong></p>
-        <p>Nous travaillons avec un réseau sélectionné d'artisans locaux pour garantir qualité d'exécution et délais respectés. <strong>Votre satisfaction, notre seul indicateur.</strong></p>
-        <p>Architectes DPLG, membres de l'Ordre des Architectes Rhône-Alpes. Assurance professionnelle décennale incluse.</p>
-      </div>
-      <div class="expertise-stats">
-        <div class="stat">
-          <div class="stat-num">12</div>
-          <div class="stat-label">Années d'expérience</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card 1 -->
+      <div class="portfolio-card bg-[#F8F5F0] h-72 rounded-sm reveal" style="transition-delay: 0.05s;">
+        <div class="emoji-bg w-full h-full flex flex-col items-center justify-center">
+          <div class="text-7xl mb-4">🏛️</div>
+          <div class="text-center px-6">
+            <p class="text-xs text-[#C9A84C] tracking-widest uppercase mb-1">Paris 16e</p>
+            <p class="text-[#2C2C2C] font-light text-sm">Appartement Haussmannien</p>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-num">180+</div>
-          <div class="stat-label">Projets livrés</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">98%</div>
-          <div class="stat-label">Clients satisfaits</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">4</div>
-          <div class="stat-label">Architectes passionnés</div>
+        <div class="overlay"></div>
+        <div class="card-content">
+          <p class="text-[#C9A84C] text-xs tracking-widest uppercase mb-1">Résidentiel · 180 m²</p>
+          <p class="text-white font-light text-lg">Appartement Haussmannien</p>
+          <p class="text-white/60 text-xs mt-1">Rénovation complète · Paris 16e</p>
         </div>
       </div>
+
+      <!-- Card 2 (featured) -->
+      <div class="portfolio-card bg-[#2C2C2C] h-72 rounded-sm md:col-span-1 reveal" style="transition-delay: 0.1s;">
+        <div class="emoji-bg w-full h-full flex flex-col items-center justify-center">
+          <div class="text-7xl mb-4">🛋️</div>
+          <div class="text-center px-6">
+            <p class="text-xs text-[#C9A84C] tracking-widest uppercase mb-1">Saint-Tropez</p>
+            <p class="text-white font-light text-sm">Villa Méditerranéenne</p>
+          </div>
+        </div>
+        <div class="overlay"></div>
+        <div class="card-content">
+          <p class="text-[#C9A84C] text-xs tracking-widest uppercase mb-1">Résidentiel · 320 m²</p>
+          <p class="text-white font-light text-lg">Villa Méditerranéenne</p>
+          <p class="text-white/60 text-xs mt-1">Conception intérieure complète · Saint-Tropez</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="portfolio-card bg-[#1a1a1a] h-72 rounded-sm reveal" style="transition-delay: 0.15s;">
+        <div class="emoji-bg w-full h-full flex flex-col items-center justify-center">
+          <div class="text-7xl mb-4">🏢</div>
+          <div class="text-center px-6">
+            <p class="text-xs text-[#C9A84C] tracking-widest uppercase mb-1">Genève</p>
+            <p class="text-white font-light text-sm">Penthouse Contemporain</p>
+          </div>
+        </div>
+        <div class="overlay"></div>
+        <div class="card-content">
+          <p class="text-[#C9A84C] text-xs tracking-widest uppercase mb-1">Résidentiel · 250 m²</p>
+          <p class="text-white font-light text-lg">Penthouse Contemporain</p>
+          <p class="text-white/60 text-xs mt-1">Design sur mesure · Genève</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="portfolio-card bg-[#2C2C2C] h-72 rounded-sm lg:col-span-2 reveal" style="transition-delay: 0.2s;">
+        <div class="emoji-bg w-full h-full flex flex-col items-center justify-center">
+          <div class="text-7xl mb-4">🍾</div>
+          <div class="text-center px-6">
+            <p class="text-xs text-[#C9A84C] tracking-widest uppercase mb-1">Paris 8e · Hôtel particulier</p>
+            <p class="text-white font-light text-lg">Hôtel Particulier — Suite Prestige</p>
+            <p class="text-white/50 text-xs mt-2">Hôtellerie de luxe · 12 suites</p>
+          </div>
+        </div>
+        <div class="overlay"></div>
+        <div class="card-content">
+          <p class="text-[#C9A84C] text-xs tracking-widest uppercase mb-1">Hôtellerie · 12 suites</p>
+          <p class="text-white font-light text-xl">Hôtel Particulier — Suite Prestige</p>
+          <p class="text-white/60 text-xs mt-1">Conception complète · Paris 8e</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="portfolio-card bg-[#F8F5F0] h-72 rounded-sm reveal" style="transition-delay: 0.25s;">
+        <div class="emoji-bg w-full h-full flex flex-col items-center justify-center">
+          <div class="text-7xl mb-4">🌿</div>
+          <div class="text-center px-6">
+            <p class="text-xs text-[#C9A84C] tracking-widest uppercase mb-1">Lyon</p>
+            <p class="text-[#2C2C2C] font-light text-sm">Loft Industriel Chic</p>
+          </div>
+        </div>
+        <div class="overlay"></div>
+        <div class="card-content">
+          <p class="text-[#C9A84C] text-xs tracking-widest uppercase mb-1">Résidentiel · 140 m²</p>
+          <p class="text-white font-light text-lg">Loft Industriel Chic</p>
+          <p class="text-white/60 text-xs mt-1">Reconversion · Lyon</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="portfolio-card bg-[#1a1a1a] h-72 rounded-sm reveal" style="transition-delay: 0.3s;">
+        <div class="emoji-bg w-full h-full flex flex-col items-center justify-center">
+          <div class="text-7xl mb-4">🏡</div>
+          <div class="text-center px-6">
+            <p class="text-xs text-[#C9A84C] tracking-widest uppercase mb-1">Bordeaux</p>
+            <p class="text-white font-light text-sm">Maison de Maître</p>
+          </div>
+        </div>
+        <div class="overlay"></div>
+        <div class="card-content">
+          <p class="text-[#C9A84C] text-xs tracking-widest uppercase mb-1">Résidentiel · 280 m²</p>
+          <p class="text-white font-light text-lg">Maison de Maître</p>
+          <p class="text-white/60 text-xs mt-1">Rénovation patrimoine · Bordeaux</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-12 reveal">
+      <a href="#contact" class="btn-gold">Discuter de votre projet</a>
     </div>
   </div>
 </section>
 
-<section class="temoignages">
-  <div class="container">
-    <div class="section-tag">Témoignages</div>
-    <h2>Ils nous ont <span>fait confiance</span></h2>
-    <div class="divider"></div>
-    <div class="temoignages-grid">
-      <div class="temoignage">
-        <div class="stars">★★★★★</div>
-        <blockquote>« Un suivi remarquable du début à la fin. Notre appartement du 2e arrondissement est méconnaissable — dans le bon sens. Délais respectés, budget maîtrisé. »</blockquote>
-        <cite>— Claire & Antoine B., Lyon 2e</cite>
+<!-- ═══════════════════════════════ SERVICES ═══════════════════════════════ -->
+<section id="services" class="py-28" style="background: var(--cream);">
+  <div class="container mx-auto px-8 md:px-16">
+
+    <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
+      <div class="reveal-left">
+        <p class="text-[#C9A84C] text-xs tracking-[6px] uppercase mb-4 font-light">
+          <span class="gold-line"></span>Notre expertise
+        </p>
+        <h2 class="text-5xl md:text-6xl font-light text-[#2C2C2C] leading-tight">
+          Un accompagnement<br/><em>complet</em>
+        </h2>
       </div>
-      <div class="temoignage">
-        <div class="stars">★★★★★</div>
-        <blockquote>« Studio Moreau a transformé notre restaurant vieillissant en un bistrot moderne qui attire une clientèle entièrement nouvelle. Retour sur investissement en 6 mois. »</blockquote>
-        <cite>— Thierry M., Restaurateur</cite>
+      <div class="reveal-right">
+        <p class="text-gray-500 font-light leading-relaxed">
+          De la première esquisse à la remise des clés, le Studio Élise Moreau vous accompagne dans chaque étape de votre projet. Notre approche holistique garantit une cohérence absolue entre votre vision et le résultat final.
+        </p>
       </div>
-      <div class="temoignage">
-        <div class="stars">★★★★★</div>
-        <blockquote>« Professionnalisme et écoute rare. Ils ont compris exactement ce que je voulais, même quand je n'arrivais pas à l'exprimer. Ma villa est au-delà de mes espérances. »</blockquote>
-        <cite>— Sophie L., Propriétaire Lyon 6e</cite>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div class="service-card bg-white p-8 reveal" style="transition-delay: 0.05s;">
+        <div class="text-4xl mb-6">✏️</div>
+        <h3 class="serif text-2xl font-light text-[#2C2C2C] mb-3">Conception</h3>
+        <p class="text-gray-400 text-sm font-light leading-relaxed">
+          Analyse de vos besoins, concept créatif personnalisé, sélection de matériaux et palettes chromatiques.
+        </p>
+        <div class="mt-6 pt-6 border-t border-gray-100">
+          <span class="text-[#C9A84C] text-xs tracking-widest uppercase">Devis sur demande →</span>
+        </div>
       </div>
+
+      <div class="service-card bg-white p-8 reveal" style="transition-delay: 0.1s;">
+        <div class="text-4xl mb-6">📐</div>
+        <h3 class="serif text-2xl font-light text-[#2C2C2C] mb-3">Plans 3D</h3>
+        <p class="text-gray-400 text-sm font-light leading-relaxed">
+          Modélisation 3D photoréaliste, plans techniques détaillés et visites virtuelles de votre futur espace.
+        </p>
+        <div class="mt-6 pt-6 border-t border-gray-100">
+          <span class="text-[#C9A84C] text-xs tracking-widest uppercase">Devis sur demande →</span>
+        </div>
+      </div>
+
+      <div class="service-card bg-white p-8 reveal" style="transition-delay: 0.15s;">
+        <div class="text-4xl mb-6">🏗️</div>
+        <h3 class="serif text-2xl font-light text-[#2C2C2C] mb-3">Suivi chantier</h3>
+        <p class="text-gray-400 text-sm font-light leading-relaxed">
+          Coordination des artisans, respect des délais et du budget, contrôle qualité à chaque étape.
+        </p>
+        <div class="mt-6 pt-6 border-t border-gray-100">
+          <span class="text-[#C9A84C] text-xs tracking-widest uppercase">Devis sur demande →</span>
+        </div>
+      </div>
+
+      <div class="service-card bg-white p-8 reveal" style="transition-delay: 0.2s;">
+        <div class="text-4xl mb-6">🛏️</div>
+        <h3 class="serif text-2xl font-light text-[#2C2C2C] mb-3">Mobilier sur mesure</h3>
+        <p class="text-gray-400 text-sm font-light leading-relaxed">
+          Création et fabrication de pièces uniques, sélection d'éditeurs de prestige, styling final.
+        </p>
+        <div class="mt-6 pt-6 border-t border-gray-100">
+          <span class="text-[#C9A84C] text-xs tracking-widest uppercase">Devis sur demande →</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section class="cta-section" id="contact">
-  <h2>Votre projet <span>commence ici</span></h2>
-  <p>Première consultation gratuite et sans engagement.<br>Nous étudions votre projet, évaluons le budget, et vous proposons un plan d'action concret.</p>
-  <a href="mailto:contact@studio-moreau-lyon.fr" class="btn-white">Demander un devis gratuit</a>
+<!-- ═══════════════════════════════ À PROPOS ═══════════════════════════════ -->
+<section id="about" class="py-28 bg-[#2C2C2C] relative overflow-hidden">
+
+  <!-- Decorative -->
+  <div class="absolute top-1/2 right-0 w-96 h-96 border border-[#C9A84C]/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+  <div class="absolute top-1/2 right-0 w-64 h-64 border border-[#C9A84C]/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+
+  <div class="container mx-auto px-8 md:px-16 relative z-10">
+    <div class="grid md:grid-cols-2 gap-20 items-center">
+
+      <div class="reveal-left">
+        <!-- Avatar placeholder -->
+        <div class="w-full aspect-square max-w-sm bg-[#1a1a1a] rounded-sm flex flex-col items-center justify-center border border-[#C9A84C]/20 relative">
+          <div class="text-8xl mb-6">👩‍🎨</div>
+          <p class="text-[#C9A84C] text-xs tracking-widest uppercase">Studio Élise Moreau</p>
+          <!-- Gold corner accents -->
+          <div class="absolute top-4 left-4 w-8 h-8 border-t border-l border-[#C9A84C]/50"></div>
+          <div class="absolute top-4 right-4 w-8 h-8 border-t border-r border-[#C9A84C]/50"></div>
+          <div class="absolute bottom-4 left-4 w-8 h-8 border-b border-l border-[#C9A84C]/50"></div>
+          <div class="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-[#C9A84C]/50"></div>
+        </div>
+      </div>
+
+      <div class="reveal-right">
+        <p class="text-[#C9A84C] text-xs tracking-[6px] uppercase mb-6 font-light">
+          <span class="gold-line" style="background:#C9A84C;"></span>À propos
+        </p>
+        <h2 class="text-white text-5xl md:text-6xl font-light leading-tight mb-8">
+          Élise<br/><em class="text-[#C9A84C]">Moreau</em>
+        </h2>
+        <p class="text-white/60 font-light leading-relaxed mb-6">
+          Architecte d'intérieur DPLG, diplômée de l'École Nationale Supérieure des Arts Décoratifs de Paris, Élise Moreau a fondé son studio en 2012 après une décennie passée auprès des plus grandes maisons de décoration parisiennes.
+        </p>
+        <p class="text-white/60 font-light leading-relaxed mb-8">
+          Sa philosophie : sublimer chaque espace par un design intemporel, une attention obsessionnelle aux détails et une sélection rigoureuse des matériaux. Ses réalisations, de Paris à Genève en passant par Dubaï, témoignent d'un style singulier qui marie classicisme et modernité.
+        </p>
+
+        <div class="grid grid-cols-2 gap-6 mb-8">
+          <div>
+            <p class="text-[#C9A84C] text-xs tracking-widest uppercase mb-2">Formation</p>
+            <p class="text-white/50 text-sm font-light">ENSAD Paris · DPLG</p>
+          </div>
+          <div>
+            <p class="text-[#C9A84C] text-xs tracking-widest uppercase mb-2">Localisation</p>
+            <p class="text-white/50 text-sm font-light">Paris · Projets France & International</p>
+          </div>
+          <div>
+            <p class="text-[#C9A84C] text-xs tracking-widest uppercase mb-2">Spécialité</p>
+            <p class="text-white/50 text-sm font-light">Résidentiel haut de gamme</p>
+          </div>
+          <div>
+            <p class="text-[#C9A84C] text-xs tracking-widest uppercase mb-2">Distinctions</p>
+            <p class="text-white/50 text-sm font-light">Prix INTÉRIEURS 2023</p>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn-gold">Travailler avec moi</a>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<footer>
-  <strong>Studio Moreau</strong> — Architecture & Design d'Intérieur<br>
-  12 rue du Président Carnot, 69002 Lyon · <a href="tel:0472334455" style="color:inherit">04 72 33 44 55</a> · contact@studio-moreau-lyon.fr<br>
-  Architectes DPLG · Ordre des Architectes Rhône-Alpes · RC Pro assurée<br><br>
-  <small style="opacity:.4">Site démo — FacadeDigitale.fr · Votre site pro à partir de 299€</small>
+<!-- ═══════════════════════════════ TÉMOIGNAGES ═══════════════════════════════ -->
+<section id="testimonials" class="py-28 bg-white">
+  <div class="container mx-auto px-8 md:px-16">
+
+    <div class="text-center mb-16 reveal">
+      <p class="text-[#C9A84C] text-xs tracking-[6px] uppercase mb-4 font-light">
+        <span class="gold-line"></span>Témoignages<span class="gold-line" style="margin-right:0; margin-left:12px;"></span>
+      </p>
+      <h2 class="text-5xl md:text-6xl font-light text-[#2C2C2C]">Ce qu'ils disent</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <div class="testimonial-card pl-8 py-2 reveal" style="transition-delay: 0.05s;">
+        <p class="text-[#C9A84C] text-3xl serif mb-4">"</p>
+        <p class="text-gray-600 font-light leading-relaxed text-sm mb-6">
+          Élise a transformé notre appartement en un véritable chef-d'œuvre. Son sens du détail et sa capacité à comprendre nos attentes sont incomparables. Le résultat a dépassé toutes nos espérances.
+        </p>
+        <div>
+          <p class="text-[#2C2C2C] font-medium text-sm">Sophie & Laurent M.</p>
+          <p class="text-gray-400 text-xs font-light mt-1">Appartement Haussmannien · Paris 16e</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card pl-8 py-2 reveal" style="transition-delay: 0.1s;">
+        <p class="text-[#C9A84C] text-3xl serif mb-4">"</p>
+        <p class="text-gray-600 font-light leading-relaxed text-sm mb-6">
+          Un professionnalisme exemplaire du début à la fin. Élise a su allier notre vision moderne avec des touches classiques qui rendent notre villa absolument unique. Nous la recommandons sans hésitation.
+        </p>
+        <div>
+          <p class="text-[#2C2C2C] font-medium text-sm">Philippe D.</p>
+          <p class="text-gray-400 text-xs font-light mt-1">Villa Méditerranéenne · Saint-Tropez</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card pl-8 py-2 reveal" style="transition-delay: 0.15s;">
+        <p class="text-[#C9A84C] text-3xl serif mb-4">"</p>
+        <p class="text-gray-600 font-light leading-relaxed text-sm mb-6">
+          Le Studio Élise Moreau a redéfini nos suites hôtelières. Chaque espace respire le luxe et l'élégance. Nos clients ne cessent de nous complimenter sur la qualité du design. Un investissement qui parle de lui-même.
+        </p>
+        <div>
+          <p class="text-[#2C2C2C] font-medium text-sm">Mme Isabelle C.</p>
+          <p class="text-gray-400 text-xs font-light mt-1">Hôtel Particulier 5★ · Paris 8e</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Trust indicators -->
+    <div class="mt-16 pt-12 border-t border-gray-100 flex flex-wrap justify-center gap-12 reveal">
+      <div class="text-center">
+        <p class="text-4xl mb-2">⭐</p>
+        <p class="text-[#C9A84C] text-xs tracking-widest uppercase">5/5 Google</p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl mb-2">🏆</p>
+        <p class="text-[#C9A84C] text-xs tracking-widest uppercase">Prix Intérieurs 2023</p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl mb-2">🎓</p>
+        <p class="text-[#C9A84C] text-xs tracking-widest uppercase">ENSAD Paris · DPLG</p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl mb-2">🤝</p>
+        <p class="text-[#C9A84C] text-xs tracking-widest uppercase">200+ Projets</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
+<section id="contact" class="py-28 bg-[#1a1a1a] relative overflow-hidden">
+
+  <!-- Decorative gold corner -->
+  <div class="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-[#C9A84C]/20"></div>
+  <div class="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-[#C9A84C]/20"></div>
+
+  <div class="container mx-auto px-8 md:px-16 relative z-10">
+    <div class="max-w-2xl mx-auto text-center mb-16 reveal">
+      <p class="text-[#C9A84C] text-xs tracking-[6px] uppercase mb-4 font-light">
+        <span class="gold-line"></span>Contact<span class="gold-line" style="margin-right:0; margin-left:12px;"></span>
+      </p>
+      <h2 class="text-white text-5xl md:text-6xl font-light leading-tight mb-6">
+        Votre projet<br/><em class="text-[#C9A84C]">mérite l'excellence.</em>
+      </h2>
+      <p class="text-white/40 font-light">
+        Chaque projet commence par une conversation. Partagez votre vision, nous ferons le reste.
+      </p>
+    </div>
+
+    <div class="max-w-xl mx-auto reveal">
+      <form class="space-y-8" onsubmit="handleSubmit(event)">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <input type="text" placeholder="Prénom & Nom" class="form-input" style="color:white; border-bottom-color: rgba(255,255,255,0.2);" required />
+          </div>
+          <div>
+            <input type="email" placeholder="Email" class="form-input" style="color:white; border-bottom-color: rgba(255,255,255,0.2);" required />
+          </div>
+        </div>
+        <div>
+          <input type="tel" placeholder="Téléphone" class="form-input" style="color:white; border-bottom-color: rgba(255,255,255,0.2);" />
+        </div>
+        <div>
+          <select class="form-input" style="color:rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.2); background:transparent;">
+            <option value="" disabled selected>Type de projet</option>
+            <option>Appartement</option>
+            <option>Maison</option>
+            <option>Villa</option>
+            <option>Espace commercial</option>
+            <option>Hôtellerie</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div>
+          <textarea placeholder="Décrivez votre projet (surface, localisation, budget estimé...)" rows="4" class="form-input resize-none" style="color:white; border-bottom-color: rgba(255,255,255,0.2);"></textarea>
+        </div>
+        <div class="text-center pt-4">
+          <button type="submit" class="btn-gold btn-gold-solid w-full md:w-auto">
+            Envoyer ma demande de devis
+          </button>
+        </div>
+      </form>
+
+      <!-- Contact info -->
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-white/10 text-center">
+        <div>
+          <p class="text-2xl mb-3">📍</p>
+          <p class="text-[#C9A84C] text-xs tracking-widest uppercase mb-1">Adresse</p>
+          <p class="text-white/40 text-sm font-light">12 Rue du Faubourg<br/>Saint-Honoré, Paris 8e</p>
+        </div>
+        <div>
+          <p class="text-2xl mb-3">📞</p>
+          <p class="text-[#C9A84C] text-xs tracking-widest uppercase mb-1">Téléphone</p>
+          <p class="text-white/40 text-sm font-light">+33 1 42 56 78 90</p>
+        </div>
+        <div>
+          <p class="text-2xl mb-3">✉️</p>
+          <p class="text-[#C9A84C] text-xs tracking-widest uppercase mb-1">Email</p>
+          <p class="text-white/40 text-sm font-light">contact@studio-emoreau.fr</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<footer class="bg-[#111] py-8 px-8 md:px-16">
+  <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <p class="serif text-white/30 text-sm font-light">
+      © 2024 Studio Élise Moreau — Architecture d'Intérieur
+    </p>
+    <p class="text-white/20 text-xs font-light tracking-widest">
+      Site réalisé par <span class="text-[#C9A84C]">FacadeDigitale</span>
+    </p>
+    <div class="flex gap-6">
+      <a href="#" class="text-white/20 hover:text-[#C9A84C] text-xs tracking-widest uppercase transition">Mentions légales</a>
+      <a href="#" class="text-white/20 hover:text-[#C9A84C] text-xs tracking-widest uppercase transition">Confidentialité</a>
+    </div>
+  </div>
 </footer>
+
+<!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
+<script>
+  // ── Scroll animations ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Trigger hero animations immediately
+  document.querySelectorAll('.hero-bg .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), 200 + i * 150);
+  });
+
+  // ── Navbar scroll effect ──
+  const navbar = document.getElementById('navbar');
+  const navLogo = document.getElementById('nav-logo');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+      navLogo.style.color = '#2C2C2C';
+      navLinks.forEach(l => {
+        l.style.color = '';
+        l.classList.remove('text-white/70');
+        l.classList.add('text-gray-500');
+      });
+    } else {
+      navbar.classList.remove('scrolled');
+      navLogo.style.color = '';
+      navLinks.forEach(l => {
+        l.style.color = '';
+        l.classList.remove('text-gray-500');
+        l.classList.add('text-white/70');
+      });
+    }
+  });
+
+  // ── Mobile menu ──
+  const menuBtn = document.getElementById('menu-btn');
+  const closeMenu = document.getElementById('close-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('hidden');
+    mobileMenu.classList.add('flex');
+  });
+  closeMenu.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    mobileMenu.classList.remove('flex');
+  });
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+    });
+  });
+
+  // ── Smooth scroll ──
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ── Form submit ──
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = '✓ Demande envoyée — Nous vous contactons sous 48h';
+    btn.style.background = '#2C2C2C';
+    btn.style.borderColor = '#2C2C2C';
+    btn.disabled = true;
+  }
+</script>
 
 </body>
 </html>
