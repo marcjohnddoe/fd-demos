@@ -1,493 +1,197 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cabinet Dentaire Dr Martin — Lyon | Dentiste de confiance</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #1B4F72;
-      --primary-light: #2471A3;
-      --accent: #5DADE2;
-      --light: #EBF5FB;
-      --gray: #f8f9fa;
-    }
-    body { background: #ffffff; color: #2c3e50; font-family: 'Inter', sans-serif; overflow-x: hidden; }
-    h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
-
-    /* Subtle dot pattern */
-    .dot-bg {
-      background-color: #EBF5FB;
-      background-image: radial-gradient(rgba(27,79,114,0.12) 1px, transparent 1px);
-      background-size: 24px 24px;
-    }
-
-    /* Smooth transitions */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* Nav */
-    nav { background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(27,79,114,0.1); }
-
-    /* CTA buttons */
-    .btn-primary { background: #1B4F72; color: #fff; transition: background 0.3s, transform 0.2s; }
-    .btn-primary:hover { background: #2471A3; transform: translateY(-1px); }
-    .btn-outline { border: 2px solid #1B4F72; color: #1B4F72; transition: all 0.3s; }
-    .btn-outline:hover { background: #1B4F72; color: #fff; }
-
-    /* Service cards */
-    .service-card { border: 1px solid rgba(27,79,114,0.12); background: #fff; transition: all 0.3s ease; }
-    .service-card:hover { border-color: #5DADE2; transform: translateY(-5px); box-shadow: 0 12px 32px rgba(27,79,114,0.12); }
-
-    /* Divider */
-    .divider { width: 56px; height: 3px; background: linear-gradient(to right, #1B4F72, #5DADE2); border-radius: 2px; }
-
-    /* Progress bar */
-    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(to right, #1B4F72, #5DADE2); z-index: 100; transition: width 0.1s; }
-
-    /* Input styles */
-    input, textarea, select {
-      border: 1px solid #d0dfe9;
-      background: #f8fbfd;
-      color: #2c3e50;
-      outline: none;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    input:focus, textarea:focus, select:focus {
-      border-color: #5DADE2;
-      box-shadow: 0 0 0 3px rgba(93,173,226,0.15);
-      background: #fff;
-    }
-
-    /* Urgency */
-    @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,0.5)} 70%{box-shadow:0 0 0 10px rgba(231,76,60,0)} }
-    .urgency-pulse { animation: pulse 2s infinite; }
-
-    /* Hero wave */
-    .hero-wave { position: absolute; bottom: -1px; left: 0; width: 100%; }
-
-    /* Testimonial */
-    .testimonial-card { border-left: 4px solid #5DADE2; background: #f8fbfd; }
-
-    /* Badge */
-    .badge { background: #EBF5FB; color: #1B4F72; border: 1px solid rgba(27,79,114,0.2); }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Martin — Cabinet Dentaire Lyon</title>
+<meta name="description" content="Cabinet dentaire à Lyon. Soins, blanchiment, implants. Prenez rendez-vous en ligne.">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--blue:#1a5fa8;--light:#e8f2fc;--dark:#0d3d6b;--text:#2c3e50}
+  body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);background:#fff}
+  header{background:linear-gradient(135deg,var(--blue),var(--dark));color:#fff;padding:0 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+  .nav{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:70px}
+  .logo{font-size:1.3rem;font-weight:700;letter-spacing:1px}
+  .logo span{color:#7ec8f7}
+  nav a{color:#fff;text-decoration:none;margin-left:24px;font-size:.95rem;opacity:.9;transition:.2s}
+  nav a:hover{opacity:1;color:#7ec8f7}
+  .hero{background:linear-gradient(135deg,var(--blue) 0%,var(--dark) 60%,#0a2a4a 100%);color:#fff;padding:80px 20px;text-align:center}
+  .hero h1{font-size:2.6rem;font-weight:700;margin-bottom:16px;line-height:1.2}
+  .hero p{font-size:1.15rem;opacity:.9;max-width:560px;margin:0 auto 36px}
+  .btn{display:inline-block;background:#fff;color:var(--blue);padding:14px 32px;border-radius:30px;font-weight:700;text-decoration:none;font-size:1rem;transition:.2s;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+  .btn:hover{background:var(--light);transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7);margin-left:12px}
+  .btn-outline:hover{background:rgba(255,255,255,.1)}
+  .badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:6px 16px;font-size:.85rem;margin-bottom:20px}
+  section{padding:70px 20px}
+  .container{max-width:1100px;margin:0 auto}
+  h2{font-size:2rem;color:var(--blue);text-align:center;margin-bottom:12px}
+  .subtitle{text-align:center;color:#666;margin-bottom:50px;font-size:1.05rem}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+  .card{background:#fff;border-radius:14px;padding:32px 24px;box-shadow:0 4px 20px rgba(0,0,0,.08);text-align:center;transition:.2s;border-top:4px solid var(--blue)}
+  .card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.12)}
+  .icon{font-size:2.6rem;margin-bottom:16px}
+  .card h3{font-size:1.2rem;color:var(--dark);margin-bottom:10px}
+  .card p{color:#666;font-size:.95rem;line-height:1.6}
+  .about{background:var(--light)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .about-img{background:linear-gradient(135deg,var(--blue),var(--dark));border-radius:18px;height:320px;display:flex;align-items:center;justify-content:center;font-size:5rem;color:#fff}
+  .about h2{text-align:left;margin-bottom:16px}
+  .about p{color:#555;line-height:1.8;margin-bottom:16px}
+  .check{color:var(--blue);font-weight:700;margin-right:8px}
+  .rdv{background:var(--blue);color:#fff;text-align:center}
+  .rdv h2{color:#fff;margin-bottom:10px}
+  .rdv .subtitle{color:rgba(255,255,255,.85)}
+  .rdv-form{max-width:520px;margin:0 auto}
+  .rdv-form input,.rdv-form select{width:100%;padding:14px 16px;border-radius:8px;border:none;margin-bottom:14px;font-size:1rem}
+  .rdv-form button{width:100%;background:#fff;color:var(--blue);border:none;padding:16px;border-radius:8px;font-size:1.05rem;font-weight:700;cursor:pointer;transition:.2s}
+  .rdv-form button:hover{background:var(--light)}
+  .horaires{background:#fff}
+  .horaires-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .horaires-list{list-style:none}
+  .horaires-list li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eee;font-size:.95rem}
+  .horaires-list li span:last-child{font-weight:600;color:var(--blue)}
+  .contact-box{background:var(--light);border-radius:14px;padding:32px;text-align:center}
+  .contact-box h3{color:var(--blue);margin-bottom:16px}
+  .contact-box p{margin-bottom:8px;color:#555}
+  .contact-box strong{color:var(--dark)}
+  footer{background:var(--dark);color:rgba(255,255,255,.7);text-align:center;padding:24px 20px;font-size:.9rem}
+  @media(max-width:768px){.hero h1{font-size:1.9rem}.about-grid,.horaires-grid{grid-template-columns:1fr}nav{display:none}}
+</style>
 </head>
 <body>
 
-<!-- Progress bar -->
-<div id="progress-bar" style="width:0%"></div>
-
-<!-- Nav -->
-<nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4 shadow-sm">
-  <div class="max-w-6xl mx-auto flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <span class="text-2xl">🦷</span>
-      <div>
-        <div class="font-bold text-[#1B4F72] text-lg leading-tight" style="font-family:'Playfair Display',serif">Dr Martin</div>
-        <div class="text-xs text-gray-500 leading-tight">Cabinet Dentaire · Lyon</div>
-      </div>
-    </div>
-    <div class="hidden md:flex gap-8 text-sm font-medium text-gray-600">
-      <a href="#services" class="hover:text-[#1B4F72] transition">Services</a>
-      <a href="#rdv" class="hover:text-[#1B4F72] transition">Rendez-vous</a>
-      <a href="#equipe" class="hover:text-[#1B4F72] transition">L'équipe</a>
-      <a href="#contact" class="hover:text-[#1B4F72] transition">Contact</a>
-    </div>
-    <a href="tel:0478123456" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold flex items-center gap-2">
-      📞 04 78 12 34 56
-    </a>
+<header>
+  <div class="nav">
+    <div class="logo">🦷 Cabinet Dr. <span>Martin</span></div>
+    <nav>
+      <a href="#soins">Soins</a>
+      <a href="#cabinet">Le Cabinet</a>
+      <a href="#rdv">Rendez-vous</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
-</nav>
+</header>
 
-<!-- HERO -->
-<section class="relative min-h-screen flex items-center justify-center dot-bg pt-20 overflow-hidden">
-  <!-- Decorative circles -->
-  <div class="absolute top-20 right-10 w-72 h-72 bg-[#1B4F72]/5 rounded-full blur-3xl"></div>
-  <div class="absolute bottom-32 left-10 w-96 h-96 bg-[#5DADE2]/10 rounded-full blur-3xl"></div>
-
-  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-    <div class="inline-block badge px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-6">
-      🏥 Cabinet dentaire — Lyon 6e
-    </div>
-    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight text-[#1B4F72]" style="font-family:'Playfair Display',serif">
-      Votre sourire,<br>
-      <span class="text-[#5DADE2]">notre priorité.</span>
-    </h1>
-    <p class="text-gray-600 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-      Le Cabinet Dentaire Dr Martin vous accompagne à Lyon pour tous vos soins dentaires dans un environnement moderne, doux et rassurant.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#rdv" class="btn-primary px-10 py-4 rounded-full text-sm font-bold shadow-lg">
-        📅 Prendre rendez-vous
-      </a>
-      <a href="tel:0478123456" class="btn-outline px-10 py-4 rounded-full text-sm font-bold urgency-pulse">
-        🚨 Urgence dentaire
-      </a>
-    </div>
-    <div class="mt-16 grid grid-cols-3 gap-6 max-w-lg mx-auto">
-      <div class="bg-white rounded-2xl p-5 shadow-sm border border-[#1B4F72]/10 text-center">
-        <div class="text-3xl font-bold text-[#1B4F72]" style="font-family:'Playfair Display',serif">15<span class="text-[#5DADE2]">+</span></div>
-        <div class="text-xs text-gray-500 mt-1">ans d'expérience</div>
-      </div>
-      <div class="bg-white rounded-2xl p-5 shadow-sm border border-[#1B4F72]/10 text-center">
-        <div class="text-3xl font-bold text-[#1B4F72]" style="font-family:'Playfair Display',serif">3 200<span class="text-[#5DADE2]">+</span></div>
-        <div class="text-xs text-gray-500 mt-1">patients suivis</div>
-      </div>
-      <div class="bg-white rounded-2xl p-5 shadow-sm border border-[#1B4F72]/10 text-center">
-        <div class="text-3xl font-bold text-[#1B4F72]" style="font-family:'Playfair Display',serif">4.9<span class="text-[#5DADE2]">★</span></div>
-        <div class="text-xs text-gray-500 mt-1">avis Google</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Wave -->
-  <svg class="hero-wave" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="white"/>
-  </svg>
+<section class="hero">
+  <div class="badge">✅ Nouveau patient accepté</div>
+  <h1>Votre cabinet dentaire<br>de confiance à Lyon</h1>
+  <p>Soins de qualité, blanchiment, implants et orthodontie. Une équipe à votre écoute pour prendre soin de votre sourire.</p>
+  <a href="#rdv" class="btn">📅 Prendre rendez-vous</a>
+  <a href="tel:0478000000" class="btn btn-outline">📞 04 78 00 00 00</a>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="py-24 px-6 bg-white">
-  <div class="max-w-6xl mx-auto">
-    <div class="reveal text-center mb-14">
-      <div class="text-xs font-semibold tracking-widest uppercase text-[#5DADE2] mb-3">Nos prestations</div>
-      <h2 class="text-4xl font-bold text-[#1B4F72]" style="font-family:'Playfair Display',serif">Des soins pour chaque besoin</h2>
-      <div class="divider mx-auto mt-4"></div>
-    </div>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-      <div class="service-card p-7 rounded-2xl reveal">
-        <div class="text-4xl mb-4">🪥</div>
-        <h3 class="text-xl font-bold text-[#1B4F72] mb-3" style="font-family:'Playfair Display',serif">Détartrage</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Nettoyage professionnel par ultrasons pour prévenir les caries et les maladies des gencives. Recommandé 2x/an.</p>
-        <div class="mt-5 text-sm font-semibold text-[#5DADE2] flex items-center gap-1">À partir de 28 € →</div>
+<section id="soins">
+  <div class="container">
+    <h2>Nos soins & prestations</h2>
+    <p class="subtitle">Une prise en charge complète pour toute la famille</p>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🦷</div>
+        <h3>Soins conservateurs</h3>
+        <p>Détartrage, obturations, soins des caries. Préserver vos dents naturelles est notre priorité.</p>
       </div>
-
-      <div class="service-card p-7 rounded-2xl reveal">
-        <div class="text-4xl mb-4">✨</div>
-        <h3 class="text-xl font-bold text-[#1B4F72] mb-3" style="font-family:'Playfair Display',serif">Blanchiment</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Éclaircissement dentaire professionnel au fauteuil ou avec gouttières sur mesure. Résultats visibles dès la 1ère séance.</p>
-        <div class="mt-5 text-sm font-semibold text-[#5DADE2] flex items-center gap-1">Devis gratuit →</div>
+      <div class="card">
+        <div class="icon">✨</div>
+        <h3>Blanchiment dentaire</h3>
+        <p>Technique professionnelle au cabinet pour un sourire lumineux. Résultat garanti en 1h.</p>
       </div>
-
-      <div class="service-card p-7 rounded-2xl reveal">
-        <div class="text-4xl mb-4">🦷</div>
-        <h3 class="text-xl font-bold text-[#1B4F72] mb-3" style="font-family:'Playfair Display',serif">Implants</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Remplacement d'une dent manquante par un implant en titane pour retrouver confort, esthétique et fonctionnalité.</p>
-        <div class="mt-5 text-sm font-semibold text-[#5DADE2] flex items-center gap-1">Consultation offerte →</div>
+      <div class="card">
+        <div class="icon">🔩</div>
+        <h3>Implants dentaires</h3>
+        <p>Solution durable pour remplacer les dents manquantes. Implants de haute qualité.</p>
       </div>
-
-      <div class="service-card p-7 rounded-2xl reveal">
-        <div class="text-4xl mb-4">🚨</div>
-        <h3 class="text-xl font-bold text-[#1B4F72] mb-3" style="font-family:'Playfair Display',serif">Urgences</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Douleur aiguë, dent cassée ou déchaussée ? Nous réservons des créneaux chaque jour pour les urgences dentaires.</p>
-        <div class="mt-5 text-sm font-semibold text-red-500 flex items-center gap-1">7j/7 disponible →</div>
+      <div class="card">
+        <div class="icon">😁</div>
+        <h3>Orthodontie</h3>
+        <p>Gouttières invisibles ou appareils traditionnels. Pour enfants et adultes.</p>
       </div>
-
-    </div>
-
-    <!-- More services -->
-    <div class="mt-8 grid md:grid-cols-3 gap-5 reveal">
-      <div class="flex items-start gap-4 p-5 rounded-xl bg-[#EBF5FB] border border-[#1B4F72]/10">
-        <span class="text-2xl">🔬</span>
-        <div>
-          <div class="font-semibold text-[#1B4F72] text-sm mb-1">Orthodontie invisible</div>
-          <div class="text-xs text-gray-500">Aligneurs transparents pour adultes et adolescents. Discrets et efficaces.</div>
-        </div>
+      <div class="card">
+        <div class="icon">👶</div>
+        <h3>Pédodontie</h3>
+        <p>Soins spécialisés pour les enfants dans un environnement bienveillant et rassurant.</p>
       </div>
-      <div class="flex items-start gap-4 p-5 rounded-xl bg-[#EBF5FB] border border-[#1B4F72]/10">
-        <span class="text-2xl">😊</span>
-        <div>
-          <div class="font-semibold text-[#1B4F72] text-sm mb-1">Facettes céramique</div>
-          <div class="text-xs text-gray-500">Coques ultra-fines pour un sourire naturel et harmonieux. Hollywood smile.</div>
-        </div>
-      </div>
-      <div class="flex items-start gap-4 p-5 rounded-xl bg-[#EBF5FB] border border-[#1B4F72]/10">
-        <span class="text-2xl">👶</span>
-        <div>
-          <div class="font-semibold text-[#1B4F72] text-sm mb-1">Pédodontie</div>
-          <div class="text-xs text-gray-500">Cabinet adapté aux enfants, approche douce et ludique dès le plus jeune âge.</div>
-        </div>
+      <div class="card">
+        <div class="icon">🚨</div>
+        <h3>Urgences dentaires</h3>
+        <p>Consultation d'urgence possible le jour même. Appelez le 04 78 00 00 00.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ÉQUIPE -->
-<section id="equipe" class="py-24 px-6 bg-[#EBF5FB]">
-  <div class="max-w-6xl mx-auto">
-    <div class="reveal text-center mb-14">
-      <div class="text-xs font-semibold tracking-widest uppercase text-[#5DADE2] mb-3">L'équipe</div>
-      <h2 class="text-4xl font-bold text-[#1B4F72]" style="font-family:'Playfair Display',serif">Des praticiens à votre écoute</h2>
-      <div class="divider mx-auto mt-4"></div>
-    </div>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="reveal bg-white rounded-2xl overflow-hidden shadow-sm border border-[#1B4F72]/10 text-center">
-        <div class="bg-gradient-to-br from-[#1B4F72] to-[#5DADE2] h-40 flex items-center justify-center">
-          <span class="text-7xl">👨‍⚕️</span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-[#1B4F72]" style="font-family:'Playfair Display',serif">Dr Julien Martin</h3>
-          <p class="text-[#5DADE2] text-sm font-medium mb-3">Chirurgien-Dentiste · Fondateur</p>
-          <p class="text-gray-500 text-sm">Diplômé de Lyon 1, spécialisé en implantologie et chirurgie orale. 15 ans d'expérience.</p>
-        </div>
-      </div>
-      <div class="reveal bg-white rounded-2xl overflow-hidden shadow-sm border border-[#1B4F72]/10 text-center">
-        <div class="bg-gradient-to-br from-[#2471A3] to-[#85C1E9] h-40 flex items-center justify-center">
-          <span class="text-7xl">👩‍⚕️</span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-[#1B4F72]" style="font-family:'Playfair Display',serif">Dr Sophie Leblanc</h3>
-          <p class="text-[#5DADE2] text-sm font-medium mb-3">Chirurgienne-Dentiste · Orthodontie</p>
-          <p class="text-gray-500 text-sm">Spécialiste en orthodontie invisible et esthétique dentaire. Formatrice certifiée Invisalign.</p>
-        </div>
-      </div>
-      <div class="reveal bg-white rounded-2xl overflow-hidden shadow-sm border border-[#1B4F72]/10 text-center">
-        <div class="bg-gradient-to-br from-[#1A5276] to-[#AED6F1] h-40 flex items-center justify-center">
-          <span class="text-7xl">👩‍⚕️</span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-[#1B4F72]" style="font-family:'Playfair Display',serif">Dr Clara Fontaine</h3>
-          <p class="text-[#5DADE2] text-sm font-medium mb-3">Chirurgienne-Dentiste · Pédodontie</p>
-          <p class="text-gray-500 text-sm">Passionnée par la dentisterie pédiatrique, elle met les enfants à l'aise avec douceur et humour.</p>
-        </div>
+<section id="cabinet" class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">🦷</div>
+      <div>
+        <h2>Le Dr. Martin & son équipe</h2>
+        <p>Diplômé de la Faculté de Chirurgie Dentaire de Lyon, le Dr. Martin exerce depuis 15 ans avec passion et rigueur.</p>
+        <p><span class="check">✓</span> Cabinet entièrement rénové et équipé des dernières technologies</p>
+        <p><span class="check">✓</span> Radiographies numériques (90% moins de rayonnements)</p>
+        <p><span class="check">✓</span> Anesthésie sans douleur — techniques douces garanties</p>
+        <p><span class="check">✓</span> Devis gratuit et détaillé avant tout traitement</p>
+        <p><span class="check">✓</span> Conventionné Secteur 1 — remboursement Sécurité Sociale</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TÉMOIGNAGES -->
-<section class="py-20 px-6 bg-white">
-  <div class="max-w-5xl mx-auto">
-    <div class="reveal text-center mb-12">
-      <div class="text-xs font-semibold tracking-widest uppercase text-[#5DADE2] mb-3">Avis patients</div>
-      <h2 class="text-4xl font-bold text-[#1B4F72]" style="font-family:'Playfair Display',serif">Ce qu'ils disent de nous</h2>
-      <div class="divider mx-auto mt-4"></div>
-    </div>
-    <div class="grid md:grid-cols-3 gap-6 reveal">
-      <div class="testimonial-card p-6 rounded-xl">
-        <div class="text-yellow-400 mb-3">★★★★★</div>
-        <p class="text-gray-600 text-sm italic leading-relaxed">"Cabinet magnifique, équipe super douce. J'avais une phobie du dentiste et maintenant je viens sans appréhension. Merci Dr Martin !"</p>
-        <div class="mt-4 flex items-center gap-3">
-          <div class="w-9 h-9 bg-[#EBF5FB] rounded-full flex items-center justify-center text-lg">😊</div>
-          <div>
-            <div class="font-semibold text-[#1B4F72] text-sm">Marie D.</div>
-            <div class="text-xs text-gray-400">Lyon 6e · il y a 2 semaines</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card p-6 rounded-xl">
-        <div class="text-yellow-400 mb-3">★★★★★</div>
-        <p class="text-gray-600 text-sm italic leading-relaxed">"Implant posé en deux séances, résultat impeccable. Le Dr Martin est très professionnel et rassure bien avant chaque étape."</p>
-        <div class="mt-4 flex items-center gap-3">
-          <div class="w-9 h-9 bg-[#EBF5FB] rounded-full flex items-center justify-center text-lg">👨</div>
-          <div>
-            <div class="font-semibold text-[#1B4F72] text-sm">Thomas R.</div>
-            <div class="text-xs text-gray-400">Lyon 3e · il y a 1 mois</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card p-6 rounded-xl">
-        <div class="text-yellow-400 mb-3">★★★★★</div>
-        <p class="text-gray-600 text-sm italic leading-relaxed">"Ma fille de 7 ans adore venir ici. Dr Fontaine est géniale avec les enfants. Cabinet propre, moderne, personnel accueillant."</p>
-        <div class="mt-4 flex items-center gap-3">
-          <div class="w-9 h-9 bg-[#EBF5FB] rounded-full flex items-center justify-center text-lg">👩</div>
-          <div>
-            <div class="font-semibold text-[#1B4F72] text-sm">Isabelle M.</div>
-            <div class="text-xs text-gray-400">Lyon 7e · il y a 3 semaines</div>
-          </div>
-        </div>
-      </div>
+<section id="rdv" class="rdv">
+  <div class="container">
+    <h2>Prendre rendez-vous</h2>
+    <p class="subtitle">Réservez en ligne, c'est simple et rapide</p>
+    <div class="rdv-form">
+      <input type="text" placeholder="Votre prénom et nom">
+      <input type="tel" placeholder="Votre téléphone">
+      <select>
+        <option>Type de consultation...</option>
+        <option>Première consultation</option>
+        <option>Détartrage</option>
+        <option>Soin / Carie</option>
+        <option>Blanchiment</option>
+        <option>Urgence dentaire</option>
+        <option>Autre</option>
+      </select>
+      <button type="submit">📅 Confirmer le rendez-vous</button>
     </div>
   </div>
 </section>
 
-<!-- PRISE DE RDV -->
-<section id="rdv" class="py-24 px-6 bg-gradient-to-br from-[#1B4F72] to-[#2471A3]">
-  <div class="max-w-3xl mx-auto">
-    <div class="reveal text-center mb-12">
-      <div class="text-xs font-semibold tracking-widest uppercase text-[#85C1E9] mb-3">Rendez-vous</div>
-      <h2 class="text-4xl font-bold text-white" style="font-family:'Playfair Display',serif">Prenez votre rendez-vous</h2>
-      <p class="text-blue-200 mt-4 text-sm">Réponse sous 24h — Nouveau patient bienvenu</p>
-    </div>
-    <form class="reveal bg-white rounded-2xl p-8 shadow-xl space-y-4" onsubmit="submitForm(event)">
-      <div class="grid md:grid-cols-2 gap-4">
-        <div>
-          <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Prénom & Nom *</label>
-          <input type="text" placeholder="Ex : Marie Dupont" class="w-full px-4 py-3 rounded-xl text-sm" required>
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Téléphone *</label>
-          <input type="tel" placeholder="06 XX XX XX XX" class="w-full px-4 py-3 rounded-xl text-sm" required>
-        </div>
-      </div>
+<section id="contact" class="horaires">
+  <div class="container">
+    <h2>Horaires & Contact</h2>
+    <p class="subtitle">Cabinet situé au cœur de Lyon 3e</p>
+    <div class="horaires-grid">
       <div>
-        <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Email *</label>
-        <input type="email" placeholder="votre@email.fr" class="w-full px-4 py-3 rounded-xl text-sm" required>
-      </div>
-      <div>
-        <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Motif de consultation *</label>
-        <select class="w-full px-4 py-3 rounded-xl text-sm text-gray-500">
-          <option value="">Sélectionnez une prestation...</option>
-          <option>Détartrage / Bilan annuel</option>
-          <option>Blanchiment dentaire</option>
-          <option>Implant dentaire</option>
-          <option>Orthodontie invisible</option>
-          <option>Facettes céramique</option>
-          <option>Urgence dentaire</option>
-          <option>Pédodontie (enfant)</option>
-          <option>Autre</option>
-        </select>
-      </div>
-      <div>
-        <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Message (optionnel)</label>
-        <textarea placeholder="Décrivez votre situation ou précisez vos disponibilités..." rows="3" class="w-full px-4 py-3 rounded-xl text-sm"></textarea>
-      </div>
-      <button type="submit" class="w-full btn-primary py-4 rounded-xl font-bold text-sm tracking-wide shadow-md">
-        📅 Envoyer ma demande de rendez-vous
-      </button>
-      <p class="text-center text-xs text-gray-400">Vos données sont traitées conformément au RGPD. Aucun spam.</p>
-    </form>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="py-24 px-6 bg-white">
-  <div class="max-w-5xl mx-auto">
-    <div class="reveal text-center mb-14">
-      <div class="text-xs font-semibold tracking-widest uppercase text-[#5DADE2] mb-3">Nous trouver</div>
-      <h2 class="text-4xl font-bold text-[#1B4F72]" style="font-family:'Playfair Display',serif">Où nous sommes</h2>
-      <div class="divider mx-auto mt-4"></div>
-    </div>
-    <div class="grid md:grid-cols-3 gap-6 reveal">
-      <div class="service-card p-7 rounded-2xl text-center">
-        <div class="text-3xl mb-4">📍</div>
-        <h3 class="font-bold text-[#1B4F72] mb-2">Adresse</h3>
-        <p class="text-gray-500 text-sm">24 Rue de la République<br>69006 Lyon 6e</p>
-        <a href="#" class="mt-3 inline-block text-xs text-[#5DADE2] font-semibold hover:underline">Voir sur Google Maps →</a>
-      </div>
-      <div class="service-card p-7 rounded-2xl text-center">
-        <div class="text-3xl mb-4">⏰</div>
-        <h3 class="font-bold text-[#1B4F72] mb-2">Horaires</h3>
-        <p class="text-gray-500 text-sm">
-          Lun–Ven : 8h30–19h00<br>
-          Sam : 9h00–13h00<br>
-          <span class="text-red-500 font-semibold">Urgences : 7j/7</span>
-        </p>
-      </div>
-      <div class="service-card p-7 rounded-2xl text-center">
-        <div class="text-3xl mb-4">📞</div>
-        <h3 class="font-bold text-[#1B4F72] mb-2">Contact</h3>
-        <p class="text-gray-500 text-sm">
-          <a href="tel:0478123456" class="text-[#1B4F72] font-semibold hover:text-[#5DADE2] transition">04 78 12 34 56</a><br>
-          <a href="mailto:contact@drmartin-lyon.fr" class="text-[#5DADE2] hover:underline text-xs">contact@drmartin-lyon.fr</a>
-        </p>
-      </div>
-    </div>
-
-    <!-- Urgence banner -->
-    <div class="mt-10 reveal rounded-2xl border border-red-200 bg-red-50 p-7 text-center">
-      <div class="text-2xl mb-2">🚨</div>
-      <div class="text-xl font-bold text-red-700 mb-2" style="font-family:'Playfair Display',serif">Urgence dentaire ?</div>
-      <p class="text-red-600 text-sm mb-5">Douleur intense, dent cassée, abcès — des créneaux d'urgence sont réservés chaque jour. Appelez-nous maintenant.</p>
-      <a href="tel:0478123456" class="inline-block bg-red-600 hover:bg-red-700 text-white px-10 py-3.5 rounded-full font-bold text-sm transition urgency-pulse">
-        📞 Appeler d'urgence : 04 78 12 34 56
-      </a>
-    </div>
-
-    <!-- Accès -->
-    <div class="mt-10 reveal bg-[#EBF5FB] rounded-2xl p-7">
-      <h3 class="font-bold text-[#1B4F72] mb-4 text-lg" style="font-family:'Playfair Display',serif">🚇 Accès & Stationnement</h3>
-      <div class="grid md:grid-cols-3 gap-4 text-sm text-gray-600">
-        <div class="flex items-start gap-2">
-          <span class="text-[#5DADE2]">🚇</span>
-          <div><strong class="text-[#1B4F72]">Métro</strong><br>Ligne D — Foch ou Part-Dieu (5 min à pied)</div>
-        </div>
-        <div class="flex items-start gap-2">
-          <span class="text-[#5DADE2]">🚌</span>
-          <div><strong class="text-[#1B4F72]">Bus</strong><br>Lignes C3, C11, 41 — arrêt République</div>
-        </div>
-        <div class="flex items-start gap-2">
-          <span class="text-[#5DADE2]">🅿️</span>
-          <div><strong class="text-[#1B4F72]">Parking</strong><br>Parking Foch à 100m, accès PMR disponible</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-[#1B4F72] text-white py-10 px-6">
-  <div class="max-w-6xl mx-auto">
-    <div class="grid md:grid-cols-3 gap-8 mb-8">
-      <div>
-        <div class="flex items-center gap-2 mb-4">
-          <span class="text-2xl">🦷</span>
-          <div>
-            <div class="font-bold text-lg" style="font-family:'Playfair Display',serif">Dr Martin</div>
-            <div class="text-xs text-blue-300">Cabinet Dentaire · Lyon 6e</div>
-          </div>
-        </div>
-        <p class="text-blue-200 text-sm leading-relaxed">Votre santé bucco-dentaire entre de bonnes mains. Cabinet moderne, équipe à l'écoute, soins de qualité.</p>
-      </div>
-      <div>
-        <h4 class="font-bold text-sm uppercase tracking-wider mb-4 text-blue-300">Services</h4>
-        <ul class="space-y-2 text-sm text-blue-200">
-          <li>🪥 Détartrage & Prévention</li>
-          <li>✨ Blanchiment dentaire</li>
-          <li>🦷 Implants dentaires</li>
-          <li>🔬 Orthodontie invisible</li>
-          <li>😊 Facettes céramique</li>
-          <li>🚨 Urgences dentaires</li>
+        <ul class="horaires-list">
+          <li><span>Lundi</span><span>8h30 – 19h00</span></li>
+          <li><span>Mardi</span><span>8h30 – 19h00</span></li>
+          <li><span>Mercredi</span><span>8h30 – 18h00</span></li>
+          <li><span>Jeudi</span><span>8h30 – 19h00</span></li>
+          <li><span>Vendredi</span><span>8h30 – 17h00</span></li>
+          <li><span>Samedi</span><span>9h00 – 13h00</span></li>
+          <li><span>Dimanche</span><span>Fermé</span></li>
         </ul>
       </div>
-      <div>
-        <h4 class="font-bold text-sm uppercase tracking-wider mb-4 text-blue-300">Contact</h4>
-        <ul class="space-y-2 text-sm text-blue-200">
-          <li>📍 24 Rue de la République, Lyon 6e</li>
-          <li>📞 <a href="tel:0478123456" class="hover:text-white transition">04 78 12 34 56</a></li>
-          <li>✉️ <a href="mailto:contact@drmartin-lyon.fr" class="hover:text-white transition">contact@drmartin-lyon.fr</a></li>
-          <li>⏰ Lun–Ven 8h30–19h · Sam 9h–13h</li>
-        </ul>
-      </div>
-    </div>
-    <div class="border-t border-blue-600 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-      <div class="text-xs text-blue-400">
-        © 2026 Cabinet Dentaire Dr Martin · Lyon · RPPS 10000000001
-      </div>
-      <div class="text-xs text-blue-300">
-        Site réalisé par <a href="#" class="text-white font-semibold hover:underline">FacadeDigitale</a>
+      <div class="contact-box">
+        <h3>📍 Nous trouver</h3>
+        <p><strong>12 rue de la République, Lyon 3e</strong></p>
+        <p>Métro ligne B — Station Saxe-Gambetta</p>
+        <br>
+        <p>📞 <strong>04 78 00 00 00</strong></p>
+        <p>✉️ <strong>contact@cabinet-martin-lyon.fr</strong></p>
+        <br>
+        <p style="font-size:.85rem;color:#888">Parking disponible à proximité</p>
       </div>
     </div>
   </div>
+</section>
+
+<footer>
+  <p>© 2026 Cabinet Dentaire Dr. Martin – Lyon 3e | Tous droits réservés</p>
+  <p style="margin-top:6px;font-size:.8rem;opacity:.6">Site vitrine réalisé par <a href="https://marcjohnddoe.github.io/fd-demos/" style="color:inherit">FaçadeDigitale</a></p>
 </footer>
 
-<script>
-  // Progress bar
-  window.addEventListener('scroll', () => {
-    const s = document.documentElement;
-    const prog = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
-    document.getElementById('progress-bar').style.width = prog + '%';
-  });
-
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  reveals.forEach(r => observer.observe(r));
-
-  // Form submit
-  function submitForm(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type=submit]');
-    btn.textContent = '✅ Demande envoyée — Nous vous contactons sous 24h !';
-    btn.style.background = '#27ae60';
-    btn.disabled = true;
-  }
-</script>
 </body>
 </html>
