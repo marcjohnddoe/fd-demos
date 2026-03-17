@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FacadeDigitale — Sites vitrine professionnels</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
         h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
-        .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
+        .demo-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 20px 0; }
         .demo-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; }
-        .demo-card h3 { margin: 0 0 10px 0; color: #2c3e50; }
-        .demo-card a { display: inline-block; padding: 10px 20px; background: #3498db; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .demo-card h3 { margin: 0 0 10px 0; color: #2c3e50; font-size: .95rem; }
+        .demo-card a { display: inline-block; padding: 10px 20px; background: #3498db; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: .9rem; }
         .demo-card a:hover { background: #2980b9; }
-        .demo-emoji { font-size: 32px; margin: 10px 0; }
+        .demo-emoji { font-size: 28px; margin: 8px 0; }
+        .badge { display: inline-block; font-size: .65rem; background: #e8f4f8; color: #2980b9; padding: 2px 8px; border-radius: 10px; margin-bottom: 8px; font-weight: 600; letter-spacing: .5px; }
+        .badge.premium { background: #fef9e7; color: #c9a84c; }
         footer { margin-top: 40px; text-align: center; color: #7f8c8d; font-size: 12px; border-top: 1px solid #bdc3c7; padding-top: 20px; }
+        @media(max-width:600px){ .demo-grid{ grid-template-columns: 1fr 1fr; } }
     </style>
 </head>
 <body>
@@ -22,37 +25,85 @@
     
     <div class="demo-grid">
         <div class="demo-card">
+            <div class="badge">199€</div>
             <h3>🍽️ Restaurant / Traiteur</h3>
             <div class="demo-emoji">🍽️</div>
             <a href="traiteur/">Voir démo</a>
         </div>
         
         <div class="demo-card">
-            <h3>✂️ Barbier / Coiffeur Homme</h3>
+            <div class="badge">199€</div>
+            <h3>✂️ Barbier / Coiffeur</h3>
             <div class="demo-emoji">✂️</div>
             <a href="barbier/">Voir démo</a>
         </div>
         
         <div class="demo-card">
+            <div class="badge">199€</div>
             <h3>💇 Salon de Coiffure</h3>
             <div class="demo-emoji">💇</div>
             <a href="coiffeur/">Voir démo</a>
         </div>
         
         <div class="demo-card">
+            <div class="badge">199€</div>
             <h3>🥐 Boulangerie</h3>
             <div class="demo-emoji">🥐</div>
             <a href="boulangerie/">Voir démo</a>
         </div>
         
         <div class="demo-card">
-            <h3>🍺 Brasserie</h3>
+            <div class="badge">199€</div>
+            <h3>🍺 Brasserie / Bar</h3>
             <div class="demo-emoji">🍺</div>
             <a href="restaurant/">Voir démo</a>
         </div>
+
+        <div class="demo-card">
+            <div class="badge">299€</div>
+            <h3>⚡ Électricien</h3>
+            <div class="demo-emoji">⚡</div>
+            <a href="electricien/">Voir démo</a>
+        </div>
+
+        <div class="demo-card">
+            <div class="badge">299€</div>
+            <h3>🔧 Plombier</h3>
+            <div class="demo-emoji">🔧</div>
+            <a href="plombier/">Voir démo</a>
+        </div>
         
         <div class="demo-card">
-            <h3>💭 Pense Positive</h3>
+            <div class="badge">299€</div>
+            <h3>🦷 Cabinet Dentaire</h3>
+            <div class="demo-emoji">🦷</div>
+            <a href="dentiste/">Voir démo</a>
+        </div>
+
+        <div class="demo-card">
+            <div class="badge">299€</div>
+            <h3>🐾 Vétérinaire</h3>
+            <div class="demo-emoji">🐾</div>
+            <a href="veterinaire/">Voir démo</a>
+        </div>
+
+        <div class="demo-card">
+            <div class="badge premium">499–699€</div>
+            <h3>⚖️ Avocat / Notaire</h3>
+            <div class="demo-emoji">⚖️</div>
+            <a href="avocat/">Voir démo</a>
+        </div>
+
+        <div class="demo-card">
+            <div class="badge premium">499–699€</div>
+            <h3>🏛️ Architecte / Designer</h3>
+            <div class="demo-emoji">🏛️</div>
+            <a href="architecte/">Voir démo</a>
+        </div>
+        
+        <div class="demo-card">
+            <div class="badge">💭 Digital</div>
+            <h3>Pensée Positive</h3>
             <div class="demo-emoji">💭</div>
             <a href="pensee-positive/">Voir démo</a>
         </div>

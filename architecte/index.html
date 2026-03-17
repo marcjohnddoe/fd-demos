@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Moreau — Architecte & Designer d'Intérieur à Lyon</title>
+<meta name="description" content="Cabinet d'architecture et design d'intérieur à Lyon. Rénovation, aménagement, espaces sur-mesure. Devis gratuit.">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--cream:#f5f0e8;--sand:#c8b89a;--dark:#1c1c1c;--mid:#3a3a3a;--accent:#8b6f47;--light:#fafaf7}
+  body{font-family:'Helvetica Neue',Arial,sans-serif;color:var(--dark);background:#fff;font-weight:300}
+  header{background:#fff;padding:0 32px;position:sticky;top:0;z-index:100;border-bottom:1px solid #e8e0d4}
+  .nav{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:72px}
+  .logo{font-size:1.1rem;letter-spacing:4px;text-transform:uppercase;font-weight:400;color:var(--dark)}
+  .logo span{color:var(--accent)}
+  nav a{color:var(--mid);text-decoration:none;margin-left:36px;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;transition:.2s}
+  nav a:hover{color:var(--accent)}
+  .hero{background:var(--dark);color:#fff;padding:0;min-height:90vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+  .hero-text{padding:100px 60px;display:flex;flex-direction:column;justify-content:center;z-index:2}
+  .hero-tag{font-size:.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--sand);margin-bottom:28px;opacity:.8}
+  .hero h1{font-size:3.2rem;font-weight:200;line-height:1.2;margin-bottom:24px;letter-spacing:-0.5px}
+  .hero h1 strong{font-weight:600;display:block;color:var(--sand)}
+  .hero p{font-size:1rem;opacity:.7;line-height:1.9;max-width:420px;margin-bottom:44px}
+  .hero-visual{background:linear-gradient(135deg,#2a2a2a 0%,#1a1a1a 50%,#2d2520 100%);position:relative;overflow:hidden}
+  .hero-visual::before{content:'';position:absolute;inset:0;background:
+    repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(200,184,154,.04) 60px,rgba(200,184,154,.04) 61px),
+    repeating-linear-gradient(-45deg,transparent,transparent 60px,rgba(200,184,154,.03) 60px,rgba(200,184,154,.03) 61px)}
+  .hero-visual-inner{position:absolute;inset:20%;border:1px solid rgba(200,184,154,.2);display:flex;align-items:center;justify-content:center}
+  .hero-visual-inner::after{content:'△';font-size:6rem;color:rgba(200,184,154,.15);font-weight:100}
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:16px 40px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;font-size:.8rem;font-weight:500;transition:.25s}
+  .btn:hover{background:#7a5f3a;transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);margin-left:16px}
+  .btn-outline:hover{border-color:var(--sand);color:var(--sand);background:transparent}
+  section{padding:90px 32px}
+  .container{max-width:1100px;margin:0 auto}
+  .section-tag{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);text-align:center;margin-bottom:12px}
+  h2{font-size:2rem;font-weight:200;text-align:center;letter-spacing:-0.3px;margin-bottom:60px;color:var(--dark)}
+  h2 span{display:block;font-weight:600}
+  .divider{width:40px;height:1px;background:var(--accent);margin:16px auto 48px}
+  /* Services */
+  .services{background:var(--light)}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+  .service-card{background:#fff;padding:48px 36px;transition:.2s;cursor:default}
+  .service-card:hover{background:var(--cream)}
+  .service-num{font-size:.7rem;letter-spacing:4px;color:var(--accent);margin-bottom:20px;font-weight:500}
+  .service-card h3{font-size:1.15rem;font-weight:400;margin-bottom:14px;letter-spacing:.5px}
+  .service-card p{font-size:.9rem;color:#666;line-height:1.7}
+  /* Portfolio */
+  .portfolio{background:#fff}
+  .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+  .project{background:var(--dark);aspect-ratio:4/3;position:relative;overflow:hidden;cursor:pointer}
+  .project::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#2a2520 0%,#1a2a1a 100%);transition:.3s}
+  .project:nth-child(2)::before{background:linear-gradient(135deg,#1a2030 0%,#2a1a10 100%)}
+  .project:nth-child(3)::before{background:linear-gradient(135deg,#201a2a 0%,#1a2010 100%)}
+  .project:nth-child(4)::before{background:linear-gradient(135deg,#1a2a2a 0%,#2a1a20 100%)}
+  .project:nth-child(5)::before{background:linear-gradient(135deg,#2a2020 0%,#1a2a2a 100%)}
+  .project:nth-child(6)::before{background:linear-gradient(135deg,#201a1a 0%,#1a2030 100%)}
+  .project:hover::before{opacity:.6}
+  .project-info{position:absolute;bottom:0;left:0;right:0;padding:28px 24px;color:#fff;z-index:1;background:linear-gradient(transparent,rgba(0,0,0,.8))}
+  .project-info h4{font-size:.9rem;font-weight:400;letter-spacing:1px;margin-bottom:4px}
+  .project-info p{font-size:.75rem;opacity:.6;letter-spacing:1px;text-transform:uppercase}
+  .project-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:3rem;opacity:.08;color:var(--sand)}
+  /* Expertise */
+  .expertise{background:var(--dark);color:#fff}
+  .expertise h2{color:#fff}
+  .expertise h2 span{color:var(--sand)}
+  .expertise .section-tag{color:var(--sand)}
+  .expertise-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:60px}
+  .expertise-text p{font-size:1rem;opacity:.7;line-height:1.9;margin-bottom:24px}
+  .expertise-text p strong{color:var(--sand);font-weight:500;opacity:1}
+  .expertise-stats{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .stat{border-top:1px solid rgba(200,184,154,.2);padding-top:28px}
+  .stat-num{font-size:2.8rem;font-weight:200;color:var(--sand);line-height:1}
+  .stat-label{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;opacity:.5;margin-top:8px}
+  /* Temoignages */
+  .temoignages{background:var(--cream)}
+  .temoignages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .temoignage{background:#fff;padding:36px 32px}
+  .stars{color:var(--accent);font-size:1rem;margin-bottom:16px;letter-spacing:2px}
+  .temoignage blockquote{font-size:.95rem;font-style:italic;color:var(--mid);line-height:1.8;margin-bottom:20px}
+  .temoignage cite{font-size:.8rem;font-weight:500;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-style:normal}
+  /* CTA */
+  .cta-section{background:var(--accent);color:#fff;padding:90px 32px;text-align:center}
+  .cta-section h2{color:#fff;font-weight:200;font-size:2.2rem;text-align:center;margin-bottom:12px}
+  .cta-section h2 span{font-weight:600;display:inline}
+  .cta-section p{opacity:.85;margin-bottom:40px;font-size:1rem;line-height:1.8}
+  .btn-white{background:#fff;color:var(--accent);padding:18px 48px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;font-size:.85rem;font-weight:600;display:inline-block;transition:.2s}
+  .btn-white:hover{background:var(--cream);transform:translateY(-2px)}
+  footer{background:var(--dark);color:rgba(255,255,255,.5);padding:48px 32px;text-align:center;font-size:.85rem;line-height:1.9}
+  footer strong{color:rgba(255,255,255,.8)}
+  @media(max-width:768px){
+    .hero{grid-template-columns:1fr}
+    .hero-visual{display:none}
+    .hero-text{padding:80px 28px}
+    .hero h1{font-size:2.2rem}
+    .services-grid,.projects-grid,.temoignages-grid{grid-template-columns:1fr}
+    .expertise-grid{grid-template-columns:1fr}
+    .expertise-stats{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">Studio <span>Moreau</span></div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#expertise">Studio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-tag">Architecture & Design d'Intérieur · Lyon</div>
+    <h1>Des espaces <strong>qui vous ressemblent</strong></h1>
+    <p>Nous transformons vos idées en lieux de vie uniques. De la conception à la livraison, chaque projet est pensé sur-mesure, avec exigence et sensibilité.</p>
+    <div>
+      <a href="#contact" class="btn">Devis gratuit</a>
+      <a href="#portfolio" class="btn btn-outline">Voir le portfolio</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-visual-inner"></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-tag">Expertises</div>
+    <h2>Ce que nous <span>créons pour vous</span></h2>
+    <div class="divider"></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3>Architecture Résidentielle</h3>
+        <p>Extension, surélévation, rénovation complète. Plans, permis de construire, suivi de chantier — on gère tout.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3>Design d'Intérieur</h3>
+        <p>Aménagement de salons, cuisines, chambres. Sélection matériaux, mobilier, éclairage. Un espace cohérent et signé.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3>Aménagement Commercial</h3>
+        <p>Boutiques, restaurants, bureaux. Concept visuel fort, optimisation de l'espace, respect du budget et des délais.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <h3>Maîtrise d'Œuvre</h3>
+        <p>Coordination complète des corps de métier. Planification, contrôle qualité, réception de chantier. Zéro stress pour vous.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <h3>Conseil & Colorimétrie</h3>
+        <p>Une seule visite pour transformer une pièce. Palettes de couleurs, textiles, repositionnement du mobilier existant.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <h3>Rénovation Énergétique</h3>
+        <p>Isolation, ventilation, chauffage. Dossiers MaPrimeRénov' pris en charge. Performance + esthétique, sans compromis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="section-tag">Réalisations</div>
+    <h2>Quelques <span>projets récents</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="projects-grid">
+    <div class="project">
+      <div class="project-icon">⬡</div>
+      <div class="project-info"><h4>Villa Contemporaine</h4><p>Lyon 6e · 280 m²</p></div>
+    </div>
+    <div class="project">
+      <div class="project-icon">◻</div>
+      <div class="project-info"><h4>Loft Industriel</h4><p>La Confluence · 140 m²</p></div>
+    </div>
+    <div class="project">
+      <div class="project-icon">△</div>
+      <div class="project-info"><h4>Restaurant Bistrot</h4><p>Vieux Lyon · 80 couverts</p></div>
+    </div>
+    <div class="project">
+      <div class="project-icon">○</div>
+      <div class="project-info"><h4>Maison Haussmannienne</h4><p>Lyon 2e · 190 m²</p></div>
+    </div>
+    <div class="project">
+      <div class="project-icon">⬡</div>
+      <div class="project-info"><h4>Boutique Concept Store</h4><p>Part-Dieu · 65 m²</p></div>
+    </div>
+    <div class="project">
+      <div class="project-icon">◻</div>
+      <div class="project-info"><h4>Appartement Terasse</h4><p>Lyon 5e · 110 m²</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="expertise" id="expertise">
+  <div class="container">
+    <div class="section-tag">Le Studio</div>
+    <h2>Un cabinet <span style="color:var(--sand)">à taille humaine</span></h2>
+    <div class="expertise-grid">
+      <div class="expertise-text">
+        <p>Fondé à Lyon en 2014, Studio Moreau allie rigueur technique et sensibilité créative. Chaque projet est unique : <strong>pas de template, pas de formule.</strong></p>
+        <p>Nous travaillons avec un réseau sélectionné d'artisans locaux pour garantir qualité d'exécution et délais respectés. <strong>Votre satisfaction, notre seul indicateur.</strong></p>
+        <p>Architectes DPLG, membres de l'Ordre des Architectes Rhône-Alpes. Assurance professionnelle décennale incluse.</p>
+      </div>
+      <div class="expertise-stats">
+        <div class="stat">
+          <div class="stat-num">12</div>
+          <div class="stat-label">Années d'expérience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">180+</div>
+          <div class="stat-label">Projets livrés</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Clients satisfaits</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Architectes passionnés</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="temoignages">
+  <div class="container">
+    <div class="section-tag">Témoignages</div>
+    <h2>Ils nous ont <span>fait confiance</span></h2>
+    <div class="divider"></div>
+    <div class="temoignages-grid">
+      <div class="temoignage">
+        <div class="stars">★★★★★</div>
+        <blockquote>« Un suivi remarquable du début à la fin. Notre appartement du 2e arrondissement est méconnaissable — dans le bon sens. Délais respectés, budget maîtrisé. »</blockquote>
+        <cite>— Claire & Antoine B., Lyon 2e</cite>
+      </div>
+      <div class="temoignage">
+        <div class="stars">★★★★★</div>
+        <blockquote>« Studio Moreau a transformé notre restaurant vieillissant en un bistrot moderne qui attire une clientèle entièrement nouvelle. Retour sur investissement en 6 mois. »</blockquote>
+        <cite>— Thierry M., Restaurateur</cite>
+      </div>
+      <div class="temoignage">
+        <div class="stars">★★★★★</div>
+        <blockquote>« Professionnalisme et écoute rare. Ils ont compris exactement ce que je voulais, même quand je n'arrivais pas à l'exprimer. Ma villa est au-delà de mes espérances. »</blockquote>
+        <cite>— Sophie L., Propriétaire Lyon 6e</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <h2>Votre projet <span>commence ici</span></h2>
+  <p>Première consultation gratuite et sans engagement.<br>Nous étudions votre projet, évaluons le budget, et vous proposons un plan d'action concret.</p>
+  <a href="mailto:contact@studio-moreau-lyon.fr" class="btn-white">Demander un devis gratuit</a>
+</section>
+
+<footer>
+  <strong>Studio Moreau</strong> — Architecture & Design d'Intérieur<br>
+  12 rue du Président Carnot, 69002 Lyon · <a href="tel:0472334455" style="color:inherit">04 72 33 44 55</a> · contact@studio-moreau-lyon.fr<br>
+  Architectes DPLG · Ordre des Architectes Rhône-Alpes · RC Pro assurée<br><br>
+  <small style="opacity:.4">Site démo — FacadeDigitale.fr · Votre site pro à partir de 299€</small>
+</footer>
+
+</body>
+</html>
