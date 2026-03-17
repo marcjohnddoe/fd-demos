@@ -1,188 +1,729 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maître Dubois — Avocat à Lyon</title>
-<meta name="description" content="Cabinet d'avocat à Lyon. Droit des affaires, droit de la famille, droit du travail. Consultation sur rendez-vous.">
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  :root{--gold:#c9a84c;--dark:#1a1a2e;--darker:#0f0f1a;--light:#f8f6f0;--text:#2c2c2c}
-  body{font-family:'Georgia',serif;color:var(--text);background:#fff}
-  header{background:var(--darker);color:#fff;padding:0 24px;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--gold)}
-  .nav{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:72px}
-  .logo{font-size:1.2rem;letter-spacing:2px;font-variant:small-caps}
-  .logo span{color:var(--gold)}
-  nav a{color:rgba(255,255,255,.8);text-decoration:none;margin-left:28px;font-size:.9rem;letter-spacing:1px;font-variant:small-caps;transition:.2s}
-  nav a:hover{color:var(--gold)}
-  .hero{background:linear-gradient(135deg,var(--darker) 0%,#1a2a4a 100%);color:#fff;padding:90px 24px;text-align:center;position:relative;overflow:hidden}
-  .hero::before{content:'⚖';position:absolute;font-size:300px;opacity:.03;right:-80px;top:-60px}
-  .hero-tag{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:6px 20px;border-radius:2px;font-size:.8rem;letter-spacing:3px;font-variant:small-caps;margin-bottom:24px}
-  .hero h1{font-size:2.8rem;font-weight:400;letter-spacing:1px;margin-bottom:16px;line-height:1.3}
-  .hero h1 em{color:var(--gold);font-style:normal}
-  .hero p{font-size:1.1rem;opacity:.8;max-width:540px;margin:0 auto 40px;line-height:1.8;font-style:italic}
-  .btn{display:inline-block;background:var(--gold);color:var(--darker);padding:14px 36px;font-variant:small-caps;letter-spacing:2px;text-decoration:none;font-size:.95rem;font-weight:700;transition:.2s}
-  .btn:hover{background:#d4af5a;transform:translateY(-1px)}
-  .btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5);margin-left:14px}
-  .btn-outline:hover{border-color:var(--gold);color:var(--gold);background:transparent}
-  section{padding:80px 24px}
-  .container{max-width:1100px;margin:0 auto}
-  h2{font-size:1.9rem;font-weight:400;text-align:center;letter-spacing:1px;margin-bottom:10px;color:var(--dark)}
-  h2 em{color:var(--gold);font-style:normal}
-  .divider{text-align:center;margin-bottom:50px}
-  .divider::after{content:'';display:inline-block;width:60px;height:2px;background:var(--gold);vertical-align:middle;margin-left:12px}
-  .divider::before{content:'';display:inline-block;width:60px;height:2px;background:var(--gold);vertical-align:middle;margin-right:12px}
-  .domains{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;background:#e8e4d8}
-  .domain-card{background:#fff;padding:36px 28px;transition:.2s}
-  .domain-card:hover{background:var(--light)}
-  .domain-icon{font-size:2.2rem;margin-bottom:14px}
-  .domain-card h3{font-size:1.15rem;font-weight:400;letter-spacing:1px;font-variant:small-caps;color:var(--dark);margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--gold)}
-  .domain-card p{color:#666;font-size:.93rem;line-height:1.7}
-  .about{background:var(--light)}
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  .about-portrait{background:var(--dark);border-radius:2px;height:380px;display:flex;align-items:center;justify-content:center;font-size:6rem;position:relative}
-  .about-portrait::after{content:'';position:absolute;bottom:-12px;right:-12px;width:100%;height:100%;border:2px solid var(--gold);z-index:-1;border-radius:2px}
-  .about h2{text-align:left}
-  .about .divider{text-align:left}
-  .about .divider::before{display:none}
-  .about p{color:#555;line-height:1.9;margin-bottom:14px;font-size:.97rem}
-  .check-item{display:flex;align-items:flex-start;margin-bottom:10px;font-size:.95rem;color:#444}
-  .check-item::before{content:'—';color:var(--gold);font-weight:700;margin-right:10px;flex-shrink:0}
-  .rdv-section{background:var(--dark);color:#fff}
-  .rdv-section h2{color:#fff}
-  .rdv-section h2 em{color:var(--gold)}
-  .rdv-subtitle{text-align:center;color:rgba(255,255,255,.7);margin-bottom:40px;font-style:italic}
-  .rdv-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;max-width:900px;margin:0 auto}
-  .rdv-info h3{font-variant:small-caps;letter-spacing:1px;color:var(--gold);margin-bottom:20px;font-weight:400}
-  .rdv-info p{color:rgba(255,255,255,.75);margin-bottom:10px;font-size:.95rem;line-height:1.7}
-  .rdv-form input,.rdv-form select,.rdv-form textarea{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;padding:12px 16px;margin-bottom:12px;font-family:inherit;font-size:.95rem;border-radius:0}
-  .rdv-form textarea{height:100px;resize:vertical}
-  .rdv-form ::placeholder{color:rgba(255,255,255,.45)}
-  .rdv-form button{width:100%;background:var(--gold);color:var(--darker);padding:14px;font-variant:small-caps;letter-spacing:2px;font-size:1rem;font-weight:700;border:none;cursor:pointer;transition:.2s}
-  .rdv-form button:hover{background:#d4af5a}
-  footer{background:var(--darker);color:rgba(255,255,255,.5);text-align:center;padding:28px;font-size:.85rem;border-top:1px solid rgba(255,255,255,.1)}
-  @media(max-width:768px){.hero h1{font-size:1.9rem}.about-grid,.rdv-grid{grid-template-columns:1fr}nav{display:none}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cabinet Martin & Associés — Avocats au Barreau de Paris</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:   { DEFAULT: '#1A237E', light: '#283593', dark: '#0D1757' },
+            gold:   { DEFAULT: '#C9A84C', light: '#D4B96A', dark: '#A8882E' },
+            cream:  { DEFAULT: '#FAF7F0', dark: '#F0EBE0' },
+            burgundy: { DEFAULT: '#8B0000', light: '#A50000' },
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans:  ['"Inter"', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+    .gold-divider { width: 60px; height: 2px; background: #C9A84C; margin: 0 auto; }
+    .gold-divider-left { width: 60px; height: 2px; background: #C9A84C; }
+    .section-label { letter-spacing: .2em; font-size: .75rem; text-transform: uppercase; color: #C9A84C; font-weight: 500; }
+    .nav-link { position: relative; }
+    .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:1px; background:#C9A84C; transition: width .3s; }
+    .nav-link:hover::after { width:100%; }
+    .card-hover { transition: transform .25s, box-shadow .25s; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,35,126,.12); }
+    .btn-primary { background:#C9A84C; color:#fff; padding:.75rem 2rem; font-weight:600; letter-spacing:.05em; transition: background .2s, transform .15s; }
+    .btn-primary:hover { background:#A8882E; transform:translateY(-1px); }
+    .btn-outline { border:2px solid #C9A84C; color:#C9A84C; padding:.7rem 2rem; font-weight:600; letter-spacing:.05em; transition: background .2s, color .2s; }
+    .btn-outline:hover { background:#C9A84C; color:#fff; }
+    .stat-number { font-family:'Playfair Display',serif; font-size:3rem; font-weight:700; color:#C9A84C; line-height:1; }
+    input, textarea, select { outline:none; }
+    input:focus, textarea:focus, select:focus { border-color:#C9A84C !important; box-shadow:0 0 0 3px rgba(201,168,76,.15); }
+    .quote-mark { font-size:5rem; line-height:.8; font-family:Georgia,serif; color:#C9A84C; opacity:.4; }
+  </style>
 </head>
-<body>
+<body class="bg-white font-sans text-gray-800">
 
-<header>
-  <div class="nav">
-    <div class="logo">⚖ Maître <span>Dubois</span></div>
-    <nav>
-      <a href="#domaines">Domaines</a>
-      <a href="#cabinet">Le Cabinet</a>
-      <a href="#rdv">Rendez-vous</a>
+<!-- ═══════════════════════  NAV  ═══════════════════════ -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 border-2 border-navy flex items-center justify-center">
+        <span class="text-navy font-serif font-bold text-sm">M</span>
+      </div>
+      <div>
+        <div class="font-serif font-bold text-navy text-sm leading-tight">Cabinet Martin & Associés</div>
+        <div class="text-xs text-gray-500 tracking-widest uppercase">Avocats au Barreau de Paris</div>
+      </div>
+    </div>
+    <nav class="hidden lg:flex items-center gap-8">
+      <a href="#domaines" class="nav-link text-sm text-gray-700 hover:text-navy transition-colors">Domaines</a>
+      <a href="#equipe"   class="nav-link text-sm text-gray-700 hover:text-navy transition-colors">L'Équipe</a>
+      <a href="#honoraires" class="nav-link text-sm text-gray-700 hover:text-navy transition-colors">Honoraires</a>
+      <a href="#temoignages" class="nav-link text-sm text-gray-700 hover:text-navy transition-colors">Témoignages</a>
+      <a href="#contact"  class="btn-primary text-sm rounded">Première Consultation</a>
     </nav>
+    <!-- Mobile menu button -->
+    <button id="menuBtn" class="lg:hidden text-navy p-2" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <!-- Mobile nav -->
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
+    <a href="#domaines"   class="block text-sm text-gray-700 py-2">Domaines</a>
+    <a href="#equipe"     class="block text-sm text-gray-700 py-2">L'Équipe</a>
+    <a href="#honoraires" class="block text-sm text-gray-700 py-2">Honoraires</a>
+    <a href="#temoignages" class="block text-sm text-gray-700 py-2">Témoignages</a>
+    <a href="#contact"    class="block text-sm font-semibold text-gold py-2">Première Consultation →</a>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-tag">Cabinet d'Avocat · Lyon</div>
-  <h1>Votre défense,<br>notre <em>engagement</em></h1>
-  <p>Maître Dubois vous accompagne avec rigueur et discrétion dans vos affaires juridiques, depuis plus de 20 ans.</p>
-  <a href="#rdv" class="btn">Prendre rendez-vous</a>
-  <a href="tel:0478000000" class="btn btn-outline">04 78 00 00 00</a>
-</section>
+<!-- ═══════════════════════  HERO  ═══════════════════════ -->
+<section class="relative min-h-screen flex items-center overflow-hidden" style="background: linear-gradient(135deg, #0D1757 0%, #1A237E 45%, #283593 100%);">
+  <!-- Decorative background elements -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute top-20 right-20 w-96 h-96 rounded-full border border-gold" style="border-color:#C9A84C"></div>
+    <div class="absolute top-40 right-40 w-64 h-64 rounded-full border border-gold" style="border-color:#C9A84C"></div>
+    <div class="absolute bottom-20 left-10 w-72 h-72 rounded-full border border-gold" style="border-color:#C9A84C"></div>
+  </div>
+  <!-- Gold top bar -->
+  <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, #C9A84C, #D4B96A, #C9A84C)"></div>
 
-<section id="domaines">
-  <div class="container">
-    <h2>Domaines d'<em>expertise</em></h2>
-    <div class="divider"> </div>
-    <div class="domains">
-      <div class="domain-card">
-        <div class="domain-icon">🏢</div>
-        <h3>Droit des affaires</h3>
-        <p>Création de sociétés, contrats commerciaux, litiges entre entreprises. Un accompagnement stratégique pour vos décisions.</p>
+  <div class="relative max-w-7xl mx-auto px-6 pt-24 pb-20 grid lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <p class="section-label mb-6">Fondé en 2004 · Paris 8ème</p>
+      <h1 class="font-serif text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+        Cabinet<br/>
+        <span style="color:#C9A84C">Martin</span> & Associés
+      </h1>
+      <p class="text-xl text-blue-100 font-light mb-4 italic font-serif">
+        "Votre droit, notre expertise depuis 20 ans."
+      </p>
+      <p class="text-blue-200 text-base leading-relaxed mb-10 max-w-lg">
+        Cabinet d'avocats d'affaires et de droit privé, reconnu pour la rigueur de ses conseils 
+        et son engagement sans faille auprès de ses clients — particuliers, entrepreneurs et grandes entreprises.
+      </p>
+      <div class="flex flex-wrap gap-4 mb-12">
+        <a href="#contact" class="btn-primary rounded text-sm">Prendre rendez-vous</a>
+        <a href="#domaines" class="btn-outline rounded text-sm" style="border-color:rgba(201,168,76,.6);color:#C9A84C">Nos domaines →</a>
       </div>
-      <div class="domain-card">
-        <div class="domain-icon">👨‍👩‍👧</div>
-        <h3>Droit de la famille</h3>
-        <p>Divorce, séparation, garde des enfants, succession. Je défends vos intérêts avec humanité et fermeté.</p>
+      <!-- Stats row -->
+      <div class="flex flex-wrap gap-10">
+        <div>
+          <div class="stat-number">20</div>
+          <div class="text-blue-300 text-xs uppercase tracking-widest mt-1">Années d'existence</div>
+        </div>
+        <div class="w-px bg-blue-700 self-stretch"></div>
+        <div>
+          <div class="stat-number">2 500+</div>
+          <div class="text-blue-300 text-xs uppercase tracking-widest mt-1">Dossiers traités</div>
+        </div>
+        <div class="w-px bg-blue-700 self-stretch"></div>
+        <div>
+          <div class="stat-number">3</div>
+          <div class="text-blue-300 text-xs uppercase tracking-widest mt-1">Associés</div>
+        </div>
       </div>
-      <div class="domain-card">
-        <div class="domain-icon">💼</div>
-        <h3>Droit du travail</h3>
-        <p>Licenciement, harcèlement, rupture conventionnelle. Employeurs et salariés — défense équitable et efficace.</p>
-      </div>
-      <div class="domain-card">
-        <div class="domain-icon">🏠</div>
-        <h3>Droit immobilier</h3>
-        <p>Baux, copropriété, vices cachés, litiges entre propriétaires et locataires. Votre patrimoine mérite d'être protégé.</p>
-      </div>
-      <div class="domain-card">
-        <div class="domain-icon">⚖️</div>
-        <h3>Droit pénal</h3>
-        <p>Assistance et représentation en procédure pénale. Présence à vos côtés à chaque étape de la procédure.</p>
-      </div>
-      <div class="domain-card">
-        <div class="domain-icon">🤝</div>
-        <h3>Médiation & règlement</h3>
-        <p>Solutions amiables avant contentieux. Réduire les coûts et délais grâce à la négociation.</p>
+    </div>
+
+    <!-- Right column: credentials card -->
+    <div class="hidden lg:block">
+      <div class="bg-white/8 backdrop-blur border border-white/10 rounded-lg p-8 space-y-6">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(201,168,76,.2)">
+            <svg class="w-5 h-5" style="color:#C9A84C" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <div class="text-white font-semibold text-sm mb-1">Barreau de Paris</div>
+            <div class="text-blue-300 text-xs">Inscrits et en règle depuis 2004</div>
+          </div>
+        </div>
+        <div class="border-t border-white/10 pt-6 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(201,168,76,.2)">
+            <svg class="w-5 h-5" style="color:#C9A84C" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <div class="text-white font-semibold text-sm mb-1">Confidentialité absolue</div>
+            <div class="text-blue-300 text-xs">Secret professionnel garanti sur chaque dossier</div>
+          </div>
+        </div>
+        <div class="border-t border-white/10 pt-6 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(201,168,76,.2)">
+            <svg class="w-5 h-5" style="color:#C9A84C" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="text-white font-semibold text-sm mb-1">Disponibilité & réactivité</div>
+            <div class="text-blue-300 text-xs">Réponse sous 24h, urgences prises en charge</div>
+          </div>
+        </div>
+        <div class="border-t border-white/10 pt-6">
+          <div class="text-blue-200 text-xs italic font-serif">
+            "Nous ne défendons pas seulement vos droits — nous les anticipons."
+          </div>
+          <div class="text-gold text-xs mt-2 font-medium" style="color:#C9A84C">— Maître Philippe Martin</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="cabinet" class="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-portrait">👨‍⚖️</div>
+<!-- ═══════════════════════  DOMAINES  ═══════════════════════ -->
+<section id="domaines" class="py-24 bg-cream" style="background:#FAF7F0">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <p class="section-label mb-3">Notre expertise</p>
+      <h2 class="font-serif text-4xl font-bold text-navy mb-4" style="color:#1A237E">Domaines de droit</h2>
+      <div class="gold-divider mb-6"></div>
+      <p class="text-gray-600 max-w-2xl mx-auto text-base leading-relaxed">
+        Fort de vingt années d'exercice, le cabinet intervient dans six domaines principaux 
+        avec une approche transversale et sur mesure pour chaque client.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Droit des affaires -->
+      <div class="card-hover bg-white rounded-lg p-8 border border-gray-100">
+        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5" style="background:rgba(26,35,126,.08)">
+          <svg class="w-6 h-6 text-navy" style="color:#1A237E" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 00-1-1h-2a1 1 0 00-1 1v5m4 0H9"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-navy mb-3" style="color:#1A237E">Droit des affaires</h3>
+        <div class="gold-divider-left mb-4"></div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">Création de sociétés, fusions-acquisitions, contrats commerciaux, gouvernance d'entreprise et contentieux commercial. Nous accompagnons les entreprises à chaque étape de leur développement.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs bg-navy/8 text-navy px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">M&A</span>
+          <span class="text-xs bg-navy/8 text-navy px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">Contrats</span>
+          <span class="text-xs bg-navy/8 text-navy px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">Contentieux</span>
+        </div>
+      </div>
+
+      <!-- Droit immobilier -->
+      <div class="card-hover bg-white rounded-lg p-8 border border-gray-100">
+        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5" style="background:rgba(26,35,126,.08)">
+          <svg class="w-6 h-6" style="color:#1A237E" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-bold mb-3" style="color:#1A237E">Droit immobilier</h3>
+        <div class="gold-divider-left mb-4"></div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">Transactions, baux commerciaux et d'habitation, copropriété, construction et urbanisme. Conseil et défense dans tous les litiges liés à votre patrimoine immobilier.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">Transactions</span>
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">Baux</span>
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">Urbanisme</span>
+        </div>
+      </div>
+
+      <!-- Droit de la famille -->
+      <div class="card-hover bg-white rounded-lg p-8 border border-gray-100">
+        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5" style="background:rgba(26,35,126,.08)">
+          <svg class="w-6 h-6" style="color:#1A237E" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-bold mb-3" style="color:#1A237E">Droit de la famille</h3>
+        <div class="gold-divider-left mb-4"></div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">Divorce, séparation, garde d'enfants, pension alimentaire, succession et héritage. Une approche humaine et rigoureuse pour protéger vos intérêts et ceux de vos proches.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">Divorce</span>
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">Garde</span>
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">Successions</span>
+        </div>
+      </div>
+
+      <!-- Droit du travail -->
+      <div class="card-hover bg-white rounded-lg p-8 border border-gray-100">
+        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5" style="background:rgba(26,35,126,.08)">
+          <svg class="w-6 h-6" style="color:#1A237E" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-bold mb-3" style="color:#1A237E">Droit du travail</h3>
+        <div class="gold-divider-left mb-4"></div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">Licenciements, ruptures conventionnelles, harcèlement, discrimination, négociation d'accords collectifs. Défense des employeurs et des salariés devant les Conseils de Prud'hommes.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">Licenciement</span>
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">Prud'hommes</span>
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">Négociation</span>
+        </div>
+      </div>
+
+      <!-- Droit pénal -->
+      <div class="card-hover bg-white rounded-lg p-8 border border-gray-100">
+        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5" style="background:rgba(139,0,0,.08)">
+          <svg class="w-6 h-6" style="color:#8B0000" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-bold mb-3" style="color:#1A237E">Droit pénal</h3>
+        <div class="gold-divider-left mb-4" style="background:#8B0000"></div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">Défense pénale, droit pénal des affaires (abus de biens sociaux, fraude fiscale, corruption), assistance aux victimes et représentation devant toutes les juridictions répressives.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(139,0,0,.08);color:#8B0000">Défense</span>
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(139,0,0,.08);color:#8B0000">Pénal des affaires</span>
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(139,0,0,.08);color:#8B0000">Victimes</span>
+        </div>
+      </div>
+
+      <!-- Droit international -->
+      <div class="card-hover bg-white rounded-lg p-8 border border-gray-100">
+        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5" style="background:rgba(26,35,126,.08)">
+          <svg class="w-6 h-6" style="color:#1A237E" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-bold mb-3" style="color:#1A237E">Droit international</h3>
+        <div class="gold-divider-left mb-4"></div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">Contrats transfrontaliers, arbitrage international, droit européen des affaires, investissements étrangers et litiges internationaux. Le cabinet maîtrise l'anglais et l'espagnol juridique.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">Arbitrage</span>
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">Droit UE</span>
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(26,35,126,.08);color:#1A237E">Cross-border</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════  ÉQUIPE  ═══════════════════════ -->
+<section id="equipe" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <p class="section-label mb-3">Nos avocats</p>
+      <h2 class="font-serif text-4xl font-bold mb-4" style="color:#1A237E">L'Équipe du Cabinet</h2>
+      <div class="gold-divider mb-6"></div>
+      <p class="text-gray-600 max-w-2xl mx-auto text-base leading-relaxed">
+        Trois associés fondateurs, chacun expert dans son domaine, unis par une même exigence 
+        d'excellence et un engagement total envers leurs clients.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Maître 1 -->
+      <div class="card-hover text-center">
+        <div class="relative mb-6 inline-block">
+          <div class="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-cream" style="border-color:#FAF7F0">
+            <div class="w-full h-full flex items-center justify-center text-white font-serif text-5xl font-bold" style="background:linear-gradient(135deg,#1A237E,#283593)">PM</div>
+          </div>
+          <div class="absolute -bottom-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center" style="background:#C9A84C">
+            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          </div>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-navy" style="color:#1A237E">Maître Philippe Martin</h3>
+        <p class="text-sm font-medium mb-1" style="color:#C9A84C">Associé fondateur</p>
+        <p class="text-gray-500 text-xs uppercase tracking-widest mb-4">Droit des affaires · Droit pénal</p>
+        <div class="w-10 mx-auto mb-4" style="height:1px;background:#e5e7eb"></div>
+        <p class="text-gray-600 text-sm leading-relaxed px-4">
+          Diplômé de Paris II Panthéon-Assas, DEA en droit des affaires. Vingt ans de pratique 
+          du contentieux commercial et pénal au plus haut niveau. Intervient régulièrement 
+          devant la Cour de cassation.
+        </p>
+        <div class="mt-5 flex justify-center gap-3">
+          <span class="text-xs px-3 py-1 rounded-full border" style="border-color:#1A237E;color:#1A237E">Paris II</span>
+          <span class="text-xs px-3 py-1 rounded-full border" style="border-color:#1A237E;color:#1A237E">20 ans d'exp.</span>
+        </div>
+      </div>
+
+      <!-- Maître 2 -->
+      <div class="card-hover text-center">
+        <div class="relative mb-6 inline-block">
+          <div class="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-cream" style="border-color:#FAF7F0">
+            <div class="w-full h-full flex items-center justify-center text-white font-serif text-5xl font-bold" style="background:linear-gradient(135deg,#8B0000,#A50000)">SB</div>
+          </div>
+          <div class="absolute -bottom-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center" style="background:#C9A84C">
+            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          </div>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-navy" style="color:#1A237E">Maître Sophie Beaumont</h3>
+        <p class="text-sm font-medium mb-1" style="color:#C9A84C">Associée</p>
+        <p class="text-gray-500 text-xs uppercase tracking-widest mb-4">Droit de la famille · Droit du travail</p>
+        <div class="w-10 mx-auto mb-4" style="height:1px;background:#e5e7eb"></div>
+        <p class="text-gray-600 text-sm leading-relaxed px-4">
+          Ancienne élève de Sciences Po Paris et docteure en droit privé, Maître Beaumont est 
+          reconnue pour son expertise en droit de la famille. Elle accompagne avec sensibilité 
+          et fermeté les situations les plus complexes.
+        </p>
+        <div class="mt-5 flex justify-center gap-3">
+          <span class="text-xs px-3 py-1 rounded-full border" style="border-color:#8B0000;color:#8B0000">Sciences Po</span>
+          <span class="text-xs px-3 py-1 rounded-full border" style="border-color:#8B0000;color:#8B0000">Docteure en droit</span>
+        </div>
+      </div>
+
+      <!-- Maître 3 -->
+      <div class="card-hover text-center">
+        <div class="relative mb-6 inline-block">
+          <div class="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-cream" style="border-color:#FAF7F0">
+            <div class="w-full h-full flex items-center justify-center text-white font-serif text-5xl font-bold" style="background:linear-gradient(135deg,#283593,#1A237E)">TD</div>
+          </div>
+          <div class="absolute -bottom-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center" style="background:#C9A84C">
+            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          </div>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-navy" style="color:#1A237E">Maître Thomas Dubois</h3>
+        <p class="text-sm font-medium mb-1" style="color:#C9A84C">Associé</p>
+        <p class="text-gray-500 text-xs uppercase tracking-widest mb-4">Droit immobilier · Droit international</p>
+        <div class="w-10 mx-auto mb-4" style="height:1px;background:#e5e7eb"></div>
+        <p class="text-gray-600 text-sm leading-relaxed px-4">
+          Diplômé de HEC et de l'ESSEC en droit des affaires internationales, Maître Dubois 
+          conseille des investisseurs français et étrangers sur leurs projets immobiliers et 
+          leurs opérations transfrontalières complexes.
+        </p>
+        <div class="mt-5 flex justify-center gap-3">
+          <span class="text-xs px-3 py-1 rounded-full border" style="border-color:#1A237E;color:#1A237E">HEC · ESSEC</span>
+          <span class="text-xs px-3 py-1 rounded-full border" style="border-color:#1A237E;color:#1A237E">International</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════  HONORAIRES  ═══════════════════════ -->
+<section id="honoraires" class="py-24" style="background:#1A237E">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <p class="section-label mb-3" style="color:#C9A84C">Transparence & clarté</p>
+      <h2 class="font-serif text-4xl font-bold text-white mb-4">Nos Honoraires</h2>
+      <div class="gold-divider mb-6"></div>
+      <p class="text-blue-200 max-w-2xl mx-auto text-base leading-relaxed">
+        Parce que la confiance naît de la transparence, nous vous communiquons dès le premier 
+        rendez-vous une convention d'honoraires claire et sans surprise.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+
+      <!-- Consultation -->
+      <div class="bg-white/8 backdrop-blur border border-white/15 rounded-lg p-8 text-center">
+        <div class="text-blue-300 text-xs uppercase tracking-widest mb-4">Première consultation</div>
+        <div class="font-serif text-4xl font-bold text-white mb-2">150 €</div>
+        <div class="text-blue-300 text-sm mb-6">TTC · 1h · En cabinet ou visio</div>
+        <div class="border-t border-white/15 pt-6 space-y-3">
+          <div class="flex items-center gap-3 text-sm text-blue-100">
+            <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Analyse de votre situation
+          </div>
+          <div class="flex items-center gap-3 text-sm text-blue-100">
+            <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Stratégie juridique initiale
+          </div>
+          <div class="flex items-center gap-3 text-sm text-blue-100">
+            <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Estimation des honoraires
+          </div>
+        </div>
+      </div>
+
+      <!-- Forfait -->
+      <div class="rounded-lg p-8 text-center relative border-2" style="background:white;border-color:#C9A84C">
+        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1 rounded-full text-white text-xs font-semibold" style="background:#C9A84C">Le plus choisi</div>
+        <div class="text-gray-500 text-xs uppercase tracking-widest mb-4">Dossier complet</div>
+        <div class="font-serif text-4xl font-bold mb-2" style="color:#1A237E">Sur devis</div>
+        <div class="text-gray-500 text-sm mb-6">Convention d'honoraires personnalisée</div>
+        <div class="border-t pt-6 space-y-3" style="border-color:#e5e7eb">
+          <div class="flex items-center gap-3 text-sm text-gray-700">
+            <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Honoraires forfaitaires ou horaires
+          </div>
+          <div class="flex items-center gap-3 text-sm text-gray-700">
+            <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Suivi personnalisé & reporting
+          </div>
+          <div class="flex items-center gap-3 text-sm text-gray-700">
+            <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Accessibilité 7j/7 si urgence
+          </div>
+        </div>
+      </div>
+
+      <!-- Taux horaire -->
+      <div class="bg-white/8 backdrop-blur border border-white/15 rounded-lg p-8 text-center">
+        <div class="text-blue-300 text-xs uppercase tracking-widest mb-4">Taux horaire indicatif</div>
+        <div class="font-serif text-4xl font-bold text-white mb-2">280–450 €</div>
+        <div class="text-blue-300 text-sm mb-6">HT / heure · selon complexité</div>
+        <div class="border-t border-white/15 pt-6 space-y-3">
+          <div class="flex items-center gap-3 text-sm text-blue-100">
+            <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Dossiers conseil & rédaction
+          </div>
+          <div class="flex items-center gap-3 text-sm text-blue-100">
+            <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Aide juridictionnelle possible
+          </div>
+          <div class="flex items-center gap-3 text-sm text-blue-100">
+            <svg class="w-4 h-4 flex-shrink-0" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Assurance protection juridique
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-lg p-6 text-center">
+      <p class="text-blue-200 text-sm leading-relaxed">
+        <span class="text-white font-medium">Note :</span> Le cabinet accepte les dossiers au titre de l'aide juridictionnelle et peut intervenir en lien avec votre assurance de protection juridique. 
+        Tous les honoraires sont communiqués par écrit avant le début de la mission, conformément à la réglementation du Barreau de Paris.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════  TÉMOIGNAGES  ═══════════════════════ -->
+<section id="temoignages" class="py-24 bg-cream" style="background:#FAF7F0">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <p class="section-label mb-3">Ils nous font confiance</p>
+      <h2 class="font-serif text-4xl font-bold mb-4" style="color:#1A237E">Témoignages Clients</h2>
+      <div class="gold-divider mb-6"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="card-hover bg-white rounded-lg p-8 shadow-sm">
+        <div class="quote-mark mb-2">"</div>
+        <p class="text-gray-700 text-sm leading-relaxed mb-6 italic">
+          Maître Martin a géré notre fusion-acquisition avec une précision remarquable. Son expertise en droit des affaires nous a permis d'éviter plusieurs écueils juridiques majeurs. Un cabinet d'un niveau exceptionnel.
+        </p>
+        <div class="flex items-center gap-3 border-t pt-5" style="border-color:#e5e7eb">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-serif font-bold text-sm flex-shrink-0" style="background:#1A237E">JL</div>
+          <div>
+            <div class="font-semibold text-sm text-gray-900">Jean-Luc Fontaine</div>
+            <div class="text-xs text-gray-500">PDG, Groupe Fontaine Industries</div>
+          </div>
+          <div class="ml-auto flex">
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-hover bg-white rounded-lg p-8 shadow-sm">
+        <div class="quote-mark mb-2">"</div>
+        <p class="text-gray-700 text-sm leading-relaxed mb-6 italic">
+          Après un divorce difficile, Maître Beaumont m'a accompagnée avec une sensibilité et une efficacité incomparables. Elle a su défendre mes intérêts et ceux de mes enfants. Je lui fais une confiance totale.
+        </p>
+        <div class="flex items-center gap-3 border-t pt-5" style="border-color:#e5e7eb">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-serif font-bold text-sm flex-shrink-0" style="background:#8B0000">MC</div>
+          <div>
+            <div class="font-semibold text-sm text-gray-900">Marie-Claire Tessier</div>
+            <div class="text-xs text-gray-500">Particulière, Paris 16ème</div>
+          </div>
+          <div class="ml-auto flex">
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-hover bg-white rounded-lg p-8 shadow-sm">
+        <div class="quote-mark mb-2">"</div>
+        <p class="text-gray-700 text-sm leading-relaxed mb-6 italic">
+          Maître Dubois a structuré l'acquisition de notre immeuble haussmannien avec une maîtrise parfaite des enjeux fiscaux et juridiques. Un interlocuteur d'une clarté rare sur des sujets complexes.
+        </p>
+        <div class="flex items-center gap-3 border-t pt-5" style="border-color:#e5e7eb">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-serif font-bold text-sm flex-shrink-0" style="background:#1A237E">AV</div>
+          <div>
+            <div class="font-semibold text-sm text-gray-900">Alexandre Vincenot</div>
+            <div class="text-xs text-gray-500">Investisseur immobilier, Monaco</div>
+          </div>
+          <div class="ml-auto flex">
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4" style="color:#C9A84C" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════  CONTACT  ═══════════════════════ -->
+<section id="contact" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <p class="section-label mb-3">Prendre contact</p>
+      <h2 class="font-serif text-4xl font-bold mb-4" style="color:#1A237E">Première Consultation</h2>
+      <div class="gold-divider mb-6"></div>
+      <p class="text-gray-600 max-w-xl mx-auto text-base">
+        Décrivez votre situation. Un avocat vous recontacte sous 24h pour convenir d'un rendez-vous.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-12">
+
+      <!-- Infos cabinet -->
+      <div class="lg:col-span-2 space-y-8">
+        <div>
+          <div class="font-serif text-xl font-bold mb-2" style="color:#1A237E">Cabinet Martin & Associés</div>
+          <div class="text-sm text-gray-500 uppercase tracking-widest mb-6">Avocats au Barreau de Paris</div>
+          <div class="gold-divider-left mb-6"></div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(26,35,126,.08)">
+            <svg class="w-5 h-5" style="color:#1A237E" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <div class="font-semibold text-sm text-gray-900 mb-1">Adresse</div>
+            <div class="text-gray-600 text-sm">42, Avenue Hoche<br/>75008 Paris — 8ème arrondissement<br/>Accès : Métro Charles de Gaulle-Étoile</div>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(26,35,126,.08)">
+            <svg class="w-5 h-5" style="color:#1A237E" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </div>
+          <div>
+            <div class="font-semibold text-sm text-gray-900 mb-1">Téléphone</div>
+            <div class="text-gray-600 text-sm">+33 (0)1 42 56 78 90<br/><span class="text-xs text-gray-400">Lun–Ven 8h30–19h · Urgences 7j/7</span></div>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(26,35,126,.08)">
+            <svg class="w-5 h-5" style="color:#1A237E" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <div class="font-semibold text-sm text-gray-900 mb-1">Email</div>
+            <div class="text-gray-600 text-sm">contact@cabinet-martin-associes.fr<br/><span class="text-xs text-gray-400">Réponse sous 24h ouvrées</span></div>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-lg border-l-4" style="background:rgba(201,168,76,.08);border-color:#C9A84C">
+          <div class="text-sm font-semibold text-gray-900 mb-2">⚖️ Urgence juridique ?</div>
+          <div class="text-xs text-gray-600">Notre permanence téléphonique est disponible 7 jours sur 7. N'attendez pas pour protéger vos droits.</div>
+        </div>
+      </div>
+
+      <!-- Formulaire -->
+      <div class="lg:col-span-3">
+        <form class="space-y-5" onsubmit="handleSubmit(event)">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">Prénom *</label>
+              <input type="text" placeholder="Marie" required class="w-full border rounded px-4 py-3 text-sm transition-all" style="border-color:#e5e7eb" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">Nom *</label>
+              <input type="text" placeholder="Dupont" required class="w-full border rounded px-4 py-3 text-sm transition-all" style="border-color:#e5e7eb" />
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">Email *</label>
+              <input type="email" placeholder="marie@exemple.fr" required class="w-full border rounded px-4 py-3 text-sm transition-all" style="border-color:#e5e7eb" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">Téléphone</label>
+              <input type="tel" placeholder="+33 6 12 34 56 78" class="w-full border rounded px-4 py-3 text-sm transition-all" style="border-color:#e5e7eb" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">Domaine concerné *</label>
+            <select required class="w-full border rounded px-4 py-3 text-sm transition-all bg-white" style="border-color:#e5e7eb;color:#374151">
+              <option value="" disabled selected>Sélectionnez un domaine</option>
+              <option>Droit des affaires</option>
+              <option>Droit immobilier</option>
+              <option>Droit de la famille</option>
+              <option>Droit du travail</option>
+              <option>Droit pénal</option>
+              <option>Droit international</option>
+              <option>Autre / Je ne sais pas</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">Décrivez votre situation *</label>
+            <textarea rows="5" placeholder="Résumez brièvement votre situation juridique et ce que vous souhaitez accomplir..." required class="w-full border rounded px-4 py-3 text-sm transition-all resize-none" style="border-color:#e5e7eb"></textarea>
+          </div>
+          <div class="flex items-start gap-3">
+            <input type="checkbox" id="rgpd" class="mt-1 w-4 h-4 cursor-pointer" style="accent-color:#1A237E" />
+            <label for="rgpd" class="text-xs text-gray-500 leading-relaxed cursor-pointer">
+              J'accepte que mes données soient traitées pour répondre à ma demande, conformément à la politique de confidentialité du cabinet. Données couvertes par le secret professionnel.
+            </label>
+          </div>
+          <button type="submit" class="w-full btn-primary rounded text-sm font-semibold tracking-wider py-4">
+            Envoyer ma demande de consultation
+          </button>
+          <p class="text-xs text-center text-gray-400">🔒 Vos informations sont strictement confidentielles — Secret professionnel garanti</p>
+        </form>
+        <div id="successMsg" class="hidden mt-6 p-5 rounded-lg text-center" style="background:rgba(26,35,126,.06);border:1px solid rgba(26,35,126,.15)">
+          <div class="text-2xl mb-2">✅</div>
+          <div class="font-semibold text-navy mb-1" style="color:#1A237E">Demande bien reçue !</div>
+          <div class="text-sm text-gray-600">Un avocat vous contactera dans les 24h pour convenir d'un rendez-vous.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════  FOOTER  ═══════════════════════ -->
+<footer style="background:#0D1757">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="grid md:grid-cols-4 gap-8 mb-10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 border-2 flex items-center justify-center" style="border-color:#C9A84C">
+            <span class="font-serif font-bold text-sm" style="color:#C9A84C">M</span>
+          </div>
+          <div>
+            <div class="font-serif font-bold text-white text-sm">Cabinet Martin & Associés</div>
+            <div class="text-xs tracking-widest uppercase" style="color:#C9A84C">Avocats au Barreau de Paris</div>
+          </div>
+        </div>
+        <p class="text-blue-300 text-sm leading-relaxed max-w-xs">
+          Vingt années d'excellence au service du droit. Défense, conseil et accompagnement sur mesure pour particuliers et entreprises.
+        </p>
+      </div>
       <div>
-        <h2>Maître <em>Dubois</em></h2>
-        <div class="divider"> </div>
-        <p>Avocat au Barreau de Lyon depuis 2004, Maître Dubois a développé une expertise reconnue en droit des affaires et droit de la famille.</p>
-        <p>Son approche : écoute, transparence, résultats. Chaque client bénéficie d'un suivi personnalisé et d'une disponibilité réelle.</p>
-        <div class="check-item">Membre du Barreau de Lyon depuis 2004</div>
-        <div class="check-item">Certificat de spécialisation — Droit des affaires</div>
-        <div class="check-item">Consultation en français et anglais</div>
-        <div class="check-item">Honoraires transparents communiqués dès la première consultation</div>
-        <div class="check-item">Aide juridictionnelle acceptée selon conditions</div>
+        <div class="text-white font-semibold text-sm mb-4 uppercase tracking-widest">Domaines</div>
+        <ul class="space-y-2">
+          <li><a href="#domaines" class="text-blue-300 text-sm hover:text-white transition-colors">Droit des affaires</a></li>
+          <li><a href="#domaines" class="text-blue-300 text-sm hover:text-white transition-colors">Droit immobilier</a></li>
+          <li><a href="#domaines" class="text-blue-300 text-sm hover:text-white transition-colors">Droit de la famille</a></li>
+          <li><a href="#domaines" class="text-blue-300 text-sm hover:text-white transition-colors">Droit du travail</a></li>
+          <li><a href="#domaines" class="text-blue-300 text-sm hover:text-white transition-colors">Droit pénal</a></li>
+          <li><a href="#domaines" class="text-blue-300 text-sm hover:text-white transition-colors">Droit international</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-white font-semibold text-sm mb-4 uppercase tracking-widest">Contact</div>
+        <ul class="space-y-2 text-blue-300 text-sm">
+          <li>42, Avenue Hoche</li>
+          <li>75008 Paris</li>
+          <li class="pt-2">+33 (0)1 42 56 78 90</li>
+          <li>contact@cabinet-martin-associes.fr</li>
+          <li class="pt-2 text-xs" style="color:#C9A84C">Lun–Ven 8h30–19h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t pt-8 flex flex-col md:flex-row items-center justify-between gap-4" style="border-color:rgba(255,255,255,.1)">
+      <div class="text-blue-400 text-xs">
+        © 2024 Cabinet Martin & Associés — Tous droits réservés · Barreau de Paris · SIRET : 482 916 703 00025
+      </div>
+      <div class="text-xs" style="color:rgba(201,168,76,.7)">
+        Site réalisé par <a href="https://facadedigitale.fr" target="_blank" class="hover:text-gold transition-colors font-semibold" style="color:#C9A84C">FacadeDigitale</a>
       </div>
     </div>
   </div>
-</section>
-
-<section id="rdv" class="rdv-section">
-  <div class="container">
-    <h2>Prendre <em>rendez-vous</em></h2>
-    <p class="rdv-subtitle">Première consultation confidentielle — réponse sous 24h</p>
-    <div class="rdv-grid">
-      <div class="rdv-info">
-        <h3>Coordonnées</h3>
-        <p>📍 <strong>14 rue de la République, Lyon 2e</strong><br>Accès Métro ligne D — Bellecour</p>
-        <p>📞 <strong>04 78 00 00 00</strong></p>
-        <p>✉️ <strong>contact@maitre-dubois-lyon.fr</strong></p>
-        <br>
-        <h3>Horaires</h3>
-        <p>Lundi – Vendredi : 9h – 19h<br>Samedi : sur rendez-vous</p>
-        <br>
-        <p style="font-size:.85rem;opacity:.6;font-style:italic">Urgences traitées en priorité — appelez directement.</p>
-      </div>
-      <div class="rdv-form">
-        <input type="text" placeholder="Votre nom et prénom">
-        <input type="tel" placeholder="Téléphone">
-        <input type="email" placeholder="Email">
-        <select>
-          <option>Domaine juridique concerné...</option>
-          <option>Droit des affaires</option>
-          <option>Droit de la famille</option>
-          <option>Droit du travail</option>
-          <option>Droit immobilier</option>
-          <option>Droit pénal</option>
-          <option>Autre</option>
-        </select>
-        <textarea placeholder="Décrivez brièvement votre situation (facultatif)"></textarea>
-        <button type="submit">Envoyer ma demande</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Maître Dubois — Avocat au Barreau de Lyon | Mentions légales</p>
-  <p style="margin-top:6px;opacity:.4;font-size:.78rem">Site réalisé par <a href="https://marcjohnddoe.github.io/fd-demos/" style="color:inherit">FaçadeDigitale</a></p>
 </footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('successMsg').classList.remove('hidden');
+    e.target.style.display = 'none';
+  }
+  // Close mobile menu on link click
+  document.querySelectorAll('#mobileMenu a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
+  });
+</script>
 
 </body>
 </html>
