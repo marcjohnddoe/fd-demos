@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pharmacie de la Glacière — Paris 13e</title>
+<meta name="description" content="Pharmacie Paris 13e. Ordonnances, parapharmacie, garde, livraison. Ouverte 7j/7. Prenez conseil avec nos pharmaciens.">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--green:#00875a;--light-green:#e6f5ef;--dark-green:#005a3c;--blue:#0077cc;--light:#f0faf5;--text:#1a2e25}
+  body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);background:#fff}
+  header{background:#fff;border-bottom:3px solid var(--green);padding:0 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  .nav{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:68px}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo-cross{background:var(--green);color:#fff;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;border-radius:4px;font-weight:700}
+  .logo-text{font-size:1.1rem;font-weight:700;color:var(--dark-green);line-height:1.2}
+  .logo-sub{font-size:.75rem;color:#666;font-weight:400}
+  nav a{color:var(--text);text-decoration:none;margin-left:24px;font-size:.88rem;font-weight:500;transition:.2s}
+  nav a:hover{color:var(--green)}
+  .garde-banner{background:var(--dark-green);color:#fff;text-align:center;padding:10px;font-size:.88rem;font-weight:500}
+  .garde-banner a{color:#7ee8bc;text-decoration:none}
+  /* Hero */
+  .hero{background:linear-gradient(135deg,var(--dark-green) 0%,var(--green) 100%);color:#fff;padding:70px 20px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:'✚';position:absolute;font-size:300px;opacity:.04;right:-60px;top:-40px}
+  .hero h1{font-size:2.4rem;font-weight:700;margin-bottom:14px;line-height:1.25}
+  .hero h1 span{color:#7ee8bc}
+  .hero p{opacity:.88;max-width:560px;margin:0 auto 32px;line-height:1.8;font-size:1rem}
+  .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-white{display:inline-block;background:#fff;color:var(--green);padding:13px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:.9rem;transition:.2s}
+  .btn-white:hover{background:#e6f5ef;transform:translateY(-2px)}
+  .btn-outline{display:inline-block;background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);padding:12px 26px;border-radius:6px;text-decoration:none;font-weight:600;font-size:.88rem;transition:.2s}
+  .btn-outline:hover{border-color:#7ee8bc;color:#7ee8bc}
+  /* Infos bar */
+  .infos{background:var(--light);border-bottom:1px solid #c8eadb;padding:16px 20px}
+  .infos-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:10px}
+  .info-item{display:flex;align-items:center;gap:10px;font-size:.88rem}
+  .info-icon{font-size:1.2rem}
+  .info-item strong{color:var(--green);display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.5px}
+  /* Services */
+  .services{padding:80px 20px;background:#fff}
+  .container{max-width:1100px;margin:0 auto}
+  .section-header{text-align:center;margin-bottom:48px}
+  .section-header h2{font-size:2rem;color:var(--dark-green);margin-bottom:10px;font-weight:700}
+  .section-header p{color:#666;max-width:500px;margin:0 auto;line-height:1.7}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .service-card{background:var(--light-green);border-radius:10px;padding:28px 22px;border-left:4px solid var(--green);transition:.2s}
+  .service-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,135,90,.12)}
+  .s-icon{font-size:2rem;margin-bottom:12px}
+  .service-card h3{font-size:1rem;color:var(--dark-green);margin-bottom:8px;font-weight:600}
+  .service-card p{font-size:.85rem;color:#444;line-height:1.7}
+  /* Garde */
+  .garde{background:var(--dark-green);color:#fff;padding:60px 20px}
+  .garde-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;max-width:900px;margin:0 auto}
+  .garde-text h2{font-size:1.8rem;margin-bottom:14px;font-weight:700}
+  .garde-text p{opacity:.8;line-height:1.8;margin-bottom:20px}
+  .garde-text .phone{font-size:1.8rem;font-weight:700;color:#7ee8bc}
+  .garde-horaires{background:rgba(255,255,255,.08);border-radius:10px;padding:28px}
+  .garde-horaires h3{color:#7ee8bc;margin-bottom:18px;font-size:.9rem;letter-spacing:1px;text-transform:uppercase}
+  .g-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.9rem}
+  .g-row:last-child{border:none}
+  .g-day{opacity:.8}
+  .g-time{font-weight:600;color:#7ee8bc}
+  .g-closed{opacity:.4}
+  /* Conseils */
+  .conseils{padding:80px 20px;background:var(--light)}
+  .conseils-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .conseil-card{background:#fff;border-radius:10px;padding:22px 18px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+  .conseil-icon{font-size:2rem;margin-bottom:10px}
+  .conseil-card h4{font-size:.9rem;color:var(--dark-green);margin-bottom:6px;font-weight:600}
+  .conseil-card p{font-size:.8rem;color:#666;line-height:1.6}
+  /* Equipe */
+  .equipe{padding:80px 20px;background:#fff}
+  .equipe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .pharmacien{text-align:center;background:var(--light-green);border-radius:10px;padding:32px 20px}
+  .pharma-avatar{background:var(--green);color:#fff;width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 16px}
+  .pharmacien h4{color:var(--dark-green);font-weight:700;margin-bottom:4px}
+  .pharma-role{font-size:.8rem;color:var(--green);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+  .pharmacien p{font-size:.85rem;color:#555;line-height:1.6}
+  /* CTA */
+  .cta{background:var(--green);color:#fff;padding:70px 20px;text-align:center}
+  .cta h2{font-size:2rem;margin-bottom:12px;font-weight:700}
+  .cta p{opacity:.88;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  footer{background:var(--dark-green);color:rgba(255,255,255,.6);padding:36px 20px;text-align:center;font-size:.82rem;line-height:2}
+  footer strong{color:#fff}
+  footer a{color:#7ee8bc;text-decoration:none}
+  @media(max-width:768px){
+    .hero h1{font-size:1.8rem}
+    .services-grid,.conseils-grid,.equipe-grid{grid-template-columns:1fr 1fr}
+    .garde-grid{grid-template-columns:1fr}
+    .infos-inner{gap:16px}
+  }
+  @media(max-width:480px){
+    .services-grid,.conseils-grid,.equipe-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="garde-banner">
+  ⛑️ Pharmacie de garde ce soir : <a href="tel:3237">Composez le 3237</a> pour trouver la pharmacie de garde la plus proche
+</div>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <div class="logo-cross">✚</div>
+      <div class="logo-text">Pharmacie de la Glacière<span class="logo-sub">Paris 13e · Ouverte 7j/7</span></div>
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#garde">Gardes</a>
+      <a href="#equipe">Équipe</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Votre pharmacie <span>de quartier</span><br>disponible 7j/7</h1>
+  <p>Ordonnances, conseils santé, parapharmacie, livraison à domicile. Une équipe à votre écoute du lundi au dimanche.</p>
+  <div class="hero-btns">
+    <a href="tel:0145896400" class="btn-white">📞 Appeler maintenant</a>
+    <a href="#services" class="btn-outline">Nos services</a>
+  </div>
+</section>
+
+<div class="infos">
+  <div class="infos-inner">
+    <div class="info-item"><span class="info-icon">📍</span><div><strong>Adresse</strong>78 bd Auguste Blanqui, 75013</div></div>
+    <div class="info-item"><span class="info-icon">🕗</span><div><strong>Horaires</strong>Lun–Sam 8h30–20h · Dim 9h–13h</div></div>
+    <div class="info-item"><span class="info-icon">📞</span><div><strong>Téléphone</strong>01 45 89 64 00</div></div>
+    <div class="info-item"><span class="info-icon">🚇</span><div><strong>Métro</strong>Glacière M6 · 2 min</div></div>
+    <div class="info-item"><span class="info-icon">🚚</span><div><strong>Livraison</strong>Disponible 13e</div></div>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2>Nos services</h2>
+      <p>Bien plus qu'une pharmacie : un espace de santé complet au cœur du 13e.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><div class="s-icon">💊</div><h3>Ordonnances</h3><p>Délivrance et préparation de vos ordonnances. Renouvellement sur présentation et tiers payant accepté.</p></div>
+      <div class="service-card"><div class="s-icon">💆</div><h3>Parapharmacie</h3><p>Large sélection de cosmétiques, soins naturels, compléments alimentaires et hygiène premium.</p></div>
+      <div class="service-card"><div class="s-icon">🚚</div><h3>Livraison à domicile</h3><p>Livraison de vos médicaments et parapharmacie dans le 13e arrondissement. Sur demande.</p></div>
+      <div class="service-card"><div class="s-icon">💉</div><h3>Vaccinations</h3><p>Grippe, Covid, vaccins voyageurs. Sans rendez-vous aux heures creuses. Carnet vaccinal sur place.</p></div>
+      <div class="service-card"><div class="s-icon">🩸</div><h3>Tests & Dépistages</h3><p>Tests Covid, angine, cystite. Résultat en 15 min. Bilan glycémie, tension, poids. Gratuit.</p></div>
+      <div class="service-card"><div class="s-icon">👶</div><h3>Espace Bébé & Maman</h3><p>Location tire-lait, conseil allaitement, produits bébé bio. Pesée gratuite sur rendez-vous.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="garde" id="garde">
+  <div class="garde-grid">
+    <div class="garde-text">
+      <h2>🌙 Pharmacie de garde</h2>
+      <p>En dehors de nos horaires, le réseau de garde parisien assure une continuité 24h/24. Composez le 3237 pour trouver la pharmacie de garde la plus proche.</p>
+      <div class="phone">📞 3237</div>
+      <p style="margin-top:10px;font-size:.85rem;opacity:.7">Numéro national pharmacies de garde — disponible 24h/24</p>
+    </div>
+    <div class="garde-horaires">
+      <h3>📅 Nos horaires</h3>
+      <div class="g-row"><span class="g-day">Lundi – Vendredi</span><span class="g-time">8h30 – 20h00</span></div>
+      <div class="g-row"><span class="g-day">Samedi</span><span class="g-time">9h00 – 19h30</span></div>
+      <div class="g-row"><span class="g-day">Dimanche</span><span class="g-time">9h00 – 13h00</span></div>
+      <div class="g-row"><span class="g-day">Jours fériés</span><span class="g-time">10h00 – 13h00</span></div>
+      <div class="g-row"><span class="g-day">Nuit / urgence</span><span class="g-time g-closed">→ 3237</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="conseils" id="conseils">
+  <div class="container">
+    <div class="section-header"><h2>Nos conseils santé</h2></div>
+    <div class="conseils-grid">
+      <div class="conseil-card"><div class="conseil-icon">🌿</div><h4>Phytothérapie</h4><p>Plantes médicinales, huiles essentielles, aromathérapie. Conseil personnalisé.</p></div>
+      <div class="conseil-card"><div class="conseil-icon">🏃</div><h4>Sport & Nutrition</h4><p>Compléments sportifs, récupération musculaire, nutrition adaptée.</p></div>
+      <div class="conseil-card"><div class="conseil-icon">😴</div><h4>Sommeil & Stress</h4><p>Solutions naturelles et médicamenteuses pour le sommeil et la gestion du stress.</p></div>
+      <div class="conseil-card"><div class="conseil-icon">🧴</div><h4>Dermatologie</h4><p>Soins peau sensible, acné, anti-âge. Marques premium en exclusivité.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="equipe" id="equipe">
+  <div class="container">
+    <div class="section-header"><h2>Notre équipe</h2><p>Des pharmaciens diplômés et passionnés, à votre service.</p></div>
+    <div class="equipe-grid">
+      <div class="pharmacien"><div class="pharma-avatar">👩‍⚕️</div><h4>Dr. Sophie Lemaire</h4><div class="pharma-role">Pharmacienne titulaire</div><p>Diplômée Faculté Pharmacie Paris V. Spécialité phytothérapie et nutrition.</p></div>
+      <div class="pharmacien"><div class="pharma-avatar">👨‍⚕️</div><h4>Dr. Thomas Nguyen</h4><div class="pharma-role">Pharmacien adjoint</div><p>Spécialiste vaccinations et dépistages. Référent produits bébé et allaitement.</p></div>
+      <div class="pharmacien"><div class="pharma-avatar">👩‍⚕️</div><h4>Camille Dubois</h4><div class="pharma-role">Préparatrice en pharmacie</div><p>8 ans d'expérience. Experte en dermocosmétique et conseils beauté naturelle.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <h2>On est là pour vous</h2>
+  <p>Questions, renouvellement d'ordonnance, conseil santé — appelez-nous ou passez directement.</p>
+  <div class="cta-btns">
+    <a href="tel:0145896400" class="btn-white">📞 01 45 89 64 00</a>
+    <a href="#services" class="btn-outline">Voir tous les services</a>
+  </div>
+</section>
+
+<footer>
+  <strong>Pharmacie de la Glacière</strong> — 78 bd Auguste Blanqui, 75013 Paris<br>
+  Lun–Ven 8h30–20h · Sam 9h–19h30 · Dim 9h–13h · <a href="tel:0145896400">01 45 89 64 00</a><br>
+  Tiers payant · Carte Vitale · Livraison 13e · Pharmacie de garde : <a href="tel:3237">3237</a><br><br>
+  <small style="opacity:.35">Site démo — FacadeDigitale.fr · Votre site pro à partir de 299€</small>
+</footer>
+
+</body>
+</html>
