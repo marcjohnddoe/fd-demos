@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Centre Auditif Horizon — Démo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-neutral-950 text-neutral-100">
+  <header class="border-b border-neutral-800">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <strong class="tracking-wide">HORIZON AUDITION</strong>
+      <a href="#bilan" class="text-sm px-4 py-2 rounded-full bg-cyan-400 text-neutral-900 font-semibold">Bilan offert</a>
+    </div>
+  </header>
+
+  <section class="max-w-6xl mx-auto px-4 py-14 grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="text-cyan-300 uppercase text-xs tracking-[0.2em]">Audioprothésiste diplômé d’état</p>
+      <h1 class="mt-3 text-4xl md:text-6xl font-bold">Entendre mieux, vivre pleinement.</h1>
+      <p class="mt-5 text-neutral-300">Accompagnement expert de l’appareillage auditif, réglages de précision et suivi humain longue durée.</p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=80" alt="Professionnelle de l'audition" class="rounded-2xl border border-neutral-800" />
+  </section>
+
+  <main class="max-w-6xl mx-auto px-4 pb-16 space-y-12">
+    <section class="grid md:grid-cols-3 gap-5">
+      <article class="bg-neutral-900 p-6 rounded-2xl border border-neutral-800"><h3 class="font-semibold">Tests auditifs</h3><p class="text-sm mt-2 text-neutral-300">Audiométrie tonale et vocale en cabine insonorisée.</p></article>
+      <article class="bg-neutral-900 p-6 rounded-2xl border border-neutral-800"><h3 class="font-semibold">Aides auditives connectées</h3><p class="text-sm mt-2 text-neutral-300">Solutions rechargeables, Bluetooth, anti-larsen avancé.</p></article>
+      <article class="bg-neutral-900 p-6 rounded-2xl border border-neutral-800"><h3 class="font-semibold">Suivi illimité 4 ans</h3><p class="text-sm mt-2 text-neutral-300">Contrôles, réglages fins, entretien et conseils d’usage.</p></article>
+    </section>
+
+    <section id="bilan" class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-2xl p-8 grid lg:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-3xl font-semibold">Bilan auditif gratuit et sans engagement</h2>
+        <p class="mt-4 text-cyan-50">45 min d’évaluation + restitution claire. Essai d’appareils possible sur 30 jours.</p>
+        <ul class="mt-5 space-y-2 text-cyan-100 text-sm">
+          <li>• Dossier mutuelle simplifié</li>
+          <li>• Solutions discrètes intra/contour</li>
+          <li>• Paiement échelonné possible</li>
+        </ul>
+      </div>
+      <img src="https://images.unsplash.com/photo-1629909615957-be75b4bda5a4?auto=format&fit=crop&w=1200&q=80" alt="Appareil auditif moderne" class="rounded-xl" />
+    </section>
+
+    <section class="grid lg:grid-cols-2 gap-8">
+      <div class="bg-neutral-900 p-7 rounded-2xl border border-neutral-800">
+        <h3 class="text-2xl font-semibold">Avis patients</h3>
+        <p class="mt-4 text-neutral-300">“Équipe patiente et ultra compétente. Je redécouvre les conversations en famille.” — M. Bernard, 68 ans</p>
+        <p class="mt-3 text-neutral-300">“Réglages précis et suivi régulier, je me sens réellement accompagnée.” — Mme Clément</p>
+      </div>
+      <div class="bg-neutral-900 p-7 rounded-2xl border border-neutral-800">
+        <h3 class="text-2xl font-semibold">Coordonnées</h3>
+        <p class="mt-4 text-neutral-300">8 Place Carnot, 44000 Nantes<br/>02 40 00 44 21</p>
+        <button id="book" class="mt-5 px-5 py-3 rounded-lg bg-cyan-400 text-neutral-900 font-semibold">Planifier un rendez-vous</button>
+        <p id="done" class="hidden mt-3 text-cyan-300 text-sm">Merci, un conseiller vous contacte aujourd’hui.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-neutral-800 py-8 text-center text-sm text-neutral-400">Site créé par FacadeDigitale — 2026</footer>
+  <script>
+    document.getElementById('book').addEventListener('click',()=>document.getElementById('done').classList.remove('hidden'));
+  </script>
+</body>
+</html>
