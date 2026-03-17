@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fleurs & Bouquets — Démo FacadeDigitale</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Georgia', serif; background: #fdf6f0; color: #3a2a1a; }
+    header { background: #2d5a27; color: white; padding: 2rem 1.5rem; text-align: center; }
+    header h1 { font-size: 2.2rem; letter-spacing: 2px; }
+    header p { font-size: 1rem; opacity: .85; margin-top: .5rem; }
+    nav { background: #1e3d1a; display: flex; justify-content: center; gap: 2rem; padding: .8rem; flex-wrap: wrap; }
+    nav a { color: #c8e6c9; text-decoration: none; font-size: .9rem; letter-spacing: 1px; text-transform: uppercase; }
+    nav a:hover { color: #fff; }
+    .hero { background: linear-gradient(135deg, #2d5a27 0%, #4caf50 50%, #a5d6a7 100%); color: white; text-align: center; padding: 4rem 1.5rem; }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem; opacity: .9; }
+    .btn { background: #fff; color: #2d5a27; padding: .9rem 2.5rem; border: none; font-size: 1rem; font-family: Georgia, serif; cursor: pointer; letter-spacing: 1px; text-decoration: none; display: inline-block; margin: .5rem; font-weight: bold; }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; }
+    section { padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+    h2.section-title { font-size: 1.8rem; text-align: center; margin-bottom: 2.5rem; color: #2d5a27; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .gallery-item { background: white; border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.1); text-align: center; }
+    .gallery-thumb { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+    .gallery-thumb.roses { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+    .gallery-thumb.mariages { background: linear-gradient(135deg, #fff9e6, #fff3cd); }
+    .gallery-thumb.deuil { background: linear-gradient(135deg, #e8eaf6, #c5cae9); }
+    .gallery-thumb.compositions { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); }
+    .gallery-thumb.plantes { background: linear-gradient(135deg, #f1f8e9, #dcedc8); }
+    .gallery-thumb.coffrets { background: linear-gradient(135deg, #fbe9e7, #ffccbc); }
+    .gallery-item h3 { padding: 1rem .5rem .3rem; font-size: 1rem; }
+    .gallery-item p { padding: 0 .8rem 1rem; font-size: .85rem; color: #666; }
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+    .service-card { background: white; padding: 2rem 1.5rem; text-align: center; border-top: 4px solid #2d5a27; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .service-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .service-card h3 { font-size: 1.05rem; margin-bottom: .5rem; color: #2d5a27; }
+    .service-card p { font-size: .85rem; color: #666; }
+    .occasions { background: #f0f7f0; padding: 3rem 1.5rem; }
+    .occasions-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+    .occasion-badge { background: white; text-align: center; padding: 1.5rem 1rem; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.1); }
+    .occasion-badge .emoji { font-size: 2rem; display: block; margin-bottom: .5rem; }
+    .occasion-badge span { font-size: .9rem; font-weight: bold; color: #2d5a27; }
+    .livraison { background: #2d5a27; color: white; text-align: center; padding: 3rem 1.5rem; }
+    .livraison h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+    .livraison p { max-width: 600px; margin: 0 auto 1.5rem; opacity: .9; }
+    .zones { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; margin-top: 1rem; }
+    .zone-tag { background: rgba(255,255,255,.2); padding: .4rem 1rem; border-radius: 20px; font-size: .85rem; }
+    .contact { background: white; padding: 3rem 1.5rem; max-width: 700px; margin: 0 auto; }
+    .contact h2 { text-align: center; color: #2d5a27; margin-bottom: 2rem; font-size: 1.8rem; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-size: .9rem; margin-bottom: .4rem; color: #555; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: .75rem; border: 1px solid #ddd; font-family: Georgia, serif; font-size: 1rem; }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .submit-btn { background: #2d5a27; color: white; border: none; padding: 1rem 3rem; font-size: 1rem; font-family: Georgia, serif; cursor: pointer; width: 100%; letter-spacing: 1px; }
+    .submit-btn:hover { background: #1e3d1a; }
+    .temoignages { background: #fdf6f0; padding: 3rem 1.5rem; }
+    .temoignages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+    .temoignage { background: white; padding: 1.5rem; border-left: 4px solid #4caf50; }
+    .temoignage p { font-style: italic; color: #555; margin-bottom: .8rem; }
+    .temoignage .author { font-weight: bold; color: #2d5a27; font-size: .9rem; }
+    .stars { color: #f9a825; margin-bottom: .5rem; }
+    footer { background: #1e3d1a; color: #c8e6c9; text-align: center; padding: 2rem; font-size: .85rem; }
+    footer a { color: #a5d6a7; text-decoration: none; }
+    .badge-demo { position: fixed; bottom: 1rem; right: 1rem; background: #ff5722; color: white; padding: .5rem 1rem; font-size: .75rem; border-radius: 4px; z-index: 999; }
+  </style>
+</head>
+<body>
+
+<div class="badge-demo">⚗️ Démo FacadeDigitale</div>
+
+<header>
+  <h1>🌸 Les Fleurs de Claire</h1>
+  <p>Fleuriste artisanale — Paris 7e · Livraison J+1</p>
+</header>
+
+<nav>
+  <a href="#creations">Créations</a>
+  <a href="#services">Services</a>
+  <a href="#livraison">Livraison</a>
+  <a href="#commande">Commander</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="hero">
+  <h2>Des fleurs pour chaque instant</h2>
+  <p>Bouquets sur mesure, compositions événementielles, livraison rapide dans tout Paris. Fleurs fraîches, cueillis chaque matin au marché de Rungis.</p>
+  <a href="#commande" class="btn">Commander un bouquet</a>
+  <a href="#creations" class="btn btn-outline">Voir nos créations</a>
+</div>
+
+<section id="creations">
+  <h2 class="section-title">Nos créations</h2>
+  <div class="gallery">
+    <div class="gallery-item">
+      <div class="gallery-thumb roses">🌹</div>
+      <h3>Bouquets de roses</h3>
+      <p>Roses fraîches, toutes couleurs, à partir de 29€</p>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-thumb mariages">💐</div>
+      <h3>Bouquets de mariée</h3>
+      <p>Création sur mesure, consultation gratuite</p>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-thumb compositions">🌿</div>
+      <h3>Compositions florales</h3>
+      <p>Pour tables, événements, bureaux</p>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-thumb plantes">🪴</div>
+      <h3>Plantes & succulentes</h3>
+      <p>Idées cadeaux durables, à partir de 19€</p>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-thumb deuil">🤍</div>
+      <h3>Compositions de deuil</h3>
+      <p>Couronnes, gerbes, bouquets sobres</p>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-thumb coffrets">🎁</div>
+      <h3>Coffrets cadeaux</h3>
+      <p>Fleurs + chocolats + bougies</p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <h2 class="section-title">Nos services</h2>
+  <div class="services">
+    <div class="service-card">
+      <div class="icon">💒</div>
+      <h3>Mariage</h3>
+      <p>Bouquet mariée, boutonnières, arches florales, tables — tout inclus</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🎉</div>
+      <h3>Événements</h3>
+      <p>Anniversaires, inaugurations, réceptions — compositions sur mesure</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🏢</div>
+      <h3>Entreprises</h3>
+      <p>Abonnements hebdomadaires pour bureaux et réceptions</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🚚</div>
+      <h3>Livraison J+1</h3>
+      <p>Commande avant 17h → livraison le lendemain matin</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🎨</div>
+      <h3>Sur mesure</h3>
+      <p>Vos couleurs, votre budget, votre occasion — on crée pour vous</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">📦</div>
+      <h3>Click & Collect</h3>
+      <p>Commandez en ligne, récupérez en boutique — prêt en 2h</p>
+    </div>
+  </div>
+</section>
+
+<div class="occasions">
+  <h2 class="section-title" style="color:#2d5a27">Pour toutes les occasions</h2>
+  <div class="occasions-grid">
+    <div class="occasion-badge"><span class="emoji">💝</span><span>Saint-Valentin</span></div>
+    <div class="occasion-badge"><span class="emoji">👩</span><span>Fête des Mères</span></div>
+    <div class="occasion-badge"><span class="emoji">💒</span><span>Mariage</span></div>
+    <div class="occasion-badge"><span class="emoji">🎂</span><span>Anniversaire</span></div>
+    <div class="occasion-badge"><span class="emoji">🤍</span><span>Deuil</span></div>
+    <div class="occasion-badge"><span class="emoji">🏢</span><span>Entreprise</span></div>
+    <div class="occasion-badge"><span class="emoji">🎓</span><span>Diplôme</span></div>
+    <div class="occasion-badge"><span class="emoji">👶</span><span>Naissance</span></div>
+  </div>
+</div>
+
+<div class="livraison" id="livraison">
+  <h2>Livraison Paris & Île-de-France</h2>
+  <p>Commande avant 17h = livraison le lendemain matin entre 8h et 12h. Livraison express en 3h disponible (supplément 9,90€).</p>
+  <div class="zones">
+    <span class="zone-tag">Paris 1-20e</span>
+    <span class="zone-tag">Boulogne</span>
+    <span class="zone-tag">Neuilly</span>
+    <span class="zone-tag">Vincennes</span>
+    <span class="zone-tag">Levallois</span>
+    <span class="zone-tag">Saint-Cloud</span>
+    <span class="zone-tag">Issy</span>
+    <span class="zone-tag">Meudon</span>
+  </div>
+</div>
+
+<div class="temoignages">
+  <h2 class="section-title">Ils nous font confiance</h2>
+  <div class="temoignages-grid">
+    <div class="temoignage">
+      <div class="stars">★★★★★</div>
+      <p>"Bouquet de mariage magnifique, exactement ce que je voulais. Claire a été à l'écoute et créative."</p>
+      <div class="author">— Marie L., mariée en juin 2025</div>
+    </div>
+    <div class="temoignage">
+      <div class="stars">★★★★★</div>
+      <p>"Livraison ponctuelle, fleurs ultra fraîches. Je commande chaque semaine pour mon bureau depuis 6 mois."</p>
+      <div class="author">— François R., client abonnement</div>
+    </div>
+    <div class="temoignage">
+      <div class="stars">★★★★★</div>
+      <p>"Service impeccable, compositions originales. On sent vraiment la passion du métier."</p>
+      <div class="author">— Sophie M., Paris 7e</div>
+    </div>
+  </div>
+</div>
+
+<div class="contact" id="commande">
+  <h2>Commander / Devis mariage</h2>
+  <form>
+    <div class="form-group">
+      <label>Votre nom</label>
+      <input type="text" placeholder="Marie Dupont" />
+    </div>
+    <div class="form-group">
+      <label>Téléphone / Email</label>
+      <input type="text" placeholder="06 XX XX XX XX ou email@exemple.fr" />
+    </div>
+    <div class="form-group">
+      <label>Type de commande</label>
+      <select>
+        <option>Bouquet cadeau</option>
+        <option>Mariage (consultation)</option>
+        <option>Événement / entreprise</option>
+        <option>Abonnement bureau</option>
+        <option>Deuil / condoléances</option>
+        <option>Autre</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Date souhaitée & budget</label>
+      <input type="text" placeholder="Ex: 25 avril, budget ~80€" />
+    </div>
+    <div class="form-group">
+      <label>Message (couleurs, occasion, préférences...)</label>
+      <textarea placeholder="Dites-nous tout !"></textarea>
+    </div>
+    <button type="button" class="submit-btn" onclick="alert('Merci ! Nous vous répondons sous 2h.')">Envoyer ma demande</button>
+  </form>
+</div>
+
+<section id="contact" style="text-align:center; padding:2rem;">
+  <h2 class="section-title">La boutique</h2>
+  <p style="margin-bottom:.5rem;">📍 12 rue de Grenelle, Paris 7e</p>
+  <p style="margin-bottom:.5rem;">📞 01 XX XX XX XX</p>
+  <p style="margin-bottom:.5rem;">⏰ Lun-Sam 9h-19h30 · Dim 9h-13h</p>
+  <p>📸 <a href="#" style="color:#2d5a27;">@lesfleursdeclaire</a> sur Instagram</p>
+</section>
+
+<footer>
+  <p>© 2026 Les Fleurs de Claire — Paris 7e · <a href="#">Mentions légales</a></p>
+  <p style="margin-top:.5rem; font-size:.75rem; opacity:.7;">Démo réalisée par <a href="#">FacadeDigitale</a> — Site pro à partir de 249€</p>
+</footer>
+
+</body>
+</html>
