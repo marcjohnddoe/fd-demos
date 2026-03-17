@@ -1,164 +1,410 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LA MOUSSE REBELLE â€” Brasserie artisanale Ã  Lille</title>
-  <meta name="description" content="La Mousse Rebelle, brasserie craft Ã  Lille : IPA, stout, blonde, saison, visites, dÃ©gustations et boutique." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            coal: '#1A1A1A',
-            amber: '#F59E0B',
-            copper: '#CD7F32'
-          },
-          fontFamily: {
-            title: ['Oswald', 'sans-serif'],
-            body: ['Cabin', 'sans-serif']
-          },
-          boxShadow: {
-            neon: '0 14px 36px rgba(245,158,11,.22)'
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA TABLE D'ÉMILE - Bistrot Moderne à Cahors</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest': '#1B3A2D',
+                        'cream': '#F5F0E8',
+                        'gold': '#C9A84C',
+                        'deep-black': '#111111'
+                    },
+                    fontFamily: {
+                        'serif': ['Cormorant Garamond', 'serif'],
+                        'sans': ['DM Sans', 'sans-serif']
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Cabin', sans-serif;
-      background: #1A1A1A;
-      color: #f3f3f3;
-      background-image:
-        radial-gradient(circle at 10% 0%, rgba(245,158,11,.14), transparent 30%),
-        radial-gradient(circle at 90% 20%, rgba(205,127,50,.16), transparent 35%),
-        repeating-radial-gradient(circle at 0 0, rgba(255,255,255,.02) 0, rgba(255,255,255,.02) 2px, transparent 3px, transparent 8px);
-      scroll-behavior: smooth;
-    }
-    .hop {
-      width: 22px; height: 22px; border-radius: 50% 50% 45% 45%;
-      background: linear-gradient(145deg, #f59e0b, #cd7f32);
-      position: absolute; transform: rotate(25deg); opacity: .8;
-      box-shadow: 0 6px 14px rgba(245,158,11,.35);
-    }
-    .card {
-      background: linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
-      border: 1px solid rgba(245,158,11,.22);
-      backdrop-filter: blur(2px);
-    }
-  </style>
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #111111;
+            color: #F5F0E8;
+        }
+        
+        .hero-parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .glassmorphism {
+            background: rgba(27, 58, 45, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .menu-card {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(201, 168, 76, 0.2);
+        }
+        
+        .gallery-img {
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .gallery-img img {
+            transition: transform 0.6s ease;
+        }
+        
+        .gallery-img:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gold-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #C9A84C, transparent);
+        }
+    </style>
 </head>
-<body class="antialiased overflow-x-hidden">
-  <header class="sticky top-0 z-50 bg-[#1A1A1A]/95 backdrop-blur border-b border-amber/20">
-    <nav class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#" class="font-title text-2xl tracking-wide text-amber">LA MOUSSE REBELLE</a>
-      <button id="menuBtn" class="md:hidden px-3 py-1 border border-amber/30 rounded">â˜°</button>
-      <ul class="hidden md:flex gap-6 text-sm font-semibold">
-        <li><a href="#bieres" class="hover:text-amber">Nos biÃ¨res</a></li>
-        <li><a href="#brasserie" class="hover:text-amber">La brasserie</a></li>
-        <li><a href="#visite" class="hover:text-amber">Visite & dÃ©gustation</a></li>
-        <li><a href="#points" class="hover:text-amber">Points de vente</a></li>
-        <li><a href="#contact" class="hover:text-amber">Contact</a></li>
-      </ul>
+<body>
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-serif text-2xl font-bold text-gold">LA TABLE D'ÉMILE</a>
+            <div class="hidden md:flex gap-8 items-center text-sm font-medium">
+                <a href="#philosophie" class="hover:text-gold transition-colors">Philosophie</a>
+                <a href="#menu" class="hover:text-gold transition-colors">Menu</a>
+                <a href="#galerie" class="hover:text-gold transition-colors">Galerie</a>
+                <a href="#chef" class="hover:text-gold transition-colors">Le Chef</a>
+                <a href="#reservation" class="bg-gold text-deep-black px-6 py-2 rounded hover:bg-opacity-90 transition-all">Réserver</a>
+            </div>
+        </div>
     </nav>
-    <ul id="mobileMenu" class="hidden md:hidden px-4 pb-4 space-y-2 text-sm">
-      <li><a href="#bieres">Nos biÃ¨res</a></li>
-      <li><a href="#brasserie">La brasserie</a></li>
-      <li><a href="#visite">Visite & dÃ©gustation</a></li>
-      <li><a href="#points">Points de vente</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </header>
 
-  <section class="max-w-7xl mx-auto px-4 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center relative">
-    <span class="hop top-8 left-2"></span><span class="hop bottom-12 right-10"></span>
-    <div>
-      <p class="uppercase text-xs tracking-[.25em] text-copper font-semibold">Lille â€¢ Microbrasserie craft</p>
-      <h1 class="font-title text-5xl md:text-7xl leading-[.95] mt-3">BiÃ¨re vivante, caractÃ¨re rebelle.</h1>
-      <p class="mt-5 text-lg text-zinc-300">On brasse en petites sÃ©ries avec du malt franÃ§ais, du houblon audacieux et des levures sÃ©lectionnÃ©es pour des profils aromatiques mÃ©morables.</p>
-      <div class="mt-7 flex flex-wrap gap-3">
-        <a href="#bieres" class="px-6 py-3 rounded-full bg-amber text-coal font-bold shadow-neon">DÃ©couvrir nos biÃ¨res</a>
-        <a href="#visite" class="px-6 py-3 rounded-full border border-amber/30 font-semibold">RÃ©server une dÃ©gustation</a>
-      </div>
-    </div>
-    <div>
-      <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1600&q=80" alt="Verre de biÃ¨re ambrÃ©e artisanale" class="rounded-3xl h-[450px] w-full object-cover shadow-neon">
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen flex items-center justify-center hero-parallax" style="background-image: linear-gradient(rgba(17, 17, 17, 0.4), rgba(27, 58, 45, 0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070');">
+        <div class="text-center z-10 px-4">
+            <h1 class="font-serif text-6xl md:text-8xl font-bold text-cream mb-4 fade-in">LA TABLE D'ÉMILE</h1>
+            <p class="text-xl md:text-2xl text-cream/90 mb-2 fade-in" style="animation-delay: 0.2s;">Bistrot Moderne</p>
+            <p class="text-lg text-gold mb-8 fade-in" style="animation-delay: 0.3s;">Cahors • Depuis 2018</p>
+            <div class="flex gap-4 justify-center mt-12 fade-in" style="animation-delay: 0.4s;">
+                <a href="#reservation" class="bg-gold text-deep-black px-8 py-4 rounded font-bold text-lg hover:scale-105 transition-transform">Réserver</a>
+                <a href="#menu" class="border-2 border-cream text-cream px-8 py-4 rounded font-bold text-lg hover:bg-cream hover:text-forest transition-all">Le Menu</a>
+            </div>
+        </div>
+    </section>
 
-  <section id="bieres" class="max-w-7xl mx-auto px-4 py-16">
-    <h2 class="font-title text-4xl">Nos biÃ¨res</h2>
-    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      <article class="card rounded-2xl p-5"><h3 class="font-title text-2xl text-amber">IPA</h3><p class="text-sm text-zinc-300 mt-2">Agrumes, pin, finale sÃ¨che. 6.2% vol.</p></article>
-      <article class="card rounded-2xl p-5"><h3 class="font-title text-2xl text-amber">Stout</h3><p class="text-sm text-zinc-300 mt-2">CafÃ© torrÃ©fiÃ©, cacao noir, texture veloutÃ©e. 7.0% vol.</p></article>
-      <article class="card rounded-2xl p-5"><h3 class="font-title text-2xl text-amber">Blonde</h3><p class="text-sm text-zinc-300 mt-2">Notes cÃ©rÃ©aliÃ¨res, touche florale, ultra dÃ©saltÃ©rante. 5.2% vol.</p></article>
-      <article class="card rounded-2xl p-5"><h3 class="font-title text-2xl text-amber">Saison</h3><p class="text-sm text-zinc-300 mt-2">Ã‰picÃ©e, sÃ¨che, fermentation expressive. 6.5% vol.</p></article>
-    </div>
-  </section>
+    <!-- Philosophie -->
+    <section id="philosophie" class="py-24 bg-forest">
+        <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+            <div class="gold-line mx-auto mb-6"></div>
+            <h2 class="font-serif text-5xl font-bold text-cream mb-8">Notre Philosophie</h2>
+            <p class="text-xl text-cream/90 leading-relaxed mb-6">
+                Ici, chaque assiette raconte le Quercy. Produits du marché, cuisson juste, assaisonnements francs.
+            </p>
+            <p class="text-lg text-cream/80 leading-relaxed">
+                Entre tradition et modernité, nous célébrons les saisons et les producteurs locaux. Une cuisine sincère, généreuse, qui parle au cœur autant qu'au palais.
+            </p>
+        </div>
+    </section>
 
-  <section id="brasserie" class="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
-    <img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=1500&q=80" alt="Cuves de brassage en inox" class="rounded-3xl h-80 w-full object-cover">
-    <div class="card rounded-3xl p-7">
-      <h2 class="font-title text-4xl">La brasserie</h2>
-      <p class="mt-3 text-zinc-300">InstallÃ©e dans un ancien atelier textile lillois, La Mousse Rebelle mÃªle techniques modernes et esprit industriel. Nous brassons Ã  la semaine et mettons en canette Ã  la commande pour une fraÃ®cheur maximale.</p>
-    </div>
-  </section>
+    <!-- Le Menu -->
+    <section id="menu" class="py-24 bg-deep-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <div class="gold-line mx-auto mb-6"></div>
+                <h2 class="font-serif text-5xl font-bold text-cream mb-4">Le Menu</h2>
+                <p class="text-cream/70">Une sélection de nos créations du moment</p>
+            </div>
 
-  <section id="visite" class="max-w-7xl mx-auto px-4 py-16">
-    <div class="card rounded-3xl p-8">
-      <h2 class="font-title text-4xl">Visite & dÃ©gustation</h2>
-      <div class="mt-5 grid md:grid-cols-3 gap-4 text-sm">
-        <div class="bg-black/30 rounded-2xl p-5 border border-amber/20"><p class="font-semibold text-amber">Format dÃ©couverte</p><p class="mt-2">45 min + 3 galopins â€¢ 18â‚¬</p></div>
-        <div class="bg-black/30 rounded-2xl p-5 border border-amber/20"><p class="font-semibold text-amber">Format passionnÃ©</p><p class="mt-2">90 min + 6 dÃ©gustations â€¢ 29â‚¬</p></div>
-        <div class="bg-black/30 rounded-2xl p-5 border border-amber/20"><p class="font-semibold text-amber">Privatisation</p><p class="mt-2">Ã‰vÃ©nements groupes & entreprises sur devis</p></div>
-      </div>
-    </div>
-  </section>
+            <!-- Entrées -->
+            <div class="mb-16 fade-in">
+                <h3 class="font-serif text-3xl text-gold mb-8 text-center">Entrées</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="menu-card bg-forest/40 border border-gold/20 p-6 rounded-lg">
+                        <h4 class="font-serif text-xl text-cream mb-2">Foie Gras Mi-Cuit</h4>
+                        <p class="text-cream/60 text-sm mb-4">Chutney de figues, pain brioché toasté</p>
+                        <p class="text-gold font-bold text-lg">16€</p>
+                    </div>
+                    <div class="menu-card bg-forest/40 border border-gold/20 p-6 rounded-lg">
+                        <h4 class="font-serif text-xl text-cream mb-2">Velouté de Potimarron</h4>
+                        <p class="text-cream/60 text-sm mb-4">Crème de truffe, noisettes torréfiées</p>
+                        <p class="text-gold font-bold text-lg">12€</p>
+                    </div>
+                    <div class="menu-card bg-forest/40 border border-gold/20 p-6 rounded-lg">
+                        <h4 class="font-serif text-xl text-cream mb-2">Salade Périgourdine</h4>
+                        <p class="text-cream/60 text-sm mb-4">Gésiers confits, magret fumé, noix du Lot</p>
+                        <p class="text-gold font-bold text-lg">14€</p>
+                    </div>
+                </div>
+            </div>
 
-  <section id="points" class="max-w-7xl mx-auto px-4 py-16 grid lg:grid-cols-2 gap-6">
-    <div class="card rounded-3xl p-7">
-      <h2 class="font-title text-3xl">Points de vente</h2>
-      <ul class="mt-4 space-y-2 text-zinc-300 text-sm">
-        <li>â€¢ Taproom Rebelle â€” 22 rue des Arts, Lille</li>
-        <li>â€¢ Cave Houblon Nord â€” Vieux-Lille</li>
-        <li>â€¢ Ã‰picerie Fine Le Comptoir Flamand â€” Wazemmes</li>
-        <li>â€¢ Bars partenaires dans toute la mÃ©tropole lilloise</li>
-      </ul>
-    </div>
-    <div class="card rounded-3xl p-7">
-      <h2 class="font-title text-3xl">Boutique en ligne (concept)</h2>
-      <p class="mt-3 text-zinc-300">Composez votre box (12 ou 24 canettes), ajoutez des verres sÃ©rigraphiÃ©s et recevez votre sÃ©lection en 48h partout en France.</p>
-      <button class="mt-5 px-5 py-3 rounded-full bg-copper text-black font-bold">AccÃ©der Ã  la boutique</button>
-    </div>
-  </section>
+            <!-- Plats -->
+            <div class="mb-16 fade-in">
+                <h3 class="font-serif text-3xl text-gold mb-8 text-center">Plats</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="menu-card bg-forest/40 border border-gold/20 p-6 rounded-lg">
+                        <h4 class="font-serif text-xl text-cream mb-2">Magret de Canard Rôti</h4>
+                        <p class="text-cream/60 text-sm mb-4">Purée de céleri, jus au vin de Cahors</p>
+                        <p class="text-gold font-bold text-lg">28€</p>
+                    </div>
+                    <div class="menu-card bg-forest/40 border border-gold/20 p-6 rounded-lg">
+                        <h4 class="font-serif text-xl text-cream mb-2">Filet de Bœuf Rossini</h4>
+                        <p class="text-cream/60 text-sm mb-4">Foie gras poêlé, gratin dauphinois</p>
+                        <p class="text-gold font-bold text-lg">32€</p>
+                    </div>
+                    <div class="menu-card bg-forest/40 border border-gold/20 p-6 rounded-lg">
+                        <h4 class="font-serif text-xl text-cream mb-2">Risotto aux Cèpes</h4>
+                        <p class="text-cream/60 text-sm mb-4">Parmesan 24 mois, huile de truffe blanche</p>
+                        <p class="text-gold font-bold text-lg">24€</p>
+                    </div>
+                    <div class="menu-card bg-forest/40 border border-gold/20 p-6 rounded-lg">
+                        <h4 class="font-serif text-xl text-cream mb-2">Bar de Ligne</h4>
+                        <p class="text-cream/60 text-sm mb-4">Légumes de saison, beurre blanc au safran</p>
+                        <p class="text-gold font-bold text-lg">26€</p>
+                    </div>
+                </div>
+            </div>
 
-  <section id="contact" class="max-w-4xl mx-auto px-4 pb-20">
-    <div class="card rounded-3xl p-8">
-      <h2 class="font-title text-4xl">Contact</h2>
-      <p class="mt-2 text-zinc-300">Brasserie : 14 quai de la DeÃ»le, 59000 Lille<br>TÃ©l : 03 20 11 22 33 â€¢ cheers@lamousserebelle.fr</p>
-      <form class="mt-6 grid md:grid-cols-2 gap-4">
-        <input class="px-4 py-3 rounded-xl bg-black/40 border border-amber/20" placeholder="Nom">
-        <input class="px-4 py-3 rounded-xl bg-black/40 border border-amber/20" placeholder="Email">
-        <textarea class="md:col-span-2 px-4 py-3 rounded-xl bg-black/40 border border-amber/20 min-h-28" placeholder="Votre message"></textarea>
-        <button type="button" class="md:col-span-2 px-6 py-3 rounded-xl bg-amber text-coal font-bold">Envoyer</button>
-      </form>
-    </div>
-  </section>
+            <!-- Desserts -->
+            <div class="fade-in">
+                <h3 class="font-serif text-3xl text-gold mb-8 text-center">Desserts</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="menu-card bg-forest/40 border border-gold/20 p-6 rounded-lg">
+                        <h4 class="font-serif text-xl text-cream mb-2">Fondant au Chocolat</h4>
+                        <p class="text-cream/60 text-sm mb-4">Glace vanille bourbon, éclats de caramel</p>
+                        <p class="text-gold font-bold text-lg">10€</p>
+                    </div>
+                    <div class="menu-card bg-forest/40 border border-gold/20 p-6 rounded-lg">
+                        <h4 class="font-serif text-xl text-cream mb-2">Tarte Tatin</h4>
+                        <p class="text-cream/60 text-sm mb-4">Pommes caramélisées, chantilly maison</p>
+                        <p class="text-gold font-bold text-lg">9€</p>
+                    </div>
+                    <div class="menu-card bg-forest/40 border border-gold/20 p-6 rounded-lg">
+                        <h4 class="font-serif text-xl text-cream mb-2">Crème Brûlée</h4>
+                        <p class="text-cream/60 text-sm mb-4">Vanille de Madagascar, sablé breton</p>
+                        <p class="text-gold font-bold text-lg">8€</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer class="border-t border-amber/20 py-6 text-center text-sm text-zinc-400">Site crÃ©Ã© par FacadeDigitale â€” 2026</footer>
+    <!-- Galerie -->
+    <section id="galerie" class="py-24 bg-forest">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <div class="gold-line mx-auto mb-6"></div>
+                <h2 class="font-serif text-5xl font-bold text-cream mb-4">Galerie</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 fade-in">
+                <div class="gallery-img rounded-lg overflow-hidden h-64 md:h-80">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800" alt="Plat gastronomique" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-img rounded-lg overflow-hidden h-64 md:h-80 md:col-span-2">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1200" alt="Intérieur du restaurant" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-img rounded-lg overflow-hidden h-64 md:h-80 md:col-span-2">
+                    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=1200" alt="Cuisine en action" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-img rounded-lg overflow-hidden h-64 md:h-80">
+                    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=800" alt="Verre de vin" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-img rounded-lg overflow-hidden h-64 md:h-80">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800" alt="Plat signature" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-img rounded-lg overflow-hidden h-64 md:h-80 md:col-span-2">
+                    <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?q=80&w=1200" alt="Ambiance du soir" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-    });
-  </script>
+    <!-- Le Chef -->
+    <section id="chef" class="py-24 bg-deep-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center fade-in">
+                <div class="order-2 md:order-1">
+                    <div class="gold-line mb-6"></div>
+                    <h2 class="font-serif text-5xl font-bold text-cream mb-6">Le Chef</h2>
+                    <h3 class="font-serif text-3xl text-gold mb-6">Émile Dufresne</h3>
+                    <p class="text-cream/80 leading-relaxed mb-4">
+                        Formé aux côtés de grands noms de la gastronomie française, Émile a choisi de revenir à ses racines quercynoises en 2018 pour ouvrir LA TABLE D'ÉMILE.
+                    </p>
+                    <p class="text-cream/80 leading-relaxed mb-4">
+                        Sa cuisine est un hommage au terroir : sans chichi, sans artifice, juste le produit sublimé par une technique irréprochable. 
+                    </p>
+                    <p class="text-cream/80 leading-relaxed">
+                        « Je cuisine comme on raconte une histoire — celle de ma grand-mère, du marché du samedi, des saisons qui passent. »
+                    </p>
+                </div>
+                <div class="order-1 md:order-2 gallery-img rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=800" alt="Chef Émile" class="w-full h-full object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horaires & Réservation -->
+    <section id="reservation" class="py-24 bg-forest">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <div class="gold-line mx-auto mb-6"></div>
+                <h2 class="font-serif text-5xl font-bold text-cream mb-4">Réservation</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Info -->
+                <div class="fade-in">
+                    <h3 class="font-serif text-3xl text-gold mb-6">Horaires</h3>
+                    <div class="space-y-3 text-cream/80 mb-8">
+                        <p><strong>Déjeuner</strong> : Mercredi – Dimanche : 12h – 14h</p>
+                        <p><strong>Dîner</strong> : Mercredi – Samedi : 19h – 22h</p>
+                        <p class="text-gold text-sm">Fermé dimanche soir, lundi et mardi</p>
+                    </div>
+
+                    <h3 class="font-serif text-3xl text-gold mb-6">Adresse</h3>
+                    <p class="text-cream/80 mb-2">12 Rue de la Chantrerie</p>
+                    <p class="text-cream/80 mb-2">46000 Cahors, France</p>
+                    <p class="text-cream/80 mb-8">📞 05 65 30 45 67</p>
+
+                    <div class="pt-6 border-t border-gold/20">
+                        <p class="text-cream/60 text-sm mb-4">Suivez-nous</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-gold hover:text-cream transition-colors text-2xl">📷</a>
+                            <a href="#" class="text-gold hover:text-cream transition-colors text-2xl">📘</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulaire -->
+                <div class="bg-deep-black/50 p-8 rounded-lg fade-in">
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-cream/80 mb-2 text-sm">Nom complet</label>
+                            <input type="text" required class="w-full px-4 py-3 bg-forest/30 border border-gold/30 rounded text-cream focus:border-gold focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-cream/80 mb-2 text-sm">Téléphone</label>
+                            <input type="tel" required class="w-full px-4 py-3 bg-forest/30 border border-gold/30 rounded text-cream focus:border-gold focus:outline-none transition-colors">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-cream/80 mb-2 text-sm">Nombre de convives</label>
+                                <select class="w-full px-4 py-3 bg-forest/30 border border-gold/30 rounded text-cream focus:border-gold focus:outline-none transition-colors">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-cream/80 mb-2 text-sm">Date</label>
+                                <input type="date" required class="w-full px-4 py-3 bg-forest/30 border border-gold/30 rounded text-cream focus:border-gold focus:outline-none transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-cream/80 mb-2 text-sm">Message (optionnel)</label>
+                            <textarea rows="3" class="w-full px-4 py-3 bg-forest/30 border border-gold/30 rounded text-cream focus:border-gold focus:outline-none transition-colors"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gold text-deep-black font-bold py-4 rounded hover:bg-opacity-90 transition-all text-lg">
+                            Confirmer la réservation
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deep-black py-12 border-t border-gold/20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h3 class="font-serif text-3xl text-gold mb-2">LA TABLE D'ÉMILE</h3>
+            <p class="text-cream/60 mb-4">12 Rue de la Chantrerie, 46000 Cahors</p>
+            <p class="text-cream/40 text-sm mb-6">Site créé par <span class="text-gold font-medium">FacadeDigitale</span></p>
+            <p class="text-cream/30 text-xs">© 2026 LA TABLE D'ÉMILE. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navbar glassmorphism on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('glassmorphism', 'shadow-lg');
+            } else {
+                navbar.classList.remove('glassmorphism', 'shadow-lg');
+            }
+        });
+
+        // Fade-in on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Hero fade-in animation on load
+        window.addEventListener('load', () => {
+            const heroElements = document.querySelectorAll('#hero .fade-in');
+            heroElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, index * 150);
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Merci ! Votre réservation a été envoyée. Nous vous contacterons sous 24h.');
+            e.target.reset();
+        });
+    </script>
+
 </body>
 </html>

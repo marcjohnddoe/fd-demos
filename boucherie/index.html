@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boucherie Héritage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-100 text-zinc-900 antialiased">
+  <header class="relative">
+    <img src="https://images.unsplash.com/photo-1603048297172-c92544798d5a?auto=format&fit=crop&w=1600&q=80" alt="Boucherie artisanale" class="h-[65vh] w-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-r from-red-950/80 via-red-900/70 to-black/50"></div>
+    <div class="absolute inset-0 mx-auto flex max-w-7xl flex-col justify-center px-6 text-white lg:px-12">
+      <span class="w-fit rounded-full border border-white/30 px-4 py-1 text-sm">🥩 Artisan boucher depuis 1989</span>
+      <h1 class="mt-5 text-4xl font-bold sm:text-6xl">Boucherie Héritage</h1>
+      <p class="mt-5 max-w-2xl text-lg text-red-100">Viandes françaises sélectionnées, maturations maîtrisées, préparations maison et service traiteur haut de gamme.</p>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-6 py-16 lg:px-12">
+    <section class="grid gap-6 md:grid-cols-3">
+      <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-zinc-200"><h2 class="text-xl font-bold">Bœuf maturé</h2><p class="mt-2 text-sm text-zinc-600">Côtes 30 à 45 jours, races françaises et européennes.</p></article>
+      <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-zinc-200"><h2 class="text-xl font-bold">Volaille fermière</h2><p class="mt-2 text-sm text-zinc-600">Poulet jaune, pintade, canette, label qualité.</p></article>
+      <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-zinc-200"><h2 class="text-xl font-bold">Charcuterie maison</h2><p class="mt-2 text-sm text-zinc-600">Terrines, saucisses, pâtés en croûte fabriqués sur place.</p></article>
+    </section>
+
+    <section class="mt-12 grid gap-8 lg:grid-cols-2">
+      <div class="rounded-3xl bg-red-900 p-8 text-red-50">
+        <h3 class="text-2xl font-bold">Commande barbecue & plancha</h3>
+        <p class="mt-4">Brochettes marinées, pièces de bœuf, agneau, sauces artisanales. Retrait en boutique ou livraison locale.</p>
+        <div class="mt-6 grid grid-cols-2 gap-3 text-sm">
+          <span class="rounded-lg bg-red-800 px-3 py-2">Formule 4 pers.</span>
+          <span class="rounded-lg bg-red-800 px-3 py-2">Formule 8 pers.</span>
+          <span class="rounded-lg bg-red-800 px-3 py-2">Formule événement</span>
+          <span class="rounded-lg bg-red-800 px-3 py-2">Option sans porc</span>
+        </div>
+      </div>
+      <div class="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-zinc-200">
+        <h3 class="text-2xl font-bold">Conseil cuisson intelligent</h3>
+        <p class="mt-3 text-zinc-600">Choisissez une cuisson : on vous propose le temps recommandé.</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <button class="cook rounded-lg bg-zinc-900 px-4 py-2 text-white" data-msg="Bleu : 1 min par face (feu vif)">Bleu</button>
+          <button class="cook rounded-lg bg-zinc-900 px-4 py-2 text-white" data-msg="Saignant : 2 min par face">Saignant</button>
+          <button class="cook rounded-lg bg-zinc-900 px-4 py-2 text-white" data-msg="À point : 3 min par face">À point</button>
+          <button class="cook rounded-lg bg-zinc-900 px-4 py-2 text-white" data-msg="Bien cuit : 4 à 5 min par face">Bien cuit</button>
+        </div>
+        <p id="cookResult" class="mt-4 text-sm font-medium text-red-700"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-zinc-300 bg-white py-8 text-center text-sm text-zinc-600">
+    Site créé par FacadeDigitale — 2026
+  </footer>
+
+  <script>
+    document.querySelectorAll('.cook').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('cookResult').textContent = btn.dataset.msg;
+      });
+    });
+  </script>
+</body>
+</html>
