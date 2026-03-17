@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Bernard — Médecin Généraliste Paris 11e</title>
+<meta name="description" content="Cabinet de médecine générale Paris 11e. Consultations, suivis, urgences. Prise de rendez-vous en ligne. Secteur 1, carte vitale acceptée.">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--blue:#0077cc;--teal:#00a896;--dark:#0a3d62;--light:#eef6ff;--text:#2c3e50;--white:#fff}
+  body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);background:#fff}
+  header{background:var(--dark);color:#fff;padding:0 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+  .nav{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:70px}
+  .logo{font-size:1.2rem;font-weight:700;letter-spacing:.5px}
+  .logo span{color:#7ec8f7}
+  nav a{color:rgba(255,255,255,.85);text-decoration:none;margin-left:24px;font-size:.9rem;transition:.2s}
+  nav a:hover{color:#7ec8f7}
+  .rdv-btn{background:var(--teal);color:#fff !important;padding:8px 20px;border-radius:20px;font-weight:600 !important}
+  .rdv-btn:hover{background:#008a7d !important}
+  /* Hero */
+  .hero{background:linear-gradient(135deg,var(--dark) 0%,#1a5fa8 100%);color:#fff;padding:80px 20px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:'🩺';position:absolute;font-size:280px;opacity:.04;right:-60px;top:-40px}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:8px 20px;border-radius:30px;font-size:.85rem;margin-bottom:24px}
+  .doctolib-badge{background:#026ab5;color:#fff;padding:4px 12px;border-radius:12px;font-size:.75rem;font-weight:700;letter-spacing:.5px}
+  .hero h1{font-size:2.6rem;font-weight:700;margin-bottom:16px;line-height:1.2}
+  .hero h1 span{color:#7ec8f7}
+  .hero p{font-size:1.05rem;opacity:.85;max-width:560px;margin:0 auto 36px;line-height:1.8}
+  .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-primary{display:inline-block;background:var(--teal);color:#fff;padding:14px 32px;border-radius:6px;text-decoration:none;font-weight:700;font-size:.95rem;transition:.2s}
+  .btn-primary:hover{background:#008a7d;transform:translateY(-2px)}
+  .btn-outline{display:inline-block;background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);padding:13px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:.9rem;transition:.2s}
+  .btn-outline:hover{border-color:#7ec8f7;color:#7ec8f7}
+  /* Infos pratiques */
+  .infos-bar{background:var(--light);border-bottom:1px solid #cde0f5;padding:18px 20px}
+  .infos-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:12px}
+  .info-item{display:flex;align-items:center;gap:10px;font-size:.9rem}
+  .info-icon{font-size:1.3rem}
+  .info-item strong{display:block;font-size:.8rem;color:var(--blue)}
+  /* Services */
+  .services{padding:80px 20px;background:#fff}
+  .container{max-width:1100px;margin:0 auto}
+  .section-header{text-align:center;margin-bottom:50px}
+  .section-header h2{font-size:2rem;color:var(--dark);margin-bottom:10px}
+  .section-header p{color:#666;font-size:1rem;max-width:500px;margin:0 auto}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .service-card{background:var(--light);border-radius:12px;padding:32px 24px;border-top:4px solid var(--blue);transition:.2s}
+  .service-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,119,204,.12)}
+  .service-icon{font-size:2.2rem;margin-bottom:14px}
+  .service-card h3{font-size:1.05rem;color:var(--dark);margin-bottom:10px;font-weight:600}
+  .service-card p{font-size:.88rem;color:#555;line-height:1.7}
+  /* Médecin */
+  .medecin{background:var(--dark);color:#fff;padding:80px 20px}
+  .medecin-grid{display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:center;max-width:1000px;margin:0 auto}
+  .medecin-photo{background:rgba(255,255,255,.08);border-radius:16px;height:320px;display:flex;align-items:center;justify-content:center;font-size:6rem;border:2px solid rgba(255,255,255,.15)}
+  .medecin-info h2{font-size:1.8rem;margin-bottom:8px;color:#fff}
+  .medecin-info .titre{color:#7ec8f7;font-size:.9rem;letter-spacing:1px;margin-bottom:20px;text-transform:uppercase}
+  .medecin-info p{opacity:.8;line-height:1.8;margin-bottom:16px;font-size:.95rem}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .tag{background:rgba(126,200,247,.15);border:1px solid rgba(126,200,247,.3);color:#7ec8f7;padding:5px 14px;border-radius:20px;font-size:.8rem}
+  /* Horaires */
+  .horaires{padding:80px 20px;background:var(--light)}
+  .horaires-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:900px;margin:0 auto}
+  .horaires-table{background:#fff;border-radius:12px;padding:32px;box-shadow:0 4px 16px rgba(0,0,0,.06)}
+  .horaires-table h3{font-size:1.1rem;color:var(--dark);margin-bottom:20px;font-weight:700;border-bottom:2px solid var(--light);padding-bottom:12px}
+  .horaire-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f0f4f8;font-size:.9rem}
+  .horaire-row:last-child{border-bottom:none}
+  .jour{font-weight:500;color:var(--dark)}
+  .heure{color:var(--blue);font-weight:600}
+  .ferme{color:#aaa}
+  /* RDV */
+  .rdv-section{padding:80px 20px;text-align:center;background:#fff}
+  .rdv-section h2{font-size:2rem;color:var(--dark);margin-bottom:12px}
+  .rdv-section p{color:#666;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8}
+  .rdv-options{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+  .rdv-card{background:var(--light);border-radius:12px;padding:28px 32px;text-align:center;min-width:200px}
+  .rdv-card .icon{font-size:2rem;margin-bottom:12px}
+  .rdv-card h4{color:var(--dark);font-size:1rem;margin-bottom:6px}
+  .rdv-card p{color:#666;font-size:.85rem}
+  .rdv-card a{color:var(--blue);font-weight:700;font-size:1.05rem}
+  /* Footer */
+  footer{background:var(--dark);color:rgba(255,255,255,.6);padding:40px 20px;text-align:center;font-size:.85rem;line-height:2}
+  footer strong{color:#fff}
+  footer a{color:#7ec8f7;text-decoration:none}
+  @media(max-width:768px){
+    .hero h1{font-size:1.9rem}
+    .services-grid{grid-template-columns:1fr}
+    .medecin-grid{grid-template-columns:1fr}
+    .medecin-photo{height:160px;font-size:3.5rem}
+    .horaires-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">Dr. <span>Bernard</span></div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#medecin">Le Médecin</a>
+      <a href="#horaires">Horaires</a>
+      <a href="#rdv" class="rdv-btn">Prendre RDV</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-badge">
+    <span>🏥 Médecine Générale</span>
+    <span class="doctolib-badge">DOCTOLIB</span>
+  </div>
+  <h1>Dr. Martin <span>Bernard</span><br>Médecin Généraliste</h1>
+  <p>Cabinet médical Paris 11e. Consultations, suivis chroniques, certificats médicaux, urgences sans rendez-vous le matin. Secteur 1 — carte vitale acceptée.</p>
+  <div class="hero-btns">
+    <a href="#rdv" class="btn-primary">📅 Prendre rendez-vous</a>
+    <a href="#services" class="btn-outline">Voir les services</a>
+  </div>
+</section>
+
+<div class="infos-bar">
+  <div class="infos-inner">
+    <div class="info-item">
+      <span class="info-icon">📍</span>
+      <div><strong>Adresse</strong>24 rue Oberkampf, 75011 Paris</div>
+    </div>
+    <div class="info-item">
+      <span class="info-icon">📞</span>
+      <div><strong>Téléphone</strong>01 43 57 XX XX</div>
+    </div>
+    <div class="info-item">
+      <span class="info-icon">💳</span>
+      <div><strong>Tarif</strong>Secteur 1 — 26,50€ (remboursé)</div>
+    </div>
+    <div class="info-item">
+      <span class="info-icon">🚇</span>
+      <div><strong>Accès</strong>Oberkampf M5/M9 · 3 min à pied</div>
+    </div>
+    <div class="info-item">
+      <span class="info-icon">♿</span>
+      <div><strong>Accès PMR</strong>Cabinet accessible</div>
+    </div>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2>Consultations & Services</h2>
+      <p>Une prise en charge globale pour toute la famille, de la prévention aux urgences.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🩺</div>
+        <h3>Médecine Générale</h3>
+        <p>Consultations de routine, bilans annuels, suivi des maladies chroniques (diabète, hypertension, asthme…)</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚨</div>
+        <h3>Urgences sans RDV</h3>
+        <p>Créneaux réservés chaque matin de 8h à 9h sans rendez-vous pour les situations urgentes.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👶</div>
+        <h3>Pédiatrie courante</h3>
+        <p>Suivi de croissance, vaccinations, certificats scolaires, petites maladies courantes de l'enfant.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Certificats & Documents</h3>
+        <p>Certificats médicaux, arrêts de travail, ordonnances de renouvellement, MDPH, aptitude sport.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💉</div>
+        <h3>Vaccinations</h3>
+        <p>Vaccins adulte et enfant, voyages tropicaux, grippe saisonnière, Covid. Bilan vaccinal complet.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Visites à domicile</h3>
+        <p>Pour les patients à mobilité réduite ou en cas d'impossibilité de déplacement dans le 11e.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="medecin" id="medecin">
+  <div class="medecin-grid">
+    <div class="medecin-photo">👨‍⚕️</div>
+    <div class="medecin-info">
+      <h2>Dr. Martin Bernard</h2>
+      <div class="titre">Médecin Généraliste · Thèse Paris VI</div>
+      <p>Installé dans le 11e arrondissement depuis 2009, le Dr. Bernard assure une médecine de proximité attentive et accessible. Il accompagne plusieurs centaines de familles du quartier dans la durée.</p>
+      <p>Ancien interne des Hôpitaux de Paris, il a exercé en urgences avant de se consacrer à la médecine de ville. Sa priorité : une médecine à l'écoute, sans délai excessif.</p>
+      <div class="tags">
+        <span class="tag">Secteur 1</span>
+        <span class="tag">Médecin traitant</span>
+        <span class="tag">Téléconsultation disponible</span>
+        <span class="tag">Langues : FR / EN / ES</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="horaires" id="horaires">
+  <div class="container">
+    <div class="section-header">
+      <h2>Horaires & Accès</h2>
+    </div>
+    <div class="horaires-grid">
+      <div class="horaires-table">
+        <h3>📅 Horaires du cabinet</h3>
+        <div class="horaire-row"><span class="jour">Lundi</span><span class="heure">09h – 13h · 15h – 19h</span></div>
+        <div class="horaire-row"><span class="jour">Mardi</span><span class="heure">09h – 13h · 15h – 19h</span></div>
+        <div class="horaire-row"><span class="jour">Mercredi</span><span class="heure">09h – 13h</span></div>
+        <div class="horaire-row"><span class="jour">Jeudi</span><span class="heure">09h – 13h · 15h – 19h</span></div>
+        <div class="horaire-row"><span class="jour">Vendredi</span><span class="heure">09h – 13h · 15h – 18h</span></div>
+        <div class="horaire-row"><span class="jour">Samedi</span><span class="heure">09h – 12h (sur RDV)</span></div>
+        <div class="horaire-row"><span class="jour">Dimanche</span><span class="ferme">Fermé</span></div>
+      </div>
+      <div class="horaires-table">
+        <h3>🚇 Comment nous trouver</h3>
+        <div class="horaire-row"><span class="jour">Métro</span><span class="heure">Oberkampf (M5/M9)</span></div>
+        <div class="horaire-row"><span class="jour">Bus</span><span class="heure">Lignes 56 · 96</span></div>
+        <div class="horaire-row"><span class="jour">Vélib'</span><span class="heure">Station à 50m</span></div>
+        <div class="horaire-row"><span class="jour">Parking</span><span class="heure">République (10 min)</span></div>
+        <div class="horaire-row"><span class="jour">Adresse</span><span class="heure">24 rue Oberkampf, 75011</span></div>
+        <div class="horaire-row"><span class="jour">Urgences</span><span class="heure">Sans RDV lun-ven 8h-9h</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rdv-section" id="rdv">
+  <h2>Prendre rendez-vous</h2>
+  <p>Consultations disponibles en ligne 24h/24 via Doctolib, ou par téléphone aux heures d'ouverture.</p>
+  <div class="rdv-options">
+    <div class="rdv-card">
+      <div class="icon">💻</div>
+      <h4>En ligne (Doctolib)</h4>
+      <p>Disponible 24h/24</p>
+      <a href="#">Réserver sur Doctolib</a>
+    </div>
+    <div class="rdv-card">
+      <div class="icon">📞</div>
+      <h4>Par téléphone</h4>
+      <p>Lun–Ven 9h–12h30</p>
+      <a href="tel:0143570000">01 43 57 00 00</a>
+    </div>
+    <div class="rdv-card">
+      <div class="icon">🏠</div>
+      <h4>Visite à domicile</h4>
+      <p>Sur demande 11e</p>
+      <a href="#">Demander une visite</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Dr. Martin Bernard</strong> — Médecin Généraliste<br>
+  24 rue Oberkampf, 75011 Paris · <a href="tel:0143570000">01 43 57 00 00</a><br>
+  Secteur 1 · Carte Vitale acceptée · Médecin traitant disponible<br><br>
+  <small style="opacity:.4">Site démo — FacadeDigitale.fr · Votre site pro à partir de 199€</small>
+</footer>
+
+</body>
+</html>
