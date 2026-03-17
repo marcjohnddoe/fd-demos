@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Zinc — Bar à Vins Naturels Paris 5e</title>
+<meta name="description" content="Bar à vins naturels Paris 5e. Sélection vignerons indépendants, planches, événements. Rue Mouffetard. Ouvert tous les soirs.">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--bordeaux:#6b1a2a;--or:#c4984a;--dark:#1a0a0e;--mid:#2d1520;--cream:#f5f0e8;--text:#2c1a20}
+  body{font-family:'Georgia',serif;color:var(--text);background:#fff}
+  header{background:var(--dark);color:#fff;padding:0 24px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(196,152,74,.3)}
+  .nav{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:68px}
+  .logo{font-size:1.4rem;font-weight:400;letter-spacing:3px;font-variant:small-caps}
+  .logo span{color:var(--or)}
+  nav a{color:rgba(255,255,255,.75);text-decoration:none;margin-left:28px;font-size:.85rem;letter-spacing:1.5px;font-variant:small-caps;transition:.2s}
+  nav a:hover{color:var(--or)}
+  /* Hero */
+  .hero{background:var(--dark);min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4984a' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+  .hero-inner{max-width:1100px;margin:0 auto;padding:60px 24px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .hero-text .eyebrow{font-size:.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--or);margin-bottom:20px;font-family:sans-serif}
+  .hero-text h1{font-size:3rem;color:#fff;font-weight:400;line-height:1.2;margin-bottom:24px}
+  .hero-text h1 em{color:var(--or);font-style:normal;display:block}
+  .hero-text p{color:rgba(255,255,255,.65);line-height:1.9;font-size:1rem;margin-bottom:36px;font-style:italic}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+  .btn-gold{display:inline-block;background:var(--or);color:var(--dark);padding:14px 32px;letter-spacing:2px;font-variant:small-caps;font-size:.9rem;font-weight:700;text-decoration:none;transition:.2s;font-family:sans-serif}
+  .btn-gold:hover{background:#d4a85a;transform:translateY(-2px)}
+  .btn-ghost{display:inline-block;background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.25);padding:13px 28px;letter-spacing:2px;font-variant:small-caps;font-size:.85rem;text-decoration:none;transition:.2s;font-family:sans-serif}
+  .btn-ghost:hover{border-color:var(--or);color:var(--or)}
+  .hero-visual{background:rgba(255,255,255,.04);border:1px solid rgba(196,152,74,.2);padding:40px;border-radius:2px;font-size:1rem;color:rgba(255,255,255,.7);line-height:2}
+  .hero-visual h3{color:var(--or);font-size:1.1rem;letter-spacing:2px;font-variant:small-caps;margin-bottom:20px;font-family:sans-serif}
+  .vin-item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);font-style:italic}
+  .vin-item:last-child{border:none}
+  .vin-prix{color:var(--or);font-style:normal;font-family:sans-serif;font-size:.9rem}
+  .vin-region{font-size:.75rem;color:rgba(255,255,255,.4);font-style:normal;font-family:sans-serif;letter-spacing:1px;display:block;margin-top:2px}
+  /* Infos bar */
+  .infos{background:var(--bordeaux);color:#fff;padding:20px 24px}
+  .infos-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:12px;font-family:sans-serif}
+  .info-item{text-align:center;font-size:.85rem}
+  .info-icon{font-size:1.2rem;margin-bottom:4px}
+  .info-item strong{display:block;color:rgba(255,255,255,.5);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px}
+  /* Carte */
+  .carte{padding:90px 24px;background:var(--cream)}
+  .container{max-width:1100px;margin:0 auto}
+  .section-eyebrow{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--bordeaux);text-align:center;margin-bottom:12px;font-family:sans-serif}
+  h2{font-size:2rem;font-weight:400;text-align:center;margin-bottom:8px;color:var(--dark)}
+  .divider{width:36px;height:1px;background:var(--or);margin:16px auto 50px}
+  .carte-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .carte-section{background:#fff;padding:36px;border-top:3px solid var(--bordeaux)}
+  .carte-section h3{font-size:1rem;letter-spacing:3px;text-transform:uppercase;color:var(--bordeaux);margin-bottom:24px;font-family:sans-serif}
+  .plat{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid #f0ece6}
+  .plat:last-child{border:none}
+  .plat-nom{font-style:italic;color:var(--text)}
+  .plat-desc{font-size:.78rem;color:#888;font-style:normal;display:block;margin-top:2px;font-family:sans-serif}
+  .plat-prix{color:var(--bordeaux);font-family:sans-serif;font-weight:600;white-space:nowrap;margin-left:16px}
+  /* Vignerons */
+  .vignerons{padding:90px 24px;background:var(--dark);color:#fff}
+  .vignerons h2{color:#fff}
+  .vignerons .section-eyebrow{color:var(--or)}
+  .vig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:50px}
+  .vig-card{background:rgba(255,255,255,.04);padding:32px 28px;border-top:2px solid var(--bordeaux);transition:.2s}
+  .vig-card:hover{background:rgba(255,255,255,.07)}
+  .vig-flag{font-size:1.8rem;margin-bottom:14px}
+  .vig-card h4{color:var(--or);font-size:.95rem;letter-spacing:1px;font-variant:small-caps;margin-bottom:6px}
+  .vig-region{font-size:.75rem;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;font-family:sans-serif;margin-bottom:12px}
+  .vig-card p{color:rgba(255,255,255,.6);font-size:.88rem;line-height:1.7;font-style:italic}
+  /* Événements */
+  .events{padding:90px 24px;background:#fff}
+  .events-list{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+  .event-card{border:1px solid #e8e0d4;padding:28px}
+  .event-date{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--bordeaux);font-family:sans-serif;margin-bottom:12px}
+  .event-card h4{font-size:1rem;color:var(--dark);margin-bottom:8px}
+  .event-card p{font-size:.85rem;color:#777;line-height:1.7;font-style:italic}
+  /* CTA */
+  .cta{background:var(--bordeaux);color:#fff;padding:80px 24px;text-align:center}
+  .cta h2{color:#fff;font-size:2rem;margin-bottom:12px}
+  .cta p{opacity:.8;margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8;font-style:italic}
+  .btn-cream{display:inline-block;background:var(--cream);color:var(--bordeaux);padding:16px 44px;letter-spacing:3px;font-variant:small-caps;font-size:.9rem;font-weight:700;text-decoration:none;transition:.2s;font-family:sans-serif}
+  .btn-cream:hover{background:#fff;transform:translateY(-2px)}
+  footer{background:var(--dark);color:rgba(255,255,255,.45);padding:40px 24px;text-align:center;font-size:.82rem;line-height:2;font-family:sans-serif}
+  footer strong{color:rgba(255,255,255,.8)}
+  @media(max-width:768px){
+    .hero-inner{grid-template-columns:1fr;gap:40px}
+    .hero-text h1{font-size:2.1rem}
+    .carte-cols,.vig-grid,.events-list{grid-template-columns:1fr}
+    .hero-visual{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">Le <span>Zinc</span></div>
+    <nav>
+      <a href="#carte">La Carte</a>
+      <a href="#vignerons">Vignerons</a>
+      <a href="#events">Événements</a>
+      <a href="#contact">Nous trouver</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="eyebrow">Bar à Vins Naturels · Paris 5e · Rue Mouffetard</div>
+      <h1>Le vin comme <em>on l'aime.</em></h1>
+      <p>Sélection de vignerons indépendants, nature et biodynamie. Planches généreuses, ambiance sans chichi. Ouvert tous les soirs dès 18h.</p>
+      <div class="hero-btns">
+        <a href="#carte" class="btn-gold">Voir la carte</a>
+        <a href="#contact" class="btn-ghost">Nous trouver</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <h3>🍷 À la carte ce soir</h3>
+      <div class="vin-item">
+        <div>Pét-nat Chenin<span class="vin-region">Loire · Domaine Mosse</span></div>
+        <span class="vin-prix">7€ / verre</span>
+      </div>
+      <div class="vin-item">
+        <div>Gamay Volcanique<span class="vin-region">Auvergne · La Bohème</span></div>
+        <span class="vin-prix">8€ / verre</span>
+      </div>
+      <div class="vin-item">
+        <div>Grenache Vieilles Vignes<span class="vin-region">Roussillon · Les Foulards Rouges</span></div>
+        <span class="vin-prix">9€ / verre</span>
+      </div>
+      <div class="vin-item">
+        <div>Muscadet sur Lie<span class="vin-region">Nantes · Luneau-Papin</span></div>
+        <span class="vin-prix">6€ / verre</span>
+      </div>
+      <div class="vin-item">
+        <div>Jura Savagnin<span class="vin-region">Arbois · Bornard</span></div>
+        <span class="vin-prix">10€ / verre</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="infos">
+  <div class="infos-inner">
+    <div class="info-item"><div class="info-icon">📍</div><strong>Adresse</strong>7 rue Mouffetard, 75005 Paris</div>
+    <div class="info-item"><div class="info-icon">🕕</div><strong>Horaires</strong>Mar–Dim · 18h – 00h</div>
+    <div class="info-item"><div class="info-icon">📞</div><strong>Réservation</strong>01 43 31 XX XX</div>
+    <div class="info-item"><div class="info-icon">🚇</div><strong>Métro</strong>Censier-Daubenton M7</div>
+    <div class="info-item"><div class="info-icon">🐕</div><strong>Animaux</strong>Acceptés en terrasse</div>
+  </div>
+</div>
+
+<section class="carte" id="carte">
+  <div class="container">
+    <div class="section-eyebrow">Ce qu'on mange & boit</div>
+    <h2>La Carte</h2>
+    <div class="divider"></div>
+    <div class="carte-cols">
+      <div class="carte-section">
+        <h3>🍷 Vins au verre</h3>
+        <div class="plat"><div><span class="plat-nom">Pét-nat Chenin Blanc</span><span class="plat-desc">Loire · Domaine Mosse · Effervescent naturel</span></div><span class="plat-prix">7€</span></div>
+        <div class="plat"><div><span class="plat-nom">Gamay Volcanique</span><span class="plat-desc">Auvergne · La Bohème · Fruité, léger</span></div><span class="plat-prix">8€</span></div>
+        <div class="plat"><div><span class="plat-nom">Grenache Vieilles Vignes</span><span class="plat-desc">Roussillon · Les Foulards Rouges · Profond</span></div><span class="plat-prix">9€</span></div>
+        <div class="plat"><div><span class="plat-nom">Muscadet sur Lie</span><span class="plat-desc">Nantes · Luneau-Papin · Minéral, iodé</span></div><span class="plat-prix">6€</span></div>
+        <div class="plat"><div><span class="plat-nom">Savagnin Jura</span><span class="plat-desc">Arbois · Bornard · Oxydatif, complexe</span></div><span class="plat-prix">10€</span></div>
+        <div class="plat"><div><span class="plat-nom">Bouteilles du moment</span><span class="plat-desc">Sélection vignerons · ardoise tournante</span></div><span class="plat-prix">24–45€</span></div>
+      </div>
+      <div class="carte-section">
+        <h3>🧀 Planches & Assiettes</h3>
+        <div class="plat"><div><span class="plat-nom">Planche Fromages AOP</span><span class="plat-desc">3 fromages affineurs · pain au levain · miel</span></div><span class="plat-prix">14€</span></div>
+        <div class="plat"><div><span class="plat-nom">Planche Charcuteries</span><span class="plat-desc">Jambon ibérique · coppa · saucisson · cornichons</span></div><span class="plat-prix">13€</span></div>
+        <div class="plat"><div><span class="plat-nom">Duo Fromage + Charcuterie</span><span class="plat-desc">Le meilleur des deux mondes</span></div><span class="plat-prix">19€</span></div>
+        <div class="plat"><div><span class="plat-nom">Tartines du Marché</span><span class="plat-desc">Pain Poilâne · garnitures de saison</span></div><span class="plat-prix">8€</span></div>
+        <div class="plat"><div><span class="plat-nom">Burrata Basilic</span><span class="plat-desc">Huile d'olive sicilienne · tomates confites</span></div><span class="plat-prix">11€</span></div>
+        <div class="plat"><div><span class="plat-nom">Anchoïade & Crudités</span><span class="plat-desc">Légumes du marché Mouffetard · anchois Ortiz</span></div><span class="plat-prix">9€</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="vignerons" id="vignerons">
+  <div class="container">
+    <div class="section-eyebrow">Nos producteurs</div>
+    <h2>Vignerons sélectionnés</h2>
+    <div class="divider" style="background:var(--or)"></div>
+    <div class="vig-grid">
+      <div class="vig-card"><div class="vig-flag">🇫🇷</div><h4>Domaine Mosse</h4><div class="vig-region">Loire · Anjou</div><p>Biodynamie depuis 1999. René et Agnès Mosse produisent des vins vivants, sans soufre, d'une précision rare.</p></div>
+      <div class="vig-card"><div class="vig-flag">🇫🇷</div><h4>Les Foulards Rouges</h4><div class="vig-region">Roussillon · Corbières</div><p>Jean-François Nicq. Grenache sur schiste, sans intrants. Des vins de liberté, parfois inconfortables, toujours sincères.</p></div>
+      <div class="vig-card"><div class="vig-flag">🇫🇷</div><h4>Philippe Bornard</h4><div class="vig-region">Jura · Arbois-Pupillin</div><p>Le Jura nature dans sa plus pure expression. Savagnins oxydatifs et Ploussard d'anthologie.</p></div>
+      <div class="vig-card"><div class="vig-flag">🇪🇸</div><h4>La Stoppa</h4><div class="vig-region">Émilie-Romagne · Italie</div><p>Elena Pantaleoni. Pignoletto et Barbera macérés sur peaux, vignes centenaires, viticulture paysanne.</p></div>
+      <div class="vig-card"><div class="vig-flag">🇬🇷</div><h4>Domaine Economou</h4><div class="vig-region">Crète · Sitia</div><p>Yannis Economou. Vins de terroir crétois, cépages autochtones. Rares, précieux, mémorables.</p></div>
+      <div class="vig-card"><div class="vig-flag">🇫🇷</div><h4>La Bohème</h4><div class="vig-region">Auvergne · Issoire</div><p>Gamay sur basalte volcanique. Des vins de soif qui n'en finissent pas de vous surprendre.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="events" id="events">
+  <div class="container">
+    <div class="section-eyebrow">Agenda</div>
+    <h2>Événements à venir</h2>
+    <div class="divider"></div>
+    <div class="events-list">
+      <div class="event-card">
+        <div class="event-date">Jeudi 19 mars · 19h30</div>
+        <h4>🍾 Dégustation Jura</h4>
+        <p>Soirée thématique autour du Jura nature. 6 vins, 3 vignerons, une heure de dégustation commentée. Places limitées.</p>
+      </div>
+      <div class="event-card">
+        <div class="event-date">Samedi 22 mars · 18h</div>
+        <h4>🎵 Jazz & Vins</h4>
+        <p>Quartet de jazz manouche + ardoise de vins nature. Ambiance intime, pas de réservation — premier arrivé, premier servi.</p>
+      </div>
+      <div class="event-card">
+        <div class="event-date">Jeudi 26 mars · 19h</div>
+        <h4>🧀 Accords Vins & Fromages</h4>
+        <p>Fromagerie Quatrehomme · 4 fromages AOP + 4 vins sélectionnés. Soirée accord mets/vins. Réservation conseillée.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <h2>On vous attend</h2>
+  <p>Pas de réservation nécessaire la semaine. Le week-end, appelez-nous — la salle est petite et on aime bien savoir qui vient.</p>
+  <a href="tel:0143310000" class="btn-cream">📞 01 43 31 00 00</a>
+</section>
+
+<footer>
+  <strong>Le Zinc</strong> — Bar à Vins Naturels<br>
+  7 rue Mouffetard, 75005 Paris · Mardi–Dimanche 18h–minuit<br>
+  Métro Censier-Daubenton (M7) · Animaux bienvenus en terrasse<br><br>
+  <small style="opacity:.4">Site démo — FacadeDigitale.fr · Votre site pro à partir de 199€</small>
+</footer>
+
+</body>
+</html>
