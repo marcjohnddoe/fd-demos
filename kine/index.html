@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cabinet de Kinésithérapie Martin & Associés</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            electric: '#1565C0',
+            'electric-dark': '#0D47A1',
+            'electric-light': '#1976D2',
+            mint: '#4CAF50',
+            'mint-dark': '#388E3C',
+            'mint-light': '#81C784',
+            doctolib: '#0596DE',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-hero {
+      background: linear-gradient(135deg, #0D47A1 0%, #1565C0 40%, #1976D2 70%, #1E88E5 100%);
+    }
+    .gradient-card {
+      background: linear-gradient(135deg, #1565C0, #1976D2);
+    }
+    .gradient-green {
+      background: linear-gradient(135deg, #388E3C, #4CAF50);
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(21, 101, 192, 0.2);
+    }
+    .service-card { transition: all 0.3s ease; }
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+    }
+    .team-card { transition: all 0.3s ease; }
+    .pulse-btn {
+      animation: pulse-blue 2.5s infinite;
+    }
+    @keyframes pulse-blue {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(5, 150, 222, 0.5); }
+      50% { box-shadow: 0 0 0 12px rgba(5, 150, 222, 0); }
+    }
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 2px;
+      background: #4CAF50;
+      transition: width 0.3s;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .testimonial-card {
+      background: linear-gradient(135deg, #f8faff 0%, #fff 100%);
+      border-left: 4px solid #4CAF50;
+    }
+    .wave-divider {
+      overflow: hidden;
+      line-height: 0;
+    }
+    .input-field {
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .input-field:focus {
+      border-color: #1565C0;
+      box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.15);
+    }
+  </style>
+</head>
+<body class="font-sans bg-white text-gray-800 antialiased">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 gradient-card rounded-xl flex items-center justify-center shadow-md">
+            <i class="fas fa-heartbeat text-white text-lg"></i>
+          </div>
+          <div>
+            <div class="font-bold text-electric text-sm leading-tight">Cabinet Martin</div>
+            <div class="text-xs text-gray-500 leading-tight">Kinésithérapie & Associés</div>
+          </div>
+        </div>
+        <!-- Desktop nav -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="#services" class="nav-link text-sm font-medium text-gray-600 hover:text-electric transition-colors">Services</a>
+          <a href="#equipe" class="nav-link text-sm font-medium text-gray-600 hover:text-electric transition-colors">Équipe</a>
+          <a href="#temoignages" class="nav-link text-sm font-medium text-gray-600 hover:text-electric transition-colors">Avis</a>
+          <a href="#tarifs" class="nav-link text-sm font-medium text-gray-600 hover:text-electric transition-colors">Tarifs</a>
+          <a href="#contact" class="nav-link text-sm font-medium text-gray-600 hover:text-electric transition-colors">Contact</a>
+          <a href="#rdv" class="bg-doctolib hover:bg-blue-600 text-white text-sm font-semibold px-5 py-2 rounded-full transition-colors pulse-btn">
+            <i class="fas fa-calendar-check mr-2"></i>Prendre RDV
+          </a>
+        </div>
+        <!-- Mobile menu btn -->
+        <button class="md:hidden text-gray-600 hover:text-electric" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3">
+      <a href="#services" class="block text-sm font-medium text-gray-600 hover:text-electric py-1">Services</a>
+      <a href="#equipe" class="block text-sm font-medium text-gray-600 hover:text-electric py-1">Équipe</a>
+      <a href="#temoignages" class="block text-sm font-medium text-gray-600 hover:text-electric py-1">Avis</a>
+      <a href="#tarifs" class="block text-sm font-medium text-gray-600 hover:text-electric py-1">Tarifs</a>
+      <a href="#contact" class="block text-sm font-medium text-gray-600 hover:text-electric py-1">Contact</a>
+      <a href="#rdv" class="block bg-doctolib text-white text-sm font-semibold px-5 py-2 rounded-full text-center">
+        <i class="fas fa-calendar-check mr-2"></i>Prendre RDV
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="gradient-hero min-h-screen flex items-center relative overflow-hidden pt-16">
+    <!-- Background decoration -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-white/5 rounded-full"></div>
+      <div class="absolute top-1/2 -left-32 w-64 h-64 bg-mint/10 rounded-full"></div>
+      <div class="absolute bottom-0 right-1/4 w-48 h-48 bg-white/5 rounded-full"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Left -->
+        <div class="text-white">
+          <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium mb-6">
+            <span class="w-2 h-2 bg-mint rounded-full animate-pulse"></span>
+            Secteur 1 — Non-dépassement d'honoraires
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+            Retrouvez<br />
+            <span class="text-mint-light">votre mobilité</span>
+          </h1>
+          <p class="text-lg text-blue-100 leading-relaxed mb-8 max-w-lg">
+            Le <strong class="text-white">Cabinet Martin & Associés</strong> vous accompagne dans votre rééducation avec des soins personnalisés, des techniques modernes et une équipe passionnée par votre santé.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#rdv" class="bg-doctolib hover:bg-blue-400 text-white font-bold px-8 py-4 rounded-full shadow-xl transition-all hover:scale-105 pulse-btn">
+              <i class="fas fa-calendar-check mr-2"></i>Prendre RDV sur Doctolib
+            </a>
+            <a href="#services" class="bg-white/15 hover:bg-white/25 text-white font-semibold px-8 py-4 rounded-full backdrop-blur-sm border border-white/20 transition-all hover:scale-105">
+              <i class="fas fa-arrow-down mr-2"></i>Découvrir nos soins
+            </a>
+          </div>
+        </div>
+
+        <!-- Right — Stats -->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="stat-card rounded-2xl p-6 text-white text-center">
+            <div class="text-4xl font-extrabold text-mint-light mb-1">10</div>
+            <div class="text-sm text-blue-200 font-medium">ans d'expérience</div>
+          </div>
+          <div class="stat-card rounded-2xl p-6 text-white text-center">
+            <div class="text-4xl font-extrabold text-mint-light mb-1">2000+</div>
+            <div class="text-sm text-blue-200 font-medium">patients traités</div>
+          </div>
+          <div class="stat-card rounded-2xl p-6 text-white text-center">
+            <div class="text-4xl font-extrabold text-mint-light mb-1">3</div>
+            <div class="text-sm text-blue-200 font-medium">kinésithérapeutes</div>
+          </div>
+          <div class="stat-card rounded-2xl p-6 text-white text-center">
+            <div class="text-4xl font-extrabold text-mint-light mb-1">S1</div>
+            <div class="text-sm text-blue-200 font-medium">secteur conventionné</div>
+          </div>
+          <!-- Doctolib Badge -->
+          <div class="col-span-2 bg-doctolib rounded-2xl p-5 text-white flex items-center gap-4 shadow-lg">
+            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-stethoscope text-xl"></i>
+            </div>
+            <div class="flex-1">
+              <div class="font-bold text-sm">Disponible sur Doctolib</div>
+              <div class="text-blue-100 text-xs">Réservation en ligne 24h/24</div>
+            </div>
+            <a href="#rdv" class="bg-white text-doctolib font-bold text-xs px-4 py-2 rounded-full hover:bg-blue-50 transition-colors whitespace-nowrap">
+              Réserver →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wave -->
+    <div class="wave-divider absolute bottom-0 left-0 right-0">
+      <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 80L60 69.3C120 58.7 240 37.3 360 32C480 26.7 600 37.3 720 42.7C840 48 960 48 1080 42.7C1200 37.3 1320 26.7 1380 21.3L1440 16V80H1380C1320 80 1200 80 1080 80C960 80 840 80 720 80C600 80 480 80 360 80C240 80 120 80 60 80H0Z" fill="white"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <div class="inline-flex items-center gap-2 bg-electric/10 text-electric rounded-full px-4 py-2 text-sm font-semibold mb-4">
+          <i class="fas fa-plus-circle"></i> Nos Soins
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">Des soins adaptés à chaque besoin</h2>
+        <p class="text-gray-500 max-w-2xl mx-auto text-lg">Que vous récupériez d'une opération, d'une blessure sportive ou d'une douleur chronique, nous avons la solution.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Rééducation -->
+        <div class="service-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm cursor-pointer">
+          <div class="w-14 h-14 gradient-card rounded-2xl flex items-center justify-center mb-4 shadow-md">
+            <i class="fas fa-walking text-white text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Rééducation motrice</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Récupération fonctionnelle après AVC, traumatismes ou pathologies neurologiques. Programme individualisé.</p>
+          <div class="mt-4 flex items-center text-electric text-sm font-semibold">
+            En savoir plus <i class="fas fa-arrow-right ml-2 text-xs"></i>
+          </div>
+        </div>
+
+        <!-- Sport -->
+        <div class="service-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm cursor-pointer">
+          <div class="w-14 h-14 gradient-green rounded-2xl flex items-center justify-center mb-4 shadow-md">
+            <i class="fas fa-running text-white text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Kinésithérapie sportive</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Entorses, déchirures, tendinites, fractures de stress. Retour au sport optimisé et sécurisé.</p>
+          <div class="mt-4 flex items-center text-mint text-sm font-semibold">
+            En savoir plus <i class="fas fa-arrow-right ml-2 text-xs"></i>
+          </div>
+        </div>
+
+        <!-- Dos / Lombaires -->
+        <div class="service-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm cursor-pointer">
+          <div class="w-14 h-14 gradient-card rounded-2xl flex items-center justify-center mb-4 shadow-md">
+            <i class="fas fa-bone text-white text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Dos & Lombaires</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Lombalgie, hernie discale, scoliose, cervicalgie. Techniques douces et exercices de renforcement.</p>
+          <div class="mt-4 flex items-center text-electric text-sm font-semibold">
+            En savoir plus <i class="fas fa-arrow-right ml-2 text-xs"></i>
+          </div>
+        </div>
+
+        <!-- Post-opératoire -->
+        <div class="service-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm cursor-pointer">
+          <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 shadow-md">
+            <i class="fas fa-procedures text-white text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Rééducation post-opératoire</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Prothèse de genou/hanche, ligamentoplastie, chirurgie de l'épaule. Suivi rigoureux protocole.</p>
+          <div class="mt-4 flex items-center text-purple-600 text-sm font-semibold">
+            En savoir plus <i class="fas fa-arrow-right ml-2 text-xs"></i>
+          </div>
+        </div>
+
+        <!-- Électrothérapie -->
+        <div class="service-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm cursor-pointer">
+          <div class="w-14 h-14 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mb-4 shadow-md">
+            <i class="fas fa-bolt text-white text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Électrothérapie & TENS</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Ultrasons, TENS, ionophorèse, laser thérapeutique. Technologies modernes pour accélérer la guérison.</p>
+          <div class="mt-4 flex items-center text-orange-500 text-sm font-semibold">
+            En savoir plus <i class="fas fa-arrow-right ml-2 text-xs"></i>
+          </div>
+        </div>
+
+        <!-- Bilans -->
+        <div class="service-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm cursor-pointer">
+          <div class="w-14 h-14 gradient-green rounded-2xl flex items-center justify-center mb-4 shadow-md">
+            <i class="fas fa-clipboard-list text-white text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Bilans & Préventions</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Bilan postural, analyse de la marche, prévention des chutes. Dépistage précoce des déséquilibres.</p>
+          <div class="mt-4 flex items-center text-mint text-sm font-semibold">
+            En savoir plus <i class="fas fa-arrow-right ml-2 text-xs"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉQUIPE -->
+  <section id="equipe" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <div class="inline-flex items-center gap-2 bg-mint/10 text-mint-dark rounded-full px-4 py-2 text-sm font-semibold mb-4">
+          <i class="fas fa-users"></i> Notre Équipe
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">Des professionnels à votre service</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">Diplômés d'État, formés en continu, passionnés par leur métier.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Thomas Martin -->
+        <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+          <div class="gradient-hero h-48 flex items-end justify-center pb-6 relative">
+            <div class="absolute inset-0 flex items-center justify-center opacity-20">
+              <i class="fas fa-user text-white" style="font-size: 8rem;"></i>
+            </div>
+            <div class="relative z-10 w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white/40">
+              <i class="fas fa-user-md text-white text-3xl"></i>
+            </div>
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold text-gray-900">Thomas Martin</h3>
+            <p class="text-electric font-semibold text-sm mb-3">Kinésithérapeute — Fondateur</p>
+            <div class="flex flex-wrap justify-center gap-2 mb-4">
+              <span class="bg-electric/10 text-electric text-xs font-medium px-3 py-1 rounded-full">Rééducation sportive</span>
+              <span class="bg-mint/10 text-mint-dark text-xs font-medium px-3 py-1 rounded-full">Orthopédie</span>
+            </div>
+            <p class="text-gray-500 text-sm">10 ans d'expérience. Diplômé de l'IFMK de Paris. Ancien kiné du sport en club de Ligue 1.</p>
+          </div>
+        </div>
+
+        <!-- Sophie Renard -->
+        <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+          <div class="h-48 flex items-end justify-center pb-6 relative" style="background: linear-gradient(135deg, #388E3C, #4CAF50);">
+            <div class="absolute inset-0 flex items-center justify-center opacity-20">
+              <i class="fas fa-user text-white" style="font-size: 8rem;"></i>
+            </div>
+            <div class="relative z-10 w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white/40">
+              <i class="fas fa-user-md text-white text-3xl"></i>
+            </div>
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold text-gray-900">Sophie Renard</h3>
+            <p class="text-mint-dark font-semibold text-sm mb-3">Kinésithérapeute</p>
+            <div class="flex flex-wrap justify-center gap-2 mb-4">
+              <span class="bg-mint/10 text-mint-dark text-xs font-medium px-3 py-1 rounded-full">Pédiatrie</span>
+              <span class="bg-electric/10 text-electric text-xs font-medium px-3 py-1 rounded-full">Neurologie</span>
+            </div>
+            <p class="text-gray-500 text-sm">Spécialisée en rééducation neurologique et pédiatrique. Formée à la méthode Bobath et Vojta.</p>
+          </div>
+        </div>
+
+        <!-- Lucas Dubois -->
+        <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+          <div class="h-48 flex items-end justify-center pb-6 relative" style="background: linear-gradient(135deg, #5B21B6, #7C3AED);">
+            <div class="absolute inset-0 flex items-center justify-center opacity-20">
+              <i class="fas fa-user text-white" style="font-size: 8rem;"></i>
+            </div>
+            <div class="relative z-10 w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white/40">
+              <i class="fas fa-user-md text-white text-3xl"></i>
+            </div>
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold text-gray-900">Lucas Dubois</h3>
+            <p class="text-purple-600 font-semibold text-sm mb-3">Kinésithérapeute</p>
+            <div class="flex flex-wrap justify-center gap-2 mb-4">
+              <span class="bg-purple-100 text-purple-700 text-xs font-medium px-3 py-1 rounded-full">Post-opératoire</span>
+              <span class="bg-orange-100 text-orange-700 text-xs font-medium px-3 py-1 rounded-full">Électrothérapie</span>
+            </div>
+            <p class="text-gray-500 text-sm">Expert en rééducation post-chirurgicale (prothèses, ligaments). Certifié en thérapie manuelle et Kinesio Taping.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TÉMOIGNAGES -->
+  <section id="temoignages" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <div class="inline-flex items-center gap-2 bg-yellow-100 text-yellow-700 rounded-full px-4 py-2 text-sm font-semibold mb-4">
+          <i class="fas fa-star"></i> Avis patients
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">Ce que disent nos patients</h2>
+        <div class="flex items-center justify-center gap-2">
+          <div class="flex text-yellow-400">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <span class="text-gray-600 font-semibold">4.9/5</span>
+          <span class="text-gray-400 text-sm">— 127 avis</span>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="testimonial-card rounded-2xl p-6 shadow-sm">
+          <div class="flex text-yellow-400 mb-3">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Après ma prothèse de genou, Thomas m'a accompagné avec une patience et un professionnalisme exemplaires. Je marche maintenant sans douleur. Merci infiniment !"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 gradient-card rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-sm">MC</span>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Marie C.</div>
+              <div class="text-gray-400 text-xs">Post-prothèse genou</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card rounded-2xl p-6 shadow-sm">
+          <div class="flex text-yellow-400 mb-3">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Blessure au ligament croisé lors d'un match de foot. 6 mois de suivi avec Lucas, et je suis revenu sur le terrain plus fort qu'avant. Cabinet au top !"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 gradient-green rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-sm">JB</span>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Julien B.</div>
+              <div class="text-gray-400 text-xs">LCA — Rééducation sportive</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card rounded-2xl p-6 shadow-sm">
+          <div class="flex text-yellow-400 mb-3">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"J'avais des douleurs lombaires chroniques depuis 3 ans. Après 20 séances avec Sophie, je reprends une vie normale. Prise en charge douce et efficace."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-sm">AL</span>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Anne-Laure M.</div>
+              <div class="text-gray-400 text-xs">Lombalgie chronique</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card rounded-2xl p-6 shadow-sm">
+          <div class="flex text-yellow-400 mb-3">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Mon fils de 8 ans a été suivi pour une scoliose débutante. Sophie a fait un travail remarquable. Agréable, à l'écoute, très pédagogue avec les enfants."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-sm">VL</span>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Valérie L.</div>
+              <div class="text-gray-400 text-xs">Scoliose pédiatrique</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card rounded-2xl p-6 shadow-sm">
+          <div class="flex text-yellow-400 mb-3">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Prise de RDV en ligne super simple via Doctolib. Cabinet moderne, propre, bien équipé. Équipe jeune et dynamique. Je recommande sans hésiter."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 gradient-card rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-sm">PH</span>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Pierre H.</div>
+              <div class="text-gray-400 text-xs">Tendinite épaule</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card rounded-2xl p-6 shadow-sm">
+          <div class="flex text-yellow-400 mb-3">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Secteur 1, donc pas de dépassement d'honoraires. Un vrai plus pour les patients ! Qualité de soins irréprochable. Cabinet Martin, c'est la référence du quartier."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 gradient-green rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-sm">SR</span>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Stéphane R.</div>
+              <div class="text-gray-400 text-xs">Rééducation post-AVC</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRISE DE RDV -->
+  <section id="rdv" class="py-20 gradient-hero relative overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-20 -right-20 w-80 h-80 bg-white/5 rounded-full"></div>
+      <div class="absolute -bottom-20 -left-20 w-60 h-60 bg-mint/10 rounded-full"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-12 text-white">
+        <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold mb-4">
+          <i class="fas fa-calendar-plus"></i> Prise de RDV
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Réservez votre séance</h2>
+        <p class="text-blue-100 max-w-xl mx-auto">Choisissez votre mode de réservation préféré</p>
+      </div>
+
+      <!-- Doctolib CTA prominent -->
+      <div class="bg-white rounded-3xl p-8 mb-8 shadow-2xl text-center">
+        <div class="inline-flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 bg-doctolib rounded-xl flex items-center justify-center">
+            <i class="fas fa-calendar-check text-white text-xl"></i>
+          </div>
+          <div class="text-left">
+            <div class="font-bold text-gray-900">Réservez sur Doctolib</div>
+            <div class="text-gray-500 text-sm">Disponibilités en temps réel • Confirmation instantanée</div>
+          </div>
+        </div>
+        <a href="#" class="block w-full bg-doctolib hover:bg-blue-600 text-white font-bold py-4 rounded-2xl text-lg transition-all hover:scale-[1.02] shadow-lg pulse-btn">
+          <i class="fas fa-external-link-alt mr-3"></i>Prendre RDV sur Doctolib
+        </a>
+        <p class="text-gray-400 text-xs mt-3">Gratuit • Sans inscription • Rappel SMS automatique</p>
+      </div>
+
+      <!-- Or form -->
+      <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+        <h3 class="text-white font-bold text-xl mb-6 text-center">
+          <i class="fas fa-envelope mr-2 text-mint-light"></i>Ou contactez-nous par formulaire
+        </h3>
+        <form class="space-y-4" onsubmit="return false;">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-blue-100 text-sm font-medium mb-2">Prénom</label>
+              <input type="text" placeholder="Jean" class="input-field w-full bg-white/90 text-gray-800 rounded-xl px-4 py-3 text-sm outline-none border border-transparent focus:bg-white" />
+            </div>
+            <div>
+              <label class="block text-blue-100 text-sm font-medium mb-2">Nom</label>
+              <input type="text" placeholder="Dupont" class="input-field w-full bg-white/90 text-gray-800 rounded-xl px-4 py-3 text-sm outline-none border border-transparent focus:bg-white" />
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-blue-100 text-sm font-medium mb-2">Téléphone</label>
+              <input type="tel" placeholder="06 xx xx xx xx" class="input-field w-full bg-white/90 text-gray-800 rounded-xl px-4 py-3 text-sm outline-none border border-transparent focus:bg-white" />
+            </div>
+            <div>
+              <label class="block text-blue-100 text-sm font-medium mb-2">Email</label>
+              <input type="email" placeholder="jean@email.fr" class="input-field w-full bg-white/90 text-gray-800 rounded-xl px-4 py-3 text-sm outline-none border border-transparent focus:bg-white" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-blue-100 text-sm font-medium mb-2">Type de soin souhaité</label>
+            <select class="input-field w-full bg-white/90 text-gray-800 rounded-xl px-4 py-3 text-sm outline-none border border-transparent focus:bg-white">
+              <option value="">Sélectionner un type de soin…</option>
+              <option>Rééducation motrice</option>
+              <option>Kinésithérapie sportive</option>
+              <option>Dos & Lombaires</option>
+              <option>Post-opératoire</option>
+              <option>Électrothérapie</option>
+              <option>Bilan postural</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-blue-100 text-sm font-medium mb-2">Message (optionnel)</label>
+            <textarea rows="3" placeholder="Décrivez brièvement votre situation…" class="input-field w-full bg-white/90 text-gray-800 rounded-xl px-4 py-3 text-sm outline-none border border-transparent focus:bg-white resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-mint hover:bg-mint-dark text-white font-bold py-4 rounded-2xl text-lg transition-all hover:scale-[1.02] shadow-lg">
+            <i class="fas fa-paper-plane mr-3"></i>Envoyer la demande
+          </button>
+          <p class="text-blue-200 text-xs text-center">Nous vous recontactons sous 24h · Données confidentielles</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARIFS -->
+  <section id="tarifs" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <div class="inline-flex items-center gap-2 bg-electric/10 text-electric rounded-full px-4 py-2 text-sm font-semibold mb-4">
+          <i class="fas fa-euro-sign"></i> Tarifs
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">Tarifs & Remboursements</h2>
+        <p class="text-gray-500 max-w-2xl mx-auto">Cabinet <strong>secteur 1 conventionné</strong> — Aucun dépassement d'honoraires. Soins remboursés par l'Assurance Maladie sur prescription médicale.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+
+        <div class="bg-white rounded-2xl p-6 border-2 border-electric shadow-md">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-gray-900">Séance standard</h3>
+            <span class="bg-electric/10 text-electric text-xs font-bold px-3 py-1 rounded-full">AMO</span>
+          </div>
+          <div class="text-4xl font-extrabold text-electric mb-1">16,13 €</div>
+          <div class="text-gray-400 text-sm mb-4">Tarif conventionné (AMK)</div>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-mint"></i>Remboursé à 60% par la CPAM</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-mint"></i>Complément mutuelle possible</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-mint"></i>Carte Vitale acceptée</li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-gray-900">Bilan initial</h3>
+            <span class="bg-mint/10 text-mint-dark text-xs font-bold px-3 py-1 rounded-full">1ère séance</span>
+          </div>
+          <div class="text-4xl font-extrabold text-gray-800 mb-1">19,80 €</div>
+          <div class="text-gray-400 text-sm mb-4">Consultation + bilan</div>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-mint"></i>Évaluation complète</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-mint"></i>Programme personnalisé</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-mint"></i>Durée : 1h</li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-gray-900">À domicile</h3>
+            <span class="bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1 rounded-full">Déplacement</span>
+          </div>
+          <div class="text-4xl font-extrabold text-gray-800 mb-1">+3,20 €</div>
+          <div class="text-gray-400 text-sm mb-4">Majoration déplacement</div>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-mint"></i>Patients à mobilité réduite</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-mint"></i>Remboursé par l'Assurance Maladie</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-mint"></i>Sur prescription médicale</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Remboursement info -->
+      <div class="bg-electric rounded-2xl p-6 sm:p-8 text-white">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-info-circle text-xl"></i>
+          </div>
+          <div class="flex-1">
+            <h4 class="font-bold text-lg mb-1">Comment se faire rembourser ?</h4>
+            <p class="text-blue-100 text-sm leading-relaxed">
+              Les séances de kinésithérapie sont remboursées par l'Assurance Maladie sur <strong class="text-white">prescription médicale</strong> (ordonnance de votre médecin). Le taux de base est de 60%, avec une prise en charge à 100% pour les ALD, maternité et accidents du travail. Votre mutuelle couvre généralement le ticket modérateur restant.
+            </p>
+          </div>
+          <a href="#rdv" class="flex-shrink-0 bg-white text-electric font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors whitespace-nowrap">
+            Prendre RDV →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <div class="inline-flex items-center gap-2 bg-mint/10 text-mint-dark rounded-full px-4 py-2 text-sm font-semibold mb-4">
+          <i class="fas fa-map-marker-alt"></i> Contact & Accès
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">Nous trouver</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-10 items-start">
+
+        <!-- Info -->
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 gradient-card rounded-xl flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-map-marker-alt text-white"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900 mb-1">Adresse</h4>
+              <p class="text-gray-500">12 Rue de la Santé<br/>75013 Paris<br/>Métro : Glacière (Ligne 6)</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 gradient-card rounded-xl flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-clock text-white"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900 mb-2">Horaires d'ouverture</h4>
+              <div class="space-y-1 text-sm text-gray-500">
+                <div class="flex justify-between gap-8"><span>Lundi – Vendredi</span><span class="font-semibold text-gray-700">8h00 – 19h30</span></div>
+                <div class="flex justify-between gap-8"><span>Samedi</span><span class="font-semibold text-gray-700">9h00 – 13h00</span></div>
+                <div class="flex justify-between gap-8"><span>Dimanche</span><span class="font-medium text-red-400">Fermé</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 gradient-card rounded-xl flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-phone text-white"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900 mb-1">Téléphone</h4>
+              <a href="tel:+33123456789" class="text-electric hover:text-electric-dark font-semibold text-lg transition-colors">01 23 45 67 89</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 gradient-card rounded-xl flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-envelope text-white"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900 mb-1">Email</h4>
+              <a href="mailto:contact@kine-martin.fr" class="text-electric hover:text-electric-dark font-semibold transition-colors">contact@kine-martin.fr</a>
+            </div>
+          </div>
+
+          <a href="#rdv" class="block">
+            <div class="bg-doctolib rounded-2xl p-5 text-white flex items-center gap-4 hover:bg-blue-600 transition-colors cursor-pointer">
+              <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                <i class="fas fa-calendar-check text-xl"></i>
+              </div>
+              <div>
+                <div class="font-bold">Prendre RDV en ligne</div>
+                <div class="text-blue-100 text-sm">Via Doctolib — Disponible 24h/24</div>
+              </div>
+              <i class="fas fa-arrow-right ml-auto text-white/70"></i>
+            </div>
+          </a>
+        </div>
+
+        <!-- Map placeholder -->
+        <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-sm h-96 bg-gray-100 flex items-center justify-center">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=2.340%2C48.827%2C2.370%2C48.842&layer=mapnik&marker=48.834%2C2.355"
+            class="w-full h-full border-0"
+            title="Carte Cabinet Martin"
+            loading="lazy">
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid md:grid-cols-4 gap-8 mb-10">
+
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 gradient-card rounded-xl flex items-center justify-center">
+              <i class="fas fa-heartbeat text-white text-lg"></i>
+            </div>
+            <div>
+              <div class="font-bold text-white">Cabinet Martin & Associés</div>
+              <div class="text-gray-400 text-xs">Kinésithérapie — Paris 13e</div>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+            Cabinet de kinésithérapie conventionné secteur 1, offrant des soins de qualité depuis 10 ans. Votre santé, notre priorité.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white mb-4">Nos soins</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#services" class="hover:text-white transition-colors">Rééducation motrice</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Kinésithérapie sportive</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Dos & Lombaires</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Post-opératoire</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Électrothérapie</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white mb-4">Informations</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#equipe" class="hover:text-white transition-colors">Notre équipe</a></li>
+            <li><a href="#tarifs" class="hover:text-white transition-colors">Tarifs</a></li>
+            <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+            <li><a href="#rdv" class="hover:text-white transition-colors">Prendre RDV</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm">© 2025 Cabinet de Kinésithérapie Martin & Associés. Tous droits réservés.</p>
+        <p class="text-gray-500 text-sm">
+          Site réalisé par 
+          <a href="https://facadedigitale.fr" class="text-electric hover:text-electric-light font-semibold transition-colors" target="_blank">FacadeDigitale</a>
+          <span class="text-gray-600 mx-2">·</span>
+          <a href="#" class="hover:text-white transition-colors">Mentions légales</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
