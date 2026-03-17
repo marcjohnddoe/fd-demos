@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maître Dubois — Avocat à Lyon</title>
+<meta name="description" content="Cabinet d'avocat à Lyon. Droit des affaires, droit de la famille, droit du travail. Consultation sur rendez-vous.">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--gold:#c9a84c;--dark:#1a1a2e;--darker:#0f0f1a;--light:#f8f6f0;--text:#2c2c2c}
+  body{font-family:'Georgia',serif;color:var(--text);background:#fff}
+  header{background:var(--darker);color:#fff;padding:0 24px;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--gold)}
+  .nav{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:72px}
+  .logo{font-size:1.2rem;letter-spacing:2px;font-variant:small-caps}
+  .logo span{color:var(--gold)}
+  nav a{color:rgba(255,255,255,.8);text-decoration:none;margin-left:28px;font-size:.9rem;letter-spacing:1px;font-variant:small-caps;transition:.2s}
+  nav a:hover{color:var(--gold)}
+  .hero{background:linear-gradient(135deg,var(--darker) 0%,#1a2a4a 100%);color:#fff;padding:90px 24px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:'⚖';position:absolute;font-size:300px;opacity:.03;right:-80px;top:-60px}
+  .hero-tag{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:6px 20px;border-radius:2px;font-size:.8rem;letter-spacing:3px;font-variant:small-caps;margin-bottom:24px}
+  .hero h1{font-size:2.8rem;font-weight:400;letter-spacing:1px;margin-bottom:16px;line-height:1.3}
+  .hero h1 em{color:var(--gold);font-style:normal}
+  .hero p{font-size:1.1rem;opacity:.8;max-width:540px;margin:0 auto 40px;line-height:1.8;font-style:italic}
+  .btn{display:inline-block;background:var(--gold);color:var(--darker);padding:14px 36px;font-variant:small-caps;letter-spacing:2px;text-decoration:none;font-size:.95rem;font-weight:700;transition:.2s}
+  .btn:hover{background:#d4af5a;transform:translateY(-1px)}
+  .btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5);margin-left:14px}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold);background:transparent}
+  section{padding:80px 24px}
+  .container{max-width:1100px;margin:0 auto}
+  h2{font-size:1.9rem;font-weight:400;text-align:center;letter-spacing:1px;margin-bottom:10px;color:var(--dark)}
+  h2 em{color:var(--gold);font-style:normal}
+  .divider{text-align:center;margin-bottom:50px}
+  .divider::after{content:'';display:inline-block;width:60px;height:2px;background:var(--gold);vertical-align:middle;margin-left:12px}
+  .divider::before{content:'';display:inline-block;width:60px;height:2px;background:var(--gold);vertical-align:middle;margin-right:12px}
+  .domains{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;background:#e8e4d8}
+  .domain-card{background:#fff;padding:36px 28px;transition:.2s}
+  .domain-card:hover{background:var(--light)}
+  .domain-icon{font-size:2.2rem;margin-bottom:14px}
+  .domain-card h3{font-size:1.15rem;font-weight:400;letter-spacing:1px;font-variant:small-caps;color:var(--dark);margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--gold)}
+  .domain-card p{color:#666;font-size:.93rem;line-height:1.7}
+  .about{background:var(--light)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .about-portrait{background:var(--dark);border-radius:2px;height:380px;display:flex;align-items:center;justify-content:center;font-size:6rem;position:relative}
+  .about-portrait::after{content:'';position:absolute;bottom:-12px;right:-12px;width:100%;height:100%;border:2px solid var(--gold);z-index:-1;border-radius:2px}
+  .about h2{text-align:left}
+  .about .divider{text-align:left}
+  .about .divider::before{display:none}
+  .about p{color:#555;line-height:1.9;margin-bottom:14px;font-size:.97rem}
+  .check-item{display:flex;align-items:flex-start;margin-bottom:10px;font-size:.95rem;color:#444}
+  .check-item::before{content:'—';color:var(--gold);font-weight:700;margin-right:10px;flex-shrink:0}
+  .rdv-section{background:var(--dark);color:#fff}
+  .rdv-section h2{color:#fff}
+  .rdv-section h2 em{color:var(--gold)}
+  .rdv-subtitle{text-align:center;color:rgba(255,255,255,.7);margin-bottom:40px;font-style:italic}
+  .rdv-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;max-width:900px;margin:0 auto}
+  .rdv-info h3{font-variant:small-caps;letter-spacing:1px;color:var(--gold);margin-bottom:20px;font-weight:400}
+  .rdv-info p{color:rgba(255,255,255,.75);margin-bottom:10px;font-size:.95rem;line-height:1.7}
+  .rdv-form input,.rdv-form select,.rdv-form textarea{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;padding:12px 16px;margin-bottom:12px;font-family:inherit;font-size:.95rem;border-radius:0}
+  .rdv-form textarea{height:100px;resize:vertical}
+  .rdv-form ::placeholder{color:rgba(255,255,255,.45)}
+  .rdv-form button{width:100%;background:var(--gold);color:var(--darker);padding:14px;font-variant:small-caps;letter-spacing:2px;font-size:1rem;font-weight:700;border:none;cursor:pointer;transition:.2s}
+  .rdv-form button:hover{background:#d4af5a}
+  footer{background:var(--darker);color:rgba(255,255,255,.5);text-align:center;padding:28px;font-size:.85rem;border-top:1px solid rgba(255,255,255,.1)}
+  @media(max-width:768px){.hero h1{font-size:1.9rem}.about-grid,.rdv-grid{grid-template-columns:1fr}nav{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">⚖ Maître <span>Dubois</span></div>
+    <nav>
+      <a href="#domaines">Domaines</a>
+      <a href="#cabinet">Le Cabinet</a>
+      <a href="#rdv">Rendez-vous</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-tag">Cabinet d'Avocat · Lyon</div>
+  <h1>Votre défense,<br>notre <em>engagement</em></h1>
+  <p>Maître Dubois vous accompagne avec rigueur et discrétion dans vos affaires juridiques, depuis plus de 20 ans.</p>
+  <a href="#rdv" class="btn">Prendre rendez-vous</a>
+  <a href="tel:0478000000" class="btn btn-outline">04 78 00 00 00</a>
+</section>
+
+<section id="domaines">
+  <div class="container">
+    <h2>Domaines d'<em>expertise</em></h2>
+    <div class="divider"> </div>
+    <div class="domains">
+      <div class="domain-card">
+        <div class="domain-icon">🏢</div>
+        <h3>Droit des affaires</h3>
+        <p>Création de sociétés, contrats commerciaux, litiges entre entreprises. Un accompagnement stratégique pour vos décisions.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">👨‍👩‍👧</div>
+        <h3>Droit de la famille</h3>
+        <p>Divorce, séparation, garde des enfants, succession. Je défends vos intérêts avec humanité et fermeté.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">💼</div>
+        <h3>Droit du travail</h3>
+        <p>Licenciement, harcèlement, rupture conventionnelle. Employeurs et salariés — défense équitable et efficace.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">🏠</div>
+        <h3>Droit immobilier</h3>
+        <p>Baux, copropriété, vices cachés, litiges entre propriétaires et locataires. Votre patrimoine mérite d'être protégé.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">⚖️</div>
+        <h3>Droit pénal</h3>
+        <p>Assistance et représentation en procédure pénale. Présence à vos côtés à chaque étape de la procédure.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">🤝</div>
+        <h3>Médiation & règlement</h3>
+        <p>Solutions amiables avant contentieux. Réduire les coûts et délais grâce à la négociation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cabinet" class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-portrait">👨‍⚖️</div>
+      <div>
+        <h2>Maître <em>Dubois</em></h2>
+        <div class="divider"> </div>
+        <p>Avocat au Barreau de Lyon depuis 2004, Maître Dubois a développé une expertise reconnue en droit des affaires et droit de la famille.</p>
+        <p>Son approche : écoute, transparence, résultats. Chaque client bénéficie d'un suivi personnalisé et d'une disponibilité réelle.</p>
+        <div class="check-item">Membre du Barreau de Lyon depuis 2004</div>
+        <div class="check-item">Certificat de spécialisation — Droit des affaires</div>
+        <div class="check-item">Consultation en français et anglais</div>
+        <div class="check-item">Honoraires transparents communiqués dès la première consultation</div>
+        <div class="check-item">Aide juridictionnelle acceptée selon conditions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rdv" class="rdv-section">
+  <div class="container">
+    <h2>Prendre <em>rendez-vous</em></h2>
+    <p class="rdv-subtitle">Première consultation confidentielle — réponse sous 24h</p>
+    <div class="rdv-grid">
+      <div class="rdv-info">
+        <h3>Coordonnées</h3>
+        <p>📍 <strong>14 rue de la République, Lyon 2e</strong><br>Accès Métro ligne D — Bellecour</p>
+        <p>📞 <strong>04 78 00 00 00</strong></p>
+        <p>✉️ <strong>contact@maitre-dubois-lyon.fr</strong></p>
+        <br>
+        <h3>Horaires</h3>
+        <p>Lundi – Vendredi : 9h – 19h<br>Samedi : sur rendez-vous</p>
+        <br>
+        <p style="font-size:.85rem;opacity:.6;font-style:italic">Urgences traitées en priorité — appelez directement.</p>
+      </div>
+      <div class="rdv-form">
+        <input type="text" placeholder="Votre nom et prénom">
+        <input type="tel" placeholder="Téléphone">
+        <input type="email" placeholder="Email">
+        <select>
+          <option>Domaine juridique concerné...</option>
+          <option>Droit des affaires</option>
+          <option>Droit de la famille</option>
+          <option>Droit du travail</option>
+          <option>Droit immobilier</option>
+          <option>Droit pénal</option>
+          <option>Autre</option>
+        </select>
+        <textarea placeholder="Décrivez brièvement votre situation (facultatif)"></textarea>
+        <button type="submit">Envoyer ma demande</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Maître Dubois — Avocat au Barreau de Lyon | Mentions légales</p>
+  <p style="margin-top:6px;opacity:.4;font-size:.78rem">Site réalisé par <a href="https://marcjohnddoe.github.io/fd-demos/" style="color:inherit">FaçadeDigitale</a></p>
+</footer>
+
+</body>
+</html>
